@@ -58,6 +58,13 @@ body {
   padding: 24px 24px 20px;
 }
 
+.credit {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+}
+
 .eyebrow {
   margin: 0 0 8px;
   color: var(--accent);
@@ -255,6 +262,17 @@ canvas {
 .foot {
   margin-top: 16px;
   padding: 0 4px;
+  flex-wrap: wrap;
+}
+
+.foot a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.foot a:hover,
+.foot a:focus-visible {
+  text-decoration: underline;
 }
 
 @media (max-width: 980px) {
