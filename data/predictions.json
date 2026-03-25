@@ -1,0 +1,3218 @@
+{
+  "targetYear": 2026,
+  "today": "2026-03-25",
+  "generatedAt": "2026-03-25 21:15",
+  "xDayThreshold": 6,
+  "bandwidth": 0.55,
+  "sourceRange": {
+    "from": "2024-03-15",
+    "to": "2026-03-25",
+    "count": 125
+  },
+  "observed": [
+    {
+      "date": "2026-02-02",
+      "catchMax": 3.0,
+      "fishNum": "0.4-2.6 kg 0-3 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/363436/"
+    },
+    {
+      "date": "2026-02-05",
+      "catchMax": 2.0,
+      "fishNum": "0.4-0.6 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/363575/"
+    },
+    {
+      "date": "2026-02-10",
+      "catchMax": 5.0,
+      "fishNum": "0.4-2.6 kg 1-5 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/363835/"
+    },
+    {
+      "date": "2026-02-12",
+      "catchMax": 2.0,
+      "fishNum": "0.4-1.1 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/363915/"
+    },
+    {
+      "date": "2026-02-13",
+      "catchMax": 3.0,
+      "fishNum": "0.4-1.1 kg 0-3 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/363964/"
+    },
+    {
+      "date": "2026-02-14",
+      "catchMax": 2.0,
+      "fishNum": "0.4-2.1 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364059/"
+    },
+    {
+      "date": "2026-02-15",
+      "catchMax": 5.0,
+      "fishNum": "0.4-3 kg 0-5 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364161/"
+    },
+    {
+      "date": "2026-02-16",
+      "catchMax": 2.0,
+      "fishNum": "0.4-1.6 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364261/"
+    },
+    {
+      "date": "2026-02-17",
+      "catchMax": 1.0,
+      "fishNum": "0.4-1.2 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364307/"
+    },
+    {
+      "date": "2026-02-19",
+      "catchMax": 3.0,
+      "fishNum": "0.4-1.4 kg 0-3 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364426/"
+    },
+    {
+      "date": "2026-02-20",
+      "catchMax": 1.0,
+      "fishNum": "0.4-0.6 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364479/"
+    },
+    {
+      "date": "2026-02-21",
+      "catchMax": 1.0,
+      "fishNum": "0-0.6 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364555/"
+    },
+    {
+      "date": "2026-02-22",
+      "catchMax": 2.0,
+      "fishNum": "0.4-1.2 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364680/"
+    },
+    {
+      "date": "2026-02-28",
+      "catchMax": 3.0,
+      "fishNum": "0.7-2.4 kg 0-3 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364956/"
+    },
+    {
+      "date": "2026-03-01",
+      "catchMax": 2.0,
+      "fishNum": "0.6-1.1 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365056/"
+    },
+    {
+      "date": "2026-03-02",
+      "catchMax": 2.0,
+      "fishNum": "0.6-1.2 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365165/"
+    },
+    {
+      "date": "2026-03-05",
+      "catchMax": 4.0,
+      "fishNum": "0.6-1.5 kg 0-4 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365243/"
+    },
+    {
+      "date": "2026-03-06",
+      "catchMax": 4.0,
+      "fishNum": "0.6-1.8 kg 0-4 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365316/"
+    },
+    {
+      "date": "2026-03-07",
+      "catchMax": 3.0,
+      "fishNum": "0.6-1.3 kg 0-3 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365377/"
+    },
+    {
+      "date": "2026-03-08",
+      "catchMax": 1.0,
+      "fishNum": "0.6-3 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365501/"
+    },
+    {
+      "date": "2026-03-09",
+      "catchMax": 1.0,
+      "fishNum": "1.6-3.3 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365556/"
+    },
+    {
+      "date": "2026-03-10",
+      "catchMax": 0.0,
+      "fishNum": "0-0 kg 0-0 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365614/"
+    },
+    {
+      "date": "2026-03-12",
+      "catchMax": 2.0,
+      "fishNum": "2-2.8 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365734/"
+    },
+    {
+      "date": "2026-03-13",
+      "catchMax": 4.0,
+      "fishNum": "1.2-7 kg 0-4 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365782/"
+    },
+    {
+      "date": "2026-03-14",
+      "catchMax": 2.0,
+      "fishNum": "1.2-3 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365840/"
+    },
+    {
+      "date": "2026-03-15",
+      "catchMax": 1.0,
+      "fishNum": "1-3.1 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365885/"
+    },
+    {
+      "date": "2026-03-16",
+      "catchMax": 1.0,
+      "fishNum": "1.8-3 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365982/"
+    },
+    {
+      "date": "2026-03-17",
+      "catchMax": 2.0,
+      "fishNum": "1.3-2.8 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366046/"
+    },
+    {
+      "date": "2026-03-18",
+      "catchMax": 2.0,
+      "fishNum": "1.1-4.7 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366096/"
+    },
+    {
+      "date": "2026-03-19",
+      "catchMax": 2.0,
+      "fishNum": "1.2-1.8 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366166/"
+    },
+    {
+      "date": "2026-03-20",
+      "catchMax": 2.0,
+      "fishNum": "1.5-3.7 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366198/"
+    },
+    {
+      "date": "2026-03-21",
+      "catchMax": 1.0,
+      "fishNum": "1.2-4.5 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366309/"
+    },
+    {
+      "date": "2026-03-22",
+      "catchMax": 2.0,
+      "fishNum": "1.1-4.1 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366435/"
+    },
+    {
+      "date": "2026-03-23",
+      "catchMax": 2.0,
+      "fishNum": "1-3.5 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366544/"
+    },
+    {
+      "date": "2026-03-24",
+      "catchMax": 1.0,
+      "fishNum": "1.4-5.5 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366566/"
+    },
+    {
+      "date": "2026-03-25",
+      "catchMax": 1.0,
+      "fishNum": "1.3-3.2 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366610/"
+    }
+  ],
+  "topDays": [
+    {
+      "date": "2026-04-01",
+      "probability": 0.6433,
+      "airTemp": 14.7,
+      "seaTemp": 15.6,
+      "moonAge": 13.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-03-31",
+      "probability": 0.5797,
+      "airTemp": 17.3,
+      "seaTemp": 15.3,
+      "moonAge": 12.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-03-30",
+      "probability": 0.5573,
+      "airTemp": 16.4,
+      "seaTemp": 15.2,
+      "moonAge": 11.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-04-03",
+      "probability": 0.5274,
+      "airTemp": 13.2,
+      "seaTemp": 15.6,
+      "moonAge": 15.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-04-07",
+      "probability": 0.4318,
+      "airTemp": 15.5,
+      "seaTemp": 15.7,
+      "moonAge": 19.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-04-08",
+      "probability": 0.4173,
+      "airTemp": 15.5,
+      "seaTemp": 15.76,
+      "moonAge": 20.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-04-06",
+      "probability": 0.4053,
+      "airTemp": 14.6,
+      "seaTemp": 15.67,
+      "moonAge": 18.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-04-05",
+      "probability": 0.4047,
+      "airTemp": 14.0,
+      "seaTemp": 15.62,
+      "moonAge": 17.83,
+      "featureSource": "forecast"
+    }
+  ],
+  "predictions": [
+    {
+      "date": "2026-01-01",
+      "probability": 0.0025,
+      "airTemp": 6.6,
+      "seaTemp": 16.8,
+      "moonAge": 12.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-02",
+      "probability": 0.0022,
+      "airTemp": 5.8,
+      "seaTemp": 16.7,
+      "moonAge": 13.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-03",
+      "probability": 0.0025,
+      "airTemp": 4.8,
+      "seaTemp": 16.1,
+      "moonAge": 14.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-04",
+      "probability": 0.0027,
+      "airTemp": 6.0,
+      "seaTemp": 15.9,
+      "moonAge": 15.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-05",
+      "probability": 0.0051,
+      "airTemp": 8.6,
+      "seaTemp": 15.9,
+      "moonAge": 16.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-06",
+      "probability": 0.0029,
+      "airTemp": 5.5,
+      "seaTemp": 15.4,
+      "moonAge": 17.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-07",
+      "probability": 0.0024,
+      "airTemp": 4.4,
+      "seaTemp": 14.9,
+      "moonAge": 18.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-08",
+      "probability": 0.0019,
+      "airTemp": 7.5,
+      "seaTemp": 14.8,
+      "moonAge": 19.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-09",
+      "probability": 0.0025,
+      "airTemp": 6.2,
+      "seaTemp": 14.2,
+      "moonAge": 20.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-10",
+      "probability": 0.0035,
+      "airTemp": 10.2,
+      "seaTemp": 14.3,
+      "moonAge": 21.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-11",
+      "probability": 0.005,
+      "airTemp": 10.3,
+      "seaTemp": 14.8,
+      "moonAge": 22.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-12",
+      "probability": 0.0073,
+      "airTemp": 5.5,
+      "seaTemp": 14.3,
+      "moonAge": 23.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-13",
+      "probability": 0.0039,
+      "airTemp": 10.8,
+      "seaTemp": 14.1,
+      "moonAge": 24.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-14",
+      "probability": 0.0033,
+      "airTemp": 8.0,
+      "seaTemp": 14.5,
+      "moonAge": 25.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-15",
+      "probability": 0.0033,
+      "airTemp": 7.9,
+      "seaTemp": 14.6,
+      "moonAge": 26.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-16",
+      "probability": 0.0121,
+      "airTemp": 13.2,
+      "seaTemp": 14.9,
+      "moonAge": 27.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-17",
+      "probability": 0.0048,
+      "airTemp": 10.4,
+      "seaTemp": 14.9,
+      "moonAge": 28.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-18",
+      "probability": 0.0044,
+      "airTemp": 9.1,
+      "seaTemp": 14.8,
+      "moonAge": 29.42,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-19",
+      "probability": 0.0058,
+      "airTemp": 10.4,
+      "seaTemp": 14.7,
+      "moonAge": 0.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-20",
+      "probability": 0.0053,
+      "airTemp": 8.9,
+      "seaTemp": 14.7,
+      "moonAge": 1.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-21",
+      "probability": 0.0113,
+      "airTemp": 2.7,
+      "seaTemp": 14.1,
+      "moonAge": 2.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-22",
+      "probability": 0.0131,
+      "airTemp": 2.8,
+      "seaTemp": 13.7,
+      "moonAge": 3.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-23",
+      "probability": 0.0129,
+      "airTemp": 3.4,
+      "seaTemp": 14.2,
+      "moonAge": 4.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-24",
+      "probability": 0.0128,
+      "airTemp": 6.5,
+      "seaTemp": 14.7,
+      "moonAge": 5.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-25",
+      "probability": 0.0386,
+      "airTemp": 3.5,
+      "seaTemp": 14.6,
+      "moonAge": 6.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-26",
+      "probability": 0.0628,
+      "airTemp": 4.3,
+      "seaTemp": 14.9,
+      "moonAge": 7.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-27",
+      "probability": 0.0637,
+      "airTemp": 5.2,
+      "seaTemp": 16.1,
+      "moonAge": 8.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-28",
+      "probability": 0.0642,
+      "airTemp": 4.8,
+      "seaTemp": 16.4,
+      "moonAge": 9.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-29",
+      "probability": 0.0643,
+      "airTemp": 4.3,
+      "seaTemp": 16.3,
+      "moonAge": 10.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-30",
+      "probability": 0.0606,
+      "airTemp": 3.5,
+      "seaTemp": 16.1,
+      "moonAge": 11.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-01-31",
+      "probability": 0.0558,
+      "airTemp": 4.6,
+      "seaTemp": 15.8,
+      "moonAge": 12.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-01",
+      "probability": 0.0389,
+      "airTemp": 5.2,
+      "seaTemp": 16.1,
+      "moonAge": 13.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-02",
+      "probability": 0.0314,
+      "airTemp": 5.9,
+      "seaTemp": 16.6,
+      "moonAge": 14.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-03",
+      "probability": 0.0345,
+      "airTemp": 5.3,
+      "seaTemp": 16.3,
+      "moonAge": 15.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-04",
+      "probability": 0.0435,
+      "airTemp": 7.6,
+      "seaTemp": 16.3,
+      "moonAge": 16.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-05",
+      "probability": 0.0618,
+      "airTemp": 8.7,
+      "seaTemp": 16.4,
+      "moonAge": 17.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-06",
+      "probability": 0.1065,
+      "airTemp": 10.0,
+      "seaTemp": 16.4,
+      "moonAge": 18.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-07",
+      "probability": 0.0723,
+      "airTemp": 3.2,
+      "seaTemp": 16.1,
+      "moonAge": 19.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-08",
+      "probability": 0.0754,
+      "airTemp": 1.4,
+      "seaTemp": 15.7,
+      "moonAge": 20.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-09",
+      "probability": 0.0404,
+      "airTemp": 3.3,
+      "seaTemp": 15.1,
+      "moonAge": 21.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-10",
+      "probability": 0.0248,
+      "airTemp": 7.0,
+      "seaTemp": 15.2,
+      "moonAge": 22.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-11",
+      "probability": 0.0361,
+      "airTemp": 9.4,
+      "seaTemp": 15.2,
+      "moonAge": 23.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-12",
+      "probability": 0.025,
+      "airTemp": 6.9,
+      "seaTemp": 14.8,
+      "moonAge": 24.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-13",
+      "probability": 0.0268,
+      "airTemp": 7.3,
+      "seaTemp": 14.3,
+      "moonAge": 25.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-14",
+      "probability": 0.0144,
+      "airTemp": 10.1,
+      "seaTemp": 14.1,
+      "moonAge": 26.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-15",
+      "probability": 0.0392,
+      "airTemp": 14.1,
+      "seaTemp": 14.2,
+      "moonAge": 27.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-16",
+      "probability": 0.0167,
+      "airTemp": 11.1,
+      "seaTemp": 14.2,
+      "moonAge": 28.89,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-17",
+      "probability": 0.0359,
+      "airTemp": 5.4,
+      "seaTemp": 14.0,
+      "moonAge": 0.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-18",
+      "probability": 0.0204,
+      "airTemp": 7.7,
+      "seaTemp": 14.2,
+      "moonAge": 1.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-19",
+      "probability": 0.0222,
+      "airTemp": 5.8,
+      "seaTemp": 14.2,
+      "moonAge": 2.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-20",
+      "probability": 0.0234,
+      "airTemp": 6.5,
+      "seaTemp": 13.8,
+      "moonAge": 3.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-21",
+      "probability": 0.0207,
+      "airTemp": 8.3,
+      "seaTemp": 13.9,
+      "moonAge": 4.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-22",
+      "probability": 0.0226,
+      "airTemp": 12.0,
+      "seaTemp": 14.0,
+      "moonAge": 5.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-23",
+      "probability": 0.0787,
+      "airTemp": 15.8,
+      "seaTemp": 14.4,
+      "moonAge": 6.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-24",
+      "probability": 0.0447,
+      "airTemp": 13.2,
+      "seaTemp": 14.6,
+      "moonAge": 7.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-25",
+      "probability": 0.0428,
+      "airTemp": 11.5,
+      "seaTemp": 14.3,
+      "moonAge": 8.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-26",
+      "probability": 0.1374,
+      "airTemp": 8.5,
+      "seaTemp": 14.1,
+      "moonAge": 9.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-27",
+      "probability": 0.0629,
+      "airTemp": 11.0,
+      "seaTemp": 14.0,
+      "moonAge": 10.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-02-28",
+      "probability": 0.09,
+      "airTemp": 12.8,
+      "seaTemp": 14.4,
+      "moonAge": 11.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-01",
+      "probability": 0.0846,
+      "airTemp": 11.6,
+      "seaTemp": 14.5,
+      "moonAge": 12.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-02",
+      "probability": 0.1089,
+      "airTemp": 12.2,
+      "seaTemp": 14.4,
+      "moonAge": 13.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-03",
+      "probability": 0.1043,
+      "airTemp": 8.8,
+      "seaTemp": 14.4,
+      "moonAge": 14.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-04",
+      "probability": 0.1321,
+      "airTemp": 8.4,
+      "seaTemp": 13.8,
+      "moonAge": 15.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-05",
+      "probability": 0.1663,
+      "airTemp": 9.2,
+      "seaTemp": 13.4,
+      "moonAge": 16.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-06",
+      "probability": 0.1579,
+      "airTemp": 10.5,
+      "seaTemp": 13.6,
+      "moonAge": 17.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-07",
+      "probability": 0.0981,
+      "airTemp": 12.7,
+      "seaTemp": 14.5,
+      "moonAge": 18.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-08",
+      "probability": 0.0394,
+      "airTemp": 6.6,
+      "seaTemp": 14.4,
+      "moonAge": 19.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-09",
+      "probability": 0.0558,
+      "airTemp": 7.0,
+      "seaTemp": 13.8,
+      "moonAge": 20.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-10",
+      "probability": 0.0832,
+      "airTemp": 5.6,
+      "seaTemp": 13.8,
+      "moonAge": 21.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-11",
+      "probability": 0.104,
+      "airTemp": 5.8,
+      "seaTemp": 13.9,
+      "moonAge": 22.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-12",
+      "probability": 0.0632,
+      "airTemp": 6.8,
+      "seaTemp": 14.4,
+      "moonAge": 23.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-13",
+      "probability": 0.0876,
+      "airTemp": 6.1,
+      "seaTemp": 14.2,
+      "moonAge": 24.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-14",
+      "probability": 0.0413,
+      "airTemp": 8.5,
+      "seaTemp": 14.0,
+      "moonAge": 25.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-15",
+      "probability": 0.0326,
+      "airTemp": 9.1,
+      "seaTemp": 13.8,
+      "moonAge": 26.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-16",
+      "probability": 0.0236,
+      "airTemp": 9.3,
+      "seaTemp": 14.1,
+      "moonAge": 27.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-17",
+      "probability": 0.0228,
+      "airTemp": 9.7,
+      "seaTemp": 14.3,
+      "moonAge": 28.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-18",
+      "probability": 0.0403,
+      "airTemp": 12.0,
+      "seaTemp": 14.5,
+      "moonAge": 29.36,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-19",
+      "probability": 0.1575,
+      "airTemp": 15.0,
+      "seaTemp": 14.9,
+      "moonAge": 0.83,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-20",
+      "probability": 0.0931,
+      "airTemp": 11.2,
+      "seaTemp": 15.1,
+      "moonAge": 1.83,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-21",
+      "probability": 0.0454,
+      "airTemp": 9.4,
+      "seaTemp": 15.0,
+      "moonAge": 2.83,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-22",
+      "probability": 0.065,
+      "airTemp": 10.9,
+      "seaTemp": 15.0,
+      "moonAge": 3.83,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-23",
+      "probability": 0.0358,
+      "airTemp": 10.6,
+      "seaTemp": 14.8,
+      "moonAge": 4.83,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-24",
+      "probability": 0.0389,
+      "airTemp": 11.2,
+      "seaTemp": 14.9,
+      "moonAge": 5.83,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-25",
+      "probability": 0.0375,
+      "airTemp": 11.5,
+      "seaTemp": 14.8,
+      "moonAge": 6.83,
+      "featureSource": "archive"
+    },
+    {
+      "date": "2026-03-26",
+      "probability": 0.0606,
+      "airTemp": 12.2,
+      "seaTemp": 14.8,
+      "moonAge": 7.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-03-27",
+      "probability": 0.109,
+      "airTemp": 12.6,
+      "seaTemp": 14.8,
+      "moonAge": 8.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-03-28",
+      "probability": 0.24,
+      "airTemp": 14.3,
+      "seaTemp": 14.8,
+      "moonAge": 9.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-03-29",
+      "probability": 0.3674,
+      "airTemp": 15.2,
+      "seaTemp": 14.9,
+      "moonAge": 10.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-03-30",
+      "probability": 0.5573,
+      "airTemp": 16.4,
+      "seaTemp": 15.2,
+      "moonAge": 11.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-03-31",
+      "probability": 0.5797,
+      "airTemp": 17.3,
+      "seaTemp": 15.3,
+      "moonAge": 12.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-04-01",
+      "probability": 0.6433,
+      "airTemp": 14.7,
+      "seaTemp": 15.6,
+      "moonAge": 13.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-04-02",
+      "probability": 0.3741,
+      "airTemp": 10.8,
+      "seaTemp": 15.5,
+      "moonAge": 14.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-04-03",
+      "probability": 0.5274,
+      "airTemp": 13.2,
+      "seaTemp": 15.6,
+      "moonAge": 15.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-04-04",
+      "probability": 0.3937,
+      "airTemp": 12.3,
+      "seaTemp": 15.55,
+      "moonAge": 16.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-04-05",
+      "probability": 0.4047,
+      "airTemp": 14.0,
+      "seaTemp": 15.62,
+      "moonAge": 17.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-04-06",
+      "probability": 0.4053,
+      "airTemp": 14.6,
+      "seaTemp": 15.67,
+      "moonAge": 18.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-04-07",
+      "probability": 0.4318,
+      "airTemp": 15.5,
+      "seaTemp": 15.7,
+      "moonAge": 19.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-04-08",
+      "probability": 0.4173,
+      "airTemp": 15.5,
+      "seaTemp": 15.76,
+      "moonAge": 20.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-04-09",
+      "probability": 0.3605,
+      "airTemp": 16.3,
+      "seaTemp": 15.83,
+      "moonAge": 21.83,
+      "featureSource": "forecast"
+    },
+    {
+      "date": "2026-04-10",
+      "probability": 0.2751,
+      "airTemp": 13.91,
+      "seaTemp": 15.9,
+      "moonAge": 22.83,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-11",
+      "probability": 0.226,
+      "airTemp": 14.27,
+      "seaTemp": 15.98,
+      "moonAge": 23.83,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-12",
+      "probability": 0.2024,
+      "airTemp": 14.64,
+      "seaTemp": 16.08,
+      "moonAge": 24.83,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-13",
+      "probability": 0.1964,
+      "airTemp": 14.93,
+      "seaTemp": 16.19,
+      "moonAge": 25.83,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-14",
+      "probability": 0.1988,
+      "airTemp": 15.28,
+      "seaTemp": 16.3,
+      "moonAge": 26.83,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-15",
+      "probability": 0.2058,
+      "airTemp": 15.39,
+      "seaTemp": 16.42,
+      "moonAge": 27.83,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-16",
+      "probability": 0.2124,
+      "airTemp": 15.47,
+      "seaTemp": 16.52,
+      "moonAge": 28.83,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-17",
+      "probability": 0.2197,
+      "airTemp": 15.54,
+      "seaTemp": 16.63,
+      "moonAge": 0.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-18",
+      "probability": 0.23,
+      "airTemp": 15.87,
+      "seaTemp": 16.75,
+      "moonAge": 1.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-19",
+      "probability": 0.2438,
+      "airTemp": 16.12,
+      "seaTemp": 16.88,
+      "moonAge": 2.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-20",
+      "probability": 0.244,
+      "airTemp": 16.32,
+      "seaTemp": 17.02,
+      "moonAge": 3.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-21",
+      "probability": 0.2318,
+      "airTemp": 16.48,
+      "seaTemp": 17.16,
+      "moonAge": 4.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-22",
+      "probability": 0.228,
+      "airTemp": 16.69,
+      "seaTemp": 17.31,
+      "moonAge": 5.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-23",
+      "probability": 0.2494,
+      "airTemp": 16.84,
+      "seaTemp": 17.48,
+      "moonAge": 6.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-24",
+      "probability": 0.2818,
+      "airTemp": 16.89,
+      "seaTemp": 17.63,
+      "moonAge": 7.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-25",
+      "probability": 0.2974,
+      "airTemp": 16.92,
+      "seaTemp": 17.77,
+      "moonAge": 8.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-26",
+      "probability": 0.2821,
+      "airTemp": 16.83,
+      "seaTemp": 17.86,
+      "moonAge": 9.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-27",
+      "probability": 0.2352,
+      "airTemp": 16.72,
+      "seaTemp": 17.91,
+      "moonAge": 10.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-28",
+      "probability": 0.1616,
+      "airTemp": 16.78,
+      "seaTemp": 17.97,
+      "moonAge": 11.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-29",
+      "probability": 0.0921,
+      "airTemp": 16.81,
+      "seaTemp": 18.05,
+      "moonAge": 12.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-04-30",
+      "probability": 0.0507,
+      "airTemp": 16.87,
+      "seaTemp": 18.11,
+      "moonAge": 13.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-01",
+      "probability": 0.0325,
+      "airTemp": 16.93,
+      "seaTemp": 18.17,
+      "moonAge": 14.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-02",
+      "probability": 0.0256,
+      "airTemp": 17.03,
+      "seaTemp": 18.21,
+      "moonAge": 15.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-03",
+      "probability": 0.0237,
+      "airTemp": 17.18,
+      "seaTemp": 18.25,
+      "moonAge": 16.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-04",
+      "probability": 0.0243,
+      "airTemp": 17.07,
+      "seaTemp": 18.24,
+      "moonAge": 17.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-05",
+      "probability": 0.0262,
+      "airTemp": 17.06,
+      "seaTemp": 18.21,
+      "moonAge": 18.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-06",
+      "probability": 0.0274,
+      "airTemp": 17.1,
+      "seaTemp": 18.18,
+      "moonAge": 19.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-07",
+      "probability": 0.0272,
+      "airTemp": 17.18,
+      "seaTemp": 18.16,
+      "moonAge": 20.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-08",
+      "probability": 0.0267,
+      "airTemp": 17.24,
+      "seaTemp": 18.17,
+      "moonAge": 21.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-09",
+      "probability": 0.0267,
+      "airTemp": 17.37,
+      "seaTemp": 18.22,
+      "moonAge": 22.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-10",
+      "probability": 0.0277,
+      "airTemp": 17.63,
+      "seaTemp": 18.32,
+      "moonAge": 23.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-11",
+      "probability": 0.0279,
+      "airTemp": 17.79,
+      "seaTemp": 18.38,
+      "moonAge": 24.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-12",
+      "probability": 0.0272,
+      "airTemp": 17.98,
+      "seaTemp": 18.37,
+      "moonAge": 25.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-13",
+      "probability": 0.0267,
+      "airTemp": 18.18,
+      "seaTemp": 18.4,
+      "moonAge": 26.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-14",
+      "probability": 0.0252,
+      "airTemp": 18.31,
+      "seaTemp": 18.43,
+      "moonAge": 27.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-15",
+      "probability": 0.0233,
+      "airTemp": 18.45,
+      "seaTemp": 18.48,
+      "moonAge": 28.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-16",
+      "probability": 0.0215,
+      "airTemp": 18.62,
+      "seaTemp": 18.53,
+      "moonAge": 29.3,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-17",
+      "probability": 0.02,
+      "airTemp": 18.79,
+      "seaTemp": 18.61,
+      "moonAge": 0.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-18",
+      "probability": 0.0184,
+      "airTemp": 18.86,
+      "seaTemp": 18.68,
+      "moonAge": 1.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-19",
+      "probability": 0.0167,
+      "airTemp": 19.07,
+      "seaTemp": 18.77,
+      "moonAge": 2.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-20",
+      "probability": 0.0151,
+      "airTemp": 19.05,
+      "seaTemp": 18.85,
+      "moonAge": 3.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-21",
+      "probability": 0.0136,
+      "airTemp": 19.01,
+      "seaTemp": 18.89,
+      "moonAge": 4.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-22",
+      "probability": 0.0124,
+      "airTemp": 19.15,
+      "seaTemp": 18.92,
+      "moonAge": 5.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-23",
+      "probability": 0.0113,
+      "airTemp": 19.21,
+      "seaTemp": 18.97,
+      "moonAge": 6.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-24",
+      "probability": 0.0102,
+      "airTemp": 19.1,
+      "seaTemp": 19.05,
+      "moonAge": 7.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-25",
+      "probability": 0.0089,
+      "airTemp": 18.97,
+      "seaTemp": 19.13,
+      "moonAge": 8.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-26",
+      "probability": 0.0075,
+      "airTemp": 18.81,
+      "seaTemp": 19.22,
+      "moonAge": 9.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-27",
+      "probability": 0.0063,
+      "airTemp": 18.79,
+      "seaTemp": 19.38,
+      "moonAge": 10.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-28",
+      "probability": 0.0053,
+      "airTemp": 18.75,
+      "seaTemp": 19.56,
+      "moonAge": 11.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-29",
+      "probability": 0.0046,
+      "airTemp": 18.71,
+      "seaTemp": 19.72,
+      "moonAge": 12.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-30",
+      "probability": 0.0038,
+      "airTemp": 18.83,
+      "seaTemp": 19.84,
+      "moonAge": 13.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-05-31",
+      "probability": 0.0032,
+      "airTemp": 18.99,
+      "seaTemp": 19.98,
+      "moonAge": 14.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-01",
+      "probability": 0.0026,
+      "airTemp": 19.04,
+      "seaTemp": 20.09,
+      "moonAge": 15.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-02",
+      "probability": 0.0021,
+      "airTemp": 19.22,
+      "seaTemp": 20.23,
+      "moonAge": 16.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-03",
+      "probability": 0.0016,
+      "airTemp": 19.35,
+      "seaTemp": 20.4,
+      "moonAge": 17.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-04",
+      "probability": 0.0013,
+      "airTemp": 19.46,
+      "seaTemp": 20.55,
+      "moonAge": 18.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-05",
+      "probability": 0.0011,
+      "airTemp": 19.6,
+      "seaTemp": 20.64,
+      "moonAge": 19.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-06",
+      "probability": 0.0009,
+      "airTemp": 19.89,
+      "seaTemp": 20.77,
+      "moonAge": 20.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-07",
+      "probability": 0.0009,
+      "airTemp": 20.17,
+      "seaTemp": 20.98,
+      "moonAge": 21.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-08",
+      "probability": 0.0009,
+      "airTemp": 20.43,
+      "seaTemp": 21.17,
+      "moonAge": 22.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-09",
+      "probability": 0.0008,
+      "airTemp": 20.74,
+      "seaTemp": 21.28,
+      "moonAge": 23.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-10",
+      "probability": 0.0007,
+      "airTemp": 21.09,
+      "seaTemp": 21.37,
+      "moonAge": 24.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-11",
+      "probability": 0.0005,
+      "airTemp": 21.44,
+      "seaTemp": 21.48,
+      "moonAge": 25.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-12",
+      "probability": 0.0005,
+      "airTemp": 21.85,
+      "seaTemp": 21.71,
+      "moonAge": 26.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-13",
+      "probability": 0.0004,
+      "airTemp": 21.97,
+      "seaTemp": 21.96,
+      "moonAge": 27.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-14",
+      "probability": 0.0003,
+      "airTemp": 22.11,
+      "seaTemp": 22.2,
+      "moonAge": 28.77,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-15",
+      "probability": 0.0003,
+      "airTemp": 22.31,
+      "seaTemp": 22.43,
+      "moonAge": 0.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-16",
+      "probability": 0.0002,
+      "airTemp": 22.48,
+      "seaTemp": 22.6,
+      "moonAge": 1.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-17",
+      "probability": 0.0002,
+      "airTemp": 22.7,
+      "seaTemp": 22.69,
+      "moonAge": 2.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-18",
+      "probability": 0.0001,
+      "airTemp": 22.91,
+      "seaTemp": 22.84,
+      "moonAge": 3.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-19",
+      "probability": 0.0001,
+      "airTemp": 23.18,
+      "seaTemp": 22.94,
+      "moonAge": 4.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-20",
+      "probability": 0.0001,
+      "airTemp": 23.45,
+      "seaTemp": 23.02,
+      "moonAge": 5.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-21",
+      "probability": 0.0001,
+      "airTemp": 23.77,
+      "seaTemp": 23.1,
+      "moonAge": 6.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-22",
+      "probability": 0.0001,
+      "airTemp": 23.85,
+      "seaTemp": 23.25,
+      "moonAge": 7.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-23",
+      "probability": 0.0,
+      "airTemp": 23.85,
+      "seaTemp": 23.39,
+      "moonAge": 8.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-24",
+      "probability": 0.0,
+      "airTemp": 23.85,
+      "seaTemp": 23.5,
+      "moonAge": 9.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-25",
+      "probability": 0.0,
+      "airTemp": 23.86,
+      "seaTemp": 23.58,
+      "moonAge": 10.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-26",
+      "probability": 0.0,
+      "airTemp": 24.11,
+      "seaTemp": 23.66,
+      "moonAge": 11.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-27",
+      "probability": 0.0,
+      "airTemp": 24.32,
+      "seaTemp": 23.75,
+      "moonAge": 12.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-28",
+      "probability": 0.0,
+      "airTemp": 24.52,
+      "seaTemp": 23.82,
+      "moonAge": 13.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-29",
+      "probability": 0.0,
+      "airTemp": 24.89,
+      "seaTemp": 23.97,
+      "moonAge": 14.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-06-30",
+      "probability": 0.0,
+      "airTemp": 25.13,
+      "seaTemp": 24.23,
+      "moonAge": 15.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-01",
+      "probability": 0.0,
+      "airTemp": 25.37,
+      "seaTemp": 24.5,
+      "moonAge": 16.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-02",
+      "probability": 0.0,
+      "airTemp": 25.52,
+      "seaTemp": 24.8,
+      "moonAge": 17.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-03",
+      "probability": 0.0,
+      "airTemp": 25.69,
+      "seaTemp": 25.08,
+      "moonAge": 18.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-04",
+      "probability": 0.0,
+      "airTemp": 25.84,
+      "seaTemp": 25.34,
+      "moonAge": 19.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-05",
+      "probability": 0.0,
+      "airTemp": 25.94,
+      "seaTemp": 25.45,
+      "moonAge": 20.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-06",
+      "probability": 0.0,
+      "airTemp": 26.04,
+      "seaTemp": 25.56,
+      "moonAge": 21.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-07",
+      "probability": 0.0,
+      "airTemp": 26.06,
+      "seaTemp": 25.72,
+      "moonAge": 22.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-08",
+      "probability": 0.0,
+      "airTemp": 26.05,
+      "seaTemp": 25.86,
+      "moonAge": 23.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-09",
+      "probability": 0.0,
+      "airTemp": 26.04,
+      "seaTemp": 25.95,
+      "moonAge": 24.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-10",
+      "probability": 0.0,
+      "airTemp": 26.03,
+      "seaTemp": 26.03,
+      "moonAge": 25.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-11",
+      "probability": 0.0,
+      "airTemp": 25.98,
+      "seaTemp": 26.1,
+      "moonAge": 26.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-12",
+      "probability": 0.0,
+      "airTemp": 25.85,
+      "seaTemp": 26.19,
+      "moonAge": 27.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-13",
+      "probability": 0.0,
+      "airTemp": 25.8,
+      "seaTemp": 26.27,
+      "moonAge": 28.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-14",
+      "probability": 0.0,
+      "airTemp": 25.75,
+      "seaTemp": 26.29,
+      "moonAge": 29.24,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-15",
+      "probability": 0.0,
+      "airTemp": 25.77,
+      "seaTemp": 26.28,
+      "moonAge": 0.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-16",
+      "probability": 0.0,
+      "airTemp": 25.71,
+      "seaTemp": 26.33,
+      "moonAge": 1.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-17",
+      "probability": 0.0,
+      "airTemp": 25.73,
+      "seaTemp": 26.4,
+      "moonAge": 2.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-18",
+      "probability": 0.0,
+      "airTemp": 25.86,
+      "seaTemp": 26.53,
+      "moonAge": 3.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-19",
+      "probability": 0.0,
+      "airTemp": 26.07,
+      "seaTemp": 26.64,
+      "moonAge": 4.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-20",
+      "probability": 0.0,
+      "airTemp": 26.31,
+      "seaTemp": 26.69,
+      "moonAge": 5.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-21",
+      "probability": 0.0,
+      "airTemp": 26.51,
+      "seaTemp": 26.74,
+      "moonAge": 6.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-22",
+      "probability": 0.0,
+      "airTemp": 26.7,
+      "seaTemp": 26.83,
+      "moonAge": 7.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-23",
+      "probability": 0.0,
+      "airTemp": 26.88,
+      "seaTemp": 26.96,
+      "moonAge": 8.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-24",
+      "probability": 0.0,
+      "airTemp": 27.12,
+      "seaTemp": 27.08,
+      "moonAge": 9.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-25",
+      "probability": 0.0,
+      "airTemp": 27.33,
+      "seaTemp": 27.18,
+      "moonAge": 10.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-26",
+      "probability": 0.0,
+      "airTemp": 27.36,
+      "seaTemp": 27.23,
+      "moonAge": 11.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-27",
+      "probability": 0.0,
+      "airTemp": 27.42,
+      "seaTemp": 27.25,
+      "moonAge": 12.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-28",
+      "probability": 0.0,
+      "airTemp": 27.41,
+      "seaTemp": 27.27,
+      "moonAge": 13.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-29",
+      "probability": 0.0,
+      "airTemp": 27.43,
+      "seaTemp": 27.29,
+      "moonAge": 14.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-30",
+      "probability": 0.0,
+      "airTemp": 27.45,
+      "seaTemp": 27.27,
+      "moonAge": 15.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-07-31",
+      "probability": 0.0,
+      "airTemp": 27.52,
+      "seaTemp": 27.26,
+      "moonAge": 16.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-01",
+      "probability": 0.0,
+      "airTemp": 27.56,
+      "seaTemp": 27.28,
+      "moonAge": 17.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-02",
+      "probability": 0.0,
+      "airTemp": 27.55,
+      "seaTemp": 27.34,
+      "moonAge": 18.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-03",
+      "probability": 0.0,
+      "airTemp": 27.51,
+      "seaTemp": 27.42,
+      "moonAge": 19.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-04",
+      "probability": 0.0,
+      "airTemp": 27.47,
+      "seaTemp": 27.47,
+      "moonAge": 20.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-05",
+      "probability": 0.0,
+      "airTemp": 27.43,
+      "seaTemp": 27.38,
+      "moonAge": 21.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-06",
+      "probability": 0.0,
+      "airTemp": 27.42,
+      "seaTemp": 27.31,
+      "moonAge": 22.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-07",
+      "probability": 0.0,
+      "airTemp": 27.42,
+      "seaTemp": 27.24,
+      "moonAge": 23.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-08",
+      "probability": 0.0,
+      "airTemp": 27.47,
+      "seaTemp": 27.2,
+      "moonAge": 24.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-09",
+      "probability": 0.0,
+      "airTemp": 27.48,
+      "seaTemp": 27.26,
+      "moonAge": 25.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-10",
+      "probability": 0.0,
+      "airTemp": 27.51,
+      "seaTemp": 27.32,
+      "moonAge": 26.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-11",
+      "probability": 0.0,
+      "airTemp": 27.42,
+      "seaTemp": 27.25,
+      "moonAge": 27.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-12",
+      "probability": 0.0,
+      "airTemp": 27.5,
+      "seaTemp": 27.15,
+      "moonAge": 28.71,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-13",
+      "probability": 0.0,
+      "airTemp": 27.46,
+      "seaTemp": 27.11,
+      "moonAge": 0.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-14",
+      "probability": 0.0,
+      "airTemp": 27.43,
+      "seaTemp": 27.12,
+      "moonAge": 1.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-15",
+      "probability": 0.0,
+      "airTemp": 27.44,
+      "seaTemp": 27.1,
+      "moonAge": 2.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-16",
+      "probability": 0.0,
+      "airTemp": 27.48,
+      "seaTemp": 27.07,
+      "moonAge": 3.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-17",
+      "probability": 0.0,
+      "airTemp": 27.47,
+      "seaTemp": 27.05,
+      "moonAge": 4.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-18",
+      "probability": 0.0,
+      "airTemp": 27.5,
+      "seaTemp": 27.11,
+      "moonAge": 5.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-19",
+      "probability": 0.0,
+      "airTemp": 27.5,
+      "seaTemp": 27.18,
+      "moonAge": 6.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-20",
+      "probability": 0.0,
+      "airTemp": 27.45,
+      "seaTemp": 27.23,
+      "moonAge": 7.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-21",
+      "probability": 0.0,
+      "airTemp": 27.47,
+      "seaTemp": 27.24,
+      "moonAge": 8.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-22",
+      "probability": 0.0,
+      "airTemp": 27.42,
+      "seaTemp": 27.23,
+      "moonAge": 9.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-23",
+      "probability": 0.0,
+      "airTemp": 27.36,
+      "seaTemp": 27.22,
+      "moonAge": 10.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-24",
+      "probability": 0.0,
+      "airTemp": 27.42,
+      "seaTemp": 27.32,
+      "moonAge": 11.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-25",
+      "probability": 0.0,
+      "airTemp": 27.27,
+      "seaTemp": 27.42,
+      "moonAge": 12.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-26",
+      "probability": 0.0,
+      "airTemp": 27.2,
+      "seaTemp": 27.45,
+      "moonAge": 13.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-27",
+      "probability": 0.0,
+      "airTemp": 27.17,
+      "seaTemp": 27.4,
+      "moonAge": 14.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-28",
+      "probability": 0.0,
+      "airTemp": 27.14,
+      "seaTemp": 27.38,
+      "moonAge": 15.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-29",
+      "probability": 0.0,
+      "airTemp": 26.94,
+      "seaTemp": 27.35,
+      "moonAge": 16.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-30",
+      "probability": 0.0,
+      "airTemp": 26.73,
+      "seaTemp": 27.25,
+      "moonAge": 17.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-08-31",
+      "probability": 0.0,
+      "airTemp": 26.54,
+      "seaTemp": 27.16,
+      "moonAge": 18.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-01",
+      "probability": 0.0,
+      "airTemp": 26.41,
+      "seaTemp": 27.13,
+      "moonAge": 19.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-02",
+      "probability": 0.0,
+      "airTemp": 26.37,
+      "seaTemp": 27.1,
+      "moonAge": 20.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-03",
+      "probability": 0.0,
+      "airTemp": 26.34,
+      "seaTemp": 27.11,
+      "moonAge": 21.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-04",
+      "probability": 0.0,
+      "airTemp": 26.32,
+      "seaTemp": 27.09,
+      "moonAge": 22.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-05",
+      "probability": 0.0,
+      "airTemp": 26.29,
+      "seaTemp": 27.09,
+      "moonAge": 23.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-06",
+      "probability": 0.0,
+      "airTemp": 26.23,
+      "seaTemp": 27.09,
+      "moonAge": 24.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-07",
+      "probability": 0.0,
+      "airTemp": 26.2,
+      "seaTemp": 27.1,
+      "moonAge": 25.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-08",
+      "probability": 0.0,
+      "airTemp": 26.25,
+      "seaTemp": 27.12,
+      "moonAge": 26.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-09",
+      "probability": 0.0,
+      "airTemp": 26.24,
+      "seaTemp": 27.16,
+      "moonAge": 27.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-10",
+      "probability": 0.0,
+      "airTemp": 26.23,
+      "seaTemp": 27.2,
+      "moonAge": 28.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-11",
+      "probability": 0.0,
+      "airTemp": 26.38,
+      "seaTemp": 27.22,
+      "moonAge": 29.18,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-12",
+      "probability": 0.0,
+      "airTemp": 26.57,
+      "seaTemp": 27.3,
+      "moonAge": 0.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-13",
+      "probability": 0.0,
+      "airTemp": 26.58,
+      "seaTemp": 27.38,
+      "moonAge": 1.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-14",
+      "probability": 0.0,
+      "airTemp": 26.57,
+      "seaTemp": 27.38,
+      "moonAge": 2.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-15",
+      "probability": 0.0,
+      "airTemp": 26.57,
+      "seaTemp": 27.36,
+      "moonAge": 3.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-16",
+      "probability": 0.0,
+      "airTemp": 26.4,
+      "seaTemp": 27.3,
+      "moonAge": 4.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-17",
+      "probability": 0.0,
+      "airTemp": 26.16,
+      "seaTemp": 27.22,
+      "moonAge": 5.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-18",
+      "probability": 0.0,
+      "airTemp": 25.82,
+      "seaTemp": 27.1,
+      "moonAge": 6.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-19",
+      "probability": 0.0,
+      "airTemp": 25.48,
+      "seaTemp": 26.95,
+      "moonAge": 7.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-20",
+      "probability": 0.0,
+      "airTemp": 25.2,
+      "seaTemp": 26.78,
+      "moonAge": 8.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-21",
+      "probability": 0.0,
+      "airTemp": 24.9,
+      "seaTemp": 26.62,
+      "moonAge": 9.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-22",
+      "probability": 0.0,
+      "airTemp": 24.61,
+      "seaTemp": 26.45,
+      "moonAge": 10.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-23",
+      "probability": 0.0,
+      "airTemp": 24.38,
+      "seaTemp": 26.27,
+      "moonAge": 11.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-24",
+      "probability": 0.0,
+      "airTemp": 24.05,
+      "seaTemp": 26.1,
+      "moonAge": 12.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-25",
+      "probability": 0.0,
+      "airTemp": 23.63,
+      "seaTemp": 25.93,
+      "moonAge": 13.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-26",
+      "probability": 0.0,
+      "airTemp": 23.35,
+      "seaTemp": 25.76,
+      "moonAge": 14.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-27",
+      "probability": 0.0,
+      "airTemp": 23.17,
+      "seaTemp": 25.58,
+      "moonAge": 15.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-28",
+      "probability": 0.0,
+      "airTemp": 22.82,
+      "seaTemp": 25.43,
+      "moonAge": 16.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-29",
+      "probability": 0.0,
+      "airTemp": 22.76,
+      "seaTemp": 25.33,
+      "moonAge": 17.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-09-30",
+      "probability": 0.0,
+      "airTemp": 22.73,
+      "seaTemp": 25.25,
+      "moonAge": 18.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-01",
+      "probability": 0.0,
+      "airTemp": 22.72,
+      "seaTemp": 25.18,
+      "moonAge": 19.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-02",
+      "probability": 0.0,
+      "airTemp": 22.83,
+      "seaTemp": 25.14,
+      "moonAge": 20.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-03",
+      "probability": 0.0,
+      "airTemp": 22.67,
+      "seaTemp": 25.11,
+      "moonAge": 21.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-04",
+      "probability": 0.0,
+      "airTemp": 22.24,
+      "seaTemp": 25.07,
+      "moonAge": 22.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-05",
+      "probability": 0.0,
+      "airTemp": 21.82,
+      "seaTemp": 25.02,
+      "moonAge": 23.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-06",
+      "probability": 0.0,
+      "airTemp": 21.49,
+      "seaTemp": 24.95,
+      "moonAge": 24.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-07",
+      "probability": 0.0,
+      "airTemp": 21.32,
+      "seaTemp": 24.89,
+      "moonAge": 25.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-08",
+      "probability": 0.0,
+      "airTemp": 21.17,
+      "seaTemp": 24.84,
+      "moonAge": 26.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-09",
+      "probability": 0.0,
+      "airTemp": 20.93,
+      "seaTemp": 24.82,
+      "moonAge": 27.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-10",
+      "probability": 0.0,
+      "airTemp": 20.71,
+      "seaTemp": 24.8,
+      "moonAge": 28.65,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-11",
+      "probability": 0.0,
+      "airTemp": 20.63,
+      "seaTemp": 24.76,
+      "moonAge": 0.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-12",
+      "probability": 0.0,
+      "airTemp": 20.42,
+      "seaTemp": 24.7,
+      "moonAge": 1.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-13",
+      "probability": 0.0,
+      "airTemp": 20.25,
+      "seaTemp": 24.64,
+      "moonAge": 2.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-14",
+      "probability": 0.0,
+      "airTemp": 20.2,
+      "seaTemp": 24.6,
+      "moonAge": 3.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-15",
+      "probability": 0.0,
+      "airTemp": 19.62,
+      "seaTemp": 24.53,
+      "moonAge": 4.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-16",
+      "probability": 0.0,
+      "airTemp": 19.11,
+      "seaTemp": 24.45,
+      "moonAge": 5.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-17",
+      "probability": 0.0,
+      "airTemp": 19.01,
+      "seaTemp": 24.35,
+      "moonAge": 6.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-18",
+      "probability": 0.0,
+      "airTemp": 19.05,
+      "seaTemp": 24.24,
+      "moonAge": 7.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-19",
+      "probability": 0.0,
+      "airTemp": 18.95,
+      "seaTemp": 24.13,
+      "moonAge": 8.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-20",
+      "probability": 0.0,
+      "airTemp": 18.79,
+      "seaTemp": 24.0,
+      "moonAge": 9.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-21",
+      "probability": 0.0,
+      "airTemp": 18.75,
+      "seaTemp": 23.86,
+      "moonAge": 10.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-22",
+      "probability": 0.0,
+      "airTemp": 18.71,
+      "seaTemp": 23.7,
+      "moonAge": 11.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-23",
+      "probability": 0.0,
+      "airTemp": 18.38,
+      "seaTemp": 23.54,
+      "moonAge": 12.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-24",
+      "probability": 0.0,
+      "airTemp": 17.86,
+      "seaTemp": 23.37,
+      "moonAge": 13.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-25",
+      "probability": 0.0,
+      "airTemp": 17.47,
+      "seaTemp": 23.2,
+      "moonAge": 14.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-26",
+      "probability": 0.0,
+      "airTemp": 17.2,
+      "seaTemp": 23.0,
+      "moonAge": 15.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-27",
+      "probability": 0.0,
+      "airTemp": 17.01,
+      "seaTemp": 22.79,
+      "moonAge": 16.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-28",
+      "probability": 0.0,
+      "airTemp": 17.13,
+      "seaTemp": 22.6,
+      "moonAge": 17.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-29",
+      "probability": 0.0,
+      "airTemp": 17.17,
+      "seaTemp": 22.46,
+      "moonAge": 18.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-30",
+      "probability": 0.0,
+      "airTemp": 17.14,
+      "seaTemp": 22.35,
+      "moonAge": 19.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-10-31",
+      "probability": 0.0,
+      "airTemp": 16.97,
+      "seaTemp": 22.26,
+      "moonAge": 20.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-01",
+      "probability": 0.0,
+      "airTemp": 16.7,
+      "seaTemp": 22.15,
+      "moonAge": 21.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-02",
+      "probability": 0.0,
+      "airTemp": 16.33,
+      "seaTemp": 22.04,
+      "moonAge": 22.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-03",
+      "probability": 0.0,
+      "airTemp": 15.87,
+      "seaTemp": 21.9,
+      "moonAge": 23.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-04",
+      "probability": 0.0,
+      "airTemp": 15.55,
+      "seaTemp": 21.77,
+      "moonAge": 24.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-05",
+      "probability": 0.0,
+      "airTemp": 15.32,
+      "seaTemp": 21.62,
+      "moonAge": 25.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-06",
+      "probability": 0.0,
+      "airTemp": 15.27,
+      "seaTemp": 21.47,
+      "moonAge": 26.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-07",
+      "probability": 0.0,
+      "airTemp": 15.19,
+      "seaTemp": 21.33,
+      "moonAge": 27.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-08",
+      "probability": 0.0,
+      "airTemp": 15.0,
+      "seaTemp": 21.22,
+      "moonAge": 28.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-09",
+      "probability": 0.0,
+      "airTemp": 14.71,
+      "seaTemp": 21.11,
+      "moonAge": 29.12,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-10",
+      "probability": 0.0,
+      "airTemp": 14.58,
+      "seaTemp": 21.0,
+      "moonAge": 0.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-11",
+      "probability": 0.0,
+      "airTemp": 14.73,
+      "seaTemp": 20.9,
+      "moonAge": 1.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-12",
+      "probability": 0.0,
+      "airTemp": 14.67,
+      "seaTemp": 20.78,
+      "moonAge": 2.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-13",
+      "probability": 0.0,
+      "airTemp": 14.28,
+      "seaTemp": 20.65,
+      "moonAge": 3.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-14",
+      "probability": 0.0,
+      "airTemp": 13.88,
+      "seaTemp": 20.52,
+      "moonAge": 4.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-15",
+      "probability": 0.0,
+      "airTemp": 13.65,
+      "seaTemp": 20.38,
+      "moonAge": 5.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-16",
+      "probability": 0.0,
+      "airTemp": 13.62,
+      "seaTemp": 20.25,
+      "moonAge": 6.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-17",
+      "probability": 0.0,
+      "airTemp": 13.55,
+      "seaTemp": 20.12,
+      "moonAge": 7.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-18",
+      "probability": 0.0,
+      "airTemp": 13.43,
+      "seaTemp": 20.04,
+      "moonAge": 8.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-19",
+      "probability": 0.0,
+      "airTemp": 13.2,
+      "seaTemp": 20.04,
+      "moonAge": 9.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-20",
+      "probability": 0.0,
+      "airTemp": 12.88,
+      "seaTemp": 20.04,
+      "moonAge": 10.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-21",
+      "probability": 0.0,
+      "airTemp": 12.72,
+      "seaTemp": 20.02,
+      "moonAge": 11.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-22",
+      "probability": 0.0,
+      "airTemp": 12.86,
+      "seaTemp": 20.03,
+      "moonAge": 12.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-23",
+      "probability": 0.0,
+      "airTemp": 12.69,
+      "seaTemp": 20.0,
+      "moonAge": 13.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-24",
+      "probability": 0.0,
+      "airTemp": 12.35,
+      "seaTemp": 19.96,
+      "moonAge": 14.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-25",
+      "probability": 0.0,
+      "airTemp": 12.29,
+      "seaTemp": 19.94,
+      "moonAge": 15.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-26",
+      "probability": 0.0,
+      "airTemp": 12.43,
+      "seaTemp": 19.92,
+      "moonAge": 16.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-27",
+      "probability": 0.0,
+      "airTemp": 12.62,
+      "seaTemp": 19.94,
+      "moonAge": 17.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-28",
+      "probability": 0.0,
+      "airTemp": 12.72,
+      "seaTemp": 19.97,
+      "moonAge": 18.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-29",
+      "probability": 0.0,
+      "airTemp": 12.69,
+      "seaTemp": 20.01,
+      "moonAge": 19.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-11-30",
+      "probability": 0.0,
+      "airTemp": 12.5,
+      "seaTemp": 20.03,
+      "moonAge": 20.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-01",
+      "probability": 0.0,
+      "airTemp": 12.48,
+      "seaTemp": 20.01,
+      "moonAge": 21.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-02",
+      "probability": 0.0,
+      "airTemp": 12.5,
+      "seaTemp": 19.91,
+      "moonAge": 22.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-03",
+      "probability": 0.0,
+      "airTemp": 12.36,
+      "seaTemp": 19.78,
+      "moonAge": 23.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-04",
+      "probability": 0.0,
+      "airTemp": 12.0,
+      "seaTemp": 19.64,
+      "moonAge": 24.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-05",
+      "probability": 0.0,
+      "airTemp": 11.51,
+      "seaTemp": 19.45,
+      "moonAge": 25.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-06",
+      "probability": 0.0,
+      "airTemp": 11.15,
+      "seaTemp": 19.28,
+      "moonAge": 26.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-07",
+      "probability": 0.0,
+      "airTemp": 10.68,
+      "seaTemp": 19.07,
+      "moonAge": 27.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-08",
+      "probability": 0.0,
+      "airTemp": 10.18,
+      "seaTemp": 18.84,
+      "moonAge": 28.58,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-09",
+      "probability": 0.0,
+      "airTemp": 9.87,
+      "seaTemp": 18.67,
+      "moonAge": 0.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-10",
+      "probability": 0.0001,
+      "airTemp": 9.57,
+      "seaTemp": 18.54,
+      "moonAge": 1.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-11",
+      "probability": 0.0001,
+      "airTemp": 9.44,
+      "seaTemp": 18.4,
+      "moonAge": 2.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-12",
+      "probability": 0.0001,
+      "airTemp": 9.24,
+      "seaTemp": 18.22,
+      "moonAge": 3.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-13",
+      "probability": 0.0001,
+      "airTemp": 9.11,
+      "seaTemp": 18.1,
+      "moonAge": 4.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-14",
+      "probability": 0.0001,
+      "airTemp": 8.93,
+      "seaTemp": 18.02,
+      "moonAge": 5.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-15",
+      "probability": 0.0002,
+      "airTemp": 9.0,
+      "seaTemp": 17.97,
+      "moonAge": 6.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-16",
+      "probability": 0.0002,
+      "airTemp": 9.13,
+      "seaTemp": 17.93,
+      "moonAge": 7.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-17",
+      "probability": 0.0002,
+      "airTemp": 9.06,
+      "seaTemp": 17.88,
+      "moonAge": 8.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-18",
+      "probability": 0.0003,
+      "airTemp": 8.93,
+      "seaTemp": 17.84,
+      "moonAge": 9.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-19",
+      "probability": 0.0004,
+      "airTemp": 9.01,
+      "seaTemp": 17.81,
+      "moonAge": 10.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-20",
+      "probability": 0.0004,
+      "airTemp": 9.19,
+      "seaTemp": 17.81,
+      "moonAge": 11.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-21",
+      "probability": 0.0005,
+      "airTemp": 9.23,
+      "seaTemp": 17.79,
+      "moonAge": 12.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-22",
+      "probability": 0.0006,
+      "airTemp": 9.08,
+      "seaTemp": 17.72,
+      "moonAge": 13.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-23",
+      "probability": 0.0007,
+      "airTemp": 9.08,
+      "seaTemp": 17.56,
+      "moonAge": 14.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-24",
+      "probability": 0.0008,
+      "airTemp": 9.06,
+      "seaTemp": 17.42,
+      "moonAge": 15.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-25",
+      "probability": 0.0009,
+      "airTemp": 8.97,
+      "seaTemp": 17.33,
+      "moonAge": 16.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-26",
+      "probability": 0.0011,
+      "airTemp": 9.06,
+      "seaTemp": 17.24,
+      "moonAge": 17.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-27",
+      "probability": 0.0011,
+      "airTemp": 8.86,
+      "seaTemp": 17.0,
+      "moonAge": 18.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-28",
+      "probability": 0.0012,
+      "airTemp": 8.44,
+      "seaTemp": 16.77,
+      "moonAge": 19.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-29",
+      "probability": 0.0014,
+      "airTemp": 8.1,
+      "seaTemp": 16.59,
+      "moonAge": 20.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-30",
+      "probability": 0.0017,
+      "airTemp": 8.02,
+      "seaTemp": 16.43,
+      "moonAge": 21.05,
+      "featureSource": "climatology"
+    },
+    {
+      "date": "2026-12-31",
+      "probability": 0.0019,
+      "airTemp": 8.06,
+      "seaTemp": 16.28,
+      "moonAge": 22.05,
+      "featureSource": "climatology"
+    }
+  ]
+}

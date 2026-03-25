@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fugu X-Day Forecast</title>
+    <meta
+      name="description"
+      content="萬栄丸のトラフグ釣果と気温・水温・月齢から、2026年のXデー確率を日別に可視化するグラフィック。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <p class="eyebrow">Torafugu</p>
+        <h1 id="title">X-Day Forecast</h1>
+        <div class="meta">
+          <span id="generatedAt">loading</span>
+          <span id="threshold">-</span>
+        </div>
+      </header>
+
+      <section class="top-days" id="topDays" aria-label="top days"></section>
+
+      <section class="chart-panel">
+        <div class="chart-header">
+          <span id="rangeLabel">2026</span>
+          <span id="todayLabel"></span>
+        </div>
+        <div class="chart-scroller" id="chartScroller">
+          <canvas id="chart" width="1800" height="520" aria-label="X-day chart"></canvas>
+          <div class="tooltip" id="tooltip" hidden></div>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <span>maneimaru.jp</span>
+        <span>Open-Meteo</span>
+      </footer>
+    </main>
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>
