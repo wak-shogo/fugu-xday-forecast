@@ -6,7 +6,7 @@
     <title>Fugu X-Day Forecast</title>
     <meta
       name="description"
-      content="萬栄丸のトラフグ釣果と気温・水温・月齢から、2026年のXデー確率を日別に可視化するグラフィック。"
+      content="萬栄丸のトラフグ釣果と気温・水温・月齢から、2026年のXデー確率と予測匹数を日別に可視化するグラフィック。"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -23,14 +23,77 @@
 
       <section class="top-days" id="topDays" aria-label="top days"></section>
 
+      <section class="sim-panel">
+        <div class="sim-head">
+          <span>Simulator</span>
+          <span id="simHint">live</span>
+        </div>
+        <div class="sim-grid">
+          <div class="sim-controls">
+            <label class="slider-card" for="airSlider">
+              <span>Air</span>
+              <strong id="airValue">-</strong>
+              <input id="airSlider" type="range" />
+            </label>
+            <label class="slider-card" for="seaSlider">
+              <span>Sea</span>
+              <strong id="seaValue">-</strong>
+              <input id="seaSlider" type="range" />
+            </label>
+            <label class="slider-card" for="moonSlider">
+              <span>Moon</span>
+              <strong id="moonValue">-</strong>
+              <input id="moonSlider" type="range" />
+            </label>
+          </div>
+
+          <div class="sim-metrics">
+            <article class="metric-card">
+              <span>P(X)</span>
+              <strong id="simProbability">-</strong>
+            </article>
+            <article class="metric-card">
+              <span>Min</span>
+              <strong id="simMin">-</strong>
+            </article>
+            <article class="metric-card">
+              <span>Max</span>
+              <strong id="simMax">-</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="chart-panel">
         <div class="chart-header">
           <span id="rangeLabel">2026</span>
           <span id="todayLabel"></span>
         </div>
-        <div class="chart-scroller" id="chartScroller">
-          <canvas id="chart" width="1800" height="520" aria-label="X-day chart"></canvas>
-          <div class="tooltip" id="tooltip" hidden></div>
+        <div class="chart-scroller" id="probChartScroller">
+          <canvas id="probChart" width="1800" height="520" aria-label="X-day probability chart"></canvas>
+          <div class="tooltip" id="probTooltip" hidden></div>
+        </div>
+      </section>
+
+      <section class="chart-panel compact">
+        <div class="chart-header">
+          <span>Predicted Min</span>
+          <span>fish/day</span>
+        </div>
+        <div class="chart-scroller" id="minChartScroller">
+          <canvas id="minChart" width="1800" height="360" aria-label="Predicted minimum catch chart"></canvas>
+          <div class="tooltip" id="minTooltip" hidden></div>
+        </div>
+      </section>
+
+      <section class="chart-panel compact">
+        <div class="chart-header">
+          <span>Predicted Max</span>
+          <span>fish/day</span>
+        </div>
+        <div class="chart-scroller" id="maxChartScroller">
+          <canvas id="maxChart" width="1800" height="360" aria-label="Predicted maximum catch chart"></canvas>
+          <div class="tooltip" id="maxTooltip" hidden></div>
         </div>
       </section>
 

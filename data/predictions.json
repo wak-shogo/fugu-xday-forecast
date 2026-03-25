@@ -1,3218 +1,5693 @@
 {
   "targetYear": 2026,
   "today": "2026-03-25",
-  "generatedAt": "2026-03-25 21:15",
+  "generatedAt": "2026-03-25 21:44",
   "xDayThreshold": 6,
-  "bandwidth": 0.55,
   "sourceRange": {
     "from": "2024-03-15",
     "to": "2026-03-25",
     "count": 125
   },
+  "featureRanges": {
+    "airTemp": {
+      "min": 0.5,
+      "max": 28.5,
+      "step": 0.1,
+      "default": 11.5
+    },
+    "seaTemp": {
+      "min": 13.0,
+      "max": 28.0,
+      "step": 0.1,
+      "default": 14.8
+    },
+    "moonAge": {
+      "min": 0.0,
+      "max": 29.53,
+      "step": 0.1,
+      "default": 6.83
+    }
+  },
+  "regression": {
+    "featureTerms": [
+      "intercept",
+      "airTemp",
+      "seaTemp",
+      "moonAge",
+      "airTemp*seaTemp",
+      "airTemp*moonAge",
+      "seaTemp*moonAge",
+      "airTemp^2",
+      "seaTemp^2",
+      "moonAge^2"
+    ],
+    "stats": {
+      "means": {
+        "airTemp": 10.9768,
+        "seaTemp": 15.134804,
+        "moonAge": 15.231041
+      },
+      "scales": {
+        "airTemp": 4.273549,
+        "seaTemp": 1.287294,
+        "moonAge": 8.56252
+      }
+    },
+    "countCeiling": 22.6,
+    "models": {
+      "probability": {
+        "type": "clamped_linear",
+        "weights": [
+          0.24704152,
+          0.14508977,
+          -0.00466438,
+          -0.03205542,
+          0.085409,
+          0.02348336,
+          -0.1213553,
+          0.05057135,
+          -0.09192469,
+          -0.07110365
+        ]
+      },
+      "catchMin": {
+        "type": "log_count",
+        "weights": [
+          0.0264381,
+          -0.00323576,
+          -0.02616291,
+          0.00735025,
+          -0.07776706,
+          -0.01202906,
+          0.00254375,
+          0.04209956,
+          0.03830268,
+          -0.01788828
+        ]
+      },
+      "catchMax": {
+        "type": "log_count",
+        "weights": [
+          1.53259553,
+          0.20976443,
+          0.01717545,
+          -0.00096716,
+          0.03304262,
+          0.08835425,
+          -0.20586246,
+          0.06436313,
+          -0.07999546,
+          -0.07584814
+        ]
+      }
+    }
+  },
   "observed": [
     {
       "date": "2026-02-02",
+      "catchMin": 0.0,
       "catchMax": 3.0,
       "fishNum": "0.4-2.6 kg 0-3 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/363436/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/363436/",
+      "airTemp": 5.9,
+      "seaTemp": 16.6,
+      "moonAge": 14.89
     },
     {
       "date": "2026-02-05",
+      "catchMin": 0.0,
       "catchMax": 2.0,
       "fishNum": "0.4-0.6 kg 0-2 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/363575/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/363575/",
+      "airTemp": 8.7,
+      "seaTemp": 16.4,
+      "moonAge": 17.89
     },
     {
       "date": "2026-02-10",
+      "catchMin": 1.0,
       "catchMax": 5.0,
       "fishNum": "0.4-2.6 kg 1-5 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/363835/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/363835/",
+      "airTemp": 7.0,
+      "seaTemp": 15.2,
+      "moonAge": 22.89
     },
     {
       "date": "2026-02-12",
+      "catchMin": 0.0,
       "catchMax": 2.0,
       "fishNum": "0.4-1.1 kg 0-2 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/363915/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/363915/",
+      "airTemp": 6.9,
+      "seaTemp": 14.8,
+      "moonAge": 24.89
     },
     {
       "date": "2026-02-13",
+      "catchMin": 0.0,
       "catchMax": 3.0,
       "fishNum": "0.4-1.1 kg 0-3 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/363964/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/363964/",
+      "airTemp": 7.3,
+      "seaTemp": 14.3,
+      "moonAge": 25.89
     },
     {
       "date": "2026-02-14",
+      "catchMin": 0.0,
       "catchMax": 2.0,
       "fishNum": "0.4-2.1 kg 0-2 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/364059/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364059/",
+      "airTemp": 10.1,
+      "seaTemp": 14.1,
+      "moonAge": 26.89
     },
     {
       "date": "2026-02-15",
+      "catchMin": 0.0,
       "catchMax": 5.0,
       "fishNum": "0.4-3 kg 0-5 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/364161/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364161/",
+      "airTemp": 14.1,
+      "seaTemp": 14.2,
+      "moonAge": 27.89
     },
     {
       "date": "2026-02-16",
+      "catchMin": 0.0,
       "catchMax": 2.0,
       "fishNum": "0.4-1.6 kg 0-2 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/364261/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364261/",
+      "airTemp": 11.1,
+      "seaTemp": 14.2,
+      "moonAge": 28.89
     },
     {
       "date": "2026-02-17",
+      "catchMin": 0.0,
       "catchMax": 1.0,
       "fishNum": "0.4-1.2 kg 0-1 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/364307/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364307/",
+      "airTemp": 5.4,
+      "seaTemp": 14.0,
+      "moonAge": 0.36
     },
     {
       "date": "2026-02-19",
+      "catchMin": 0.0,
       "catchMax": 3.0,
       "fishNum": "0.4-1.4 kg 0-3 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/364426/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364426/",
+      "airTemp": 5.8,
+      "seaTemp": 14.2,
+      "moonAge": 2.36
     },
     {
       "date": "2026-02-20",
+      "catchMin": 0.0,
       "catchMax": 1.0,
       "fishNum": "0.4-0.6 kg 0-1 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/364479/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364479/",
+      "airTemp": 6.5,
+      "seaTemp": 13.8,
+      "moonAge": 3.36
     },
     {
       "date": "2026-02-21",
+      "catchMin": 0.0,
       "catchMax": 1.0,
       "fishNum": "0-0.6 kg 0-1 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/364555/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364555/",
+      "airTemp": 8.3,
+      "seaTemp": 13.9,
+      "moonAge": 4.36
     },
     {
       "date": "2026-02-22",
+      "catchMin": 0.0,
       "catchMax": 2.0,
       "fishNum": "0.4-1.2 kg 0-2 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/364680/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364680/",
+      "airTemp": 12.0,
+      "seaTemp": 14.0,
+      "moonAge": 5.36
     },
     {
       "date": "2026-02-28",
+      "catchMin": 0.0,
       "catchMax": 3.0,
       "fishNum": "0.7-2.4 kg 0-3 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/364956/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364956/",
+      "airTemp": 12.8,
+      "seaTemp": 14.4,
+      "moonAge": 11.36
     },
     {
       "date": "2026-03-01",
+      "catchMin": 0.0,
       "catchMax": 2.0,
       "fishNum": "0.6-1.1 kg 0-2 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/365056/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365056/",
+      "airTemp": 11.6,
+      "seaTemp": 14.5,
+      "moonAge": 12.36
     },
     {
       "date": "2026-03-02",
+      "catchMin": 0.0,
       "catchMax": 2.0,
       "fishNum": "0.6-1.2 kg 0-2 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/365165/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365165/",
+      "airTemp": 12.2,
+      "seaTemp": 14.4,
+      "moonAge": 13.36
     },
     {
       "date": "2026-03-05",
+      "catchMin": 0.0,
       "catchMax": 4.0,
       "fishNum": "0.6-1.5 kg 0-4 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/365243/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365243/",
+      "airTemp": 9.2,
+      "seaTemp": 13.4,
+      "moonAge": 16.36
     },
     {
       "date": "2026-03-06",
+      "catchMin": 0.0,
       "catchMax": 4.0,
       "fishNum": "0.6-1.8 kg 0-4 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/365316/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365316/",
+      "airTemp": 10.5,
+      "seaTemp": 13.6,
+      "moonAge": 17.36
     },
     {
       "date": "2026-03-07",
+      "catchMin": 0.0,
       "catchMax": 3.0,
       "fishNum": "0.6-1.3 kg 0-3 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/365377/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365377/",
+      "airTemp": 12.7,
+      "seaTemp": 14.5,
+      "moonAge": 18.36
     },
     {
       "date": "2026-03-08",
+      "catchMin": 0.0,
       "catchMax": 1.0,
       "fishNum": "0.6-3 kg 0-1 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/365501/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365501/",
+      "airTemp": 6.6,
+      "seaTemp": 14.4,
+      "moonAge": 19.36
     },
     {
       "date": "2026-03-09",
+      "catchMin": 0.0,
       "catchMax": 1.0,
       "fishNum": "1.6-3.3 kg 0-1 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/365556/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365556/",
+      "airTemp": 7.0,
+      "seaTemp": 13.8,
+      "moonAge": 20.36
     },
     {
       "date": "2026-03-10",
+      "catchMin": 0.0,
       "catchMax": 0.0,
       "fishNum": "0-0 kg 0-0 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/365614/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365614/",
+      "airTemp": 5.6,
+      "seaTemp": 13.8,
+      "moonAge": 21.36
     },
     {
       "date": "2026-03-12",
+      "catchMin": 0.0,
       "catchMax": 2.0,
       "fishNum": "2-2.8 kg 0-2 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/365734/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365734/",
+      "airTemp": 6.8,
+      "seaTemp": 14.4,
+      "moonAge": 23.36
     },
     {
       "date": "2026-03-13",
+      "catchMin": 0.0,
       "catchMax": 4.0,
       "fishNum": "1.2-7 kg 0-4 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/365782/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365782/",
+      "airTemp": 6.1,
+      "seaTemp": 14.2,
+      "moonAge": 24.36
     },
     {
       "date": "2026-03-14",
+      "catchMin": 0.0,
       "catchMax": 2.0,
       "fishNum": "1.2-3 kg 0-2 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/365840/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365840/",
+      "airTemp": 8.5,
+      "seaTemp": 14.0,
+      "moonAge": 25.36
     },
     {
       "date": "2026-03-15",
+      "catchMin": 0.0,
       "catchMax": 1.0,
       "fishNum": "1-3.1 kg 0-1 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/365885/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365885/",
+      "airTemp": 9.1,
+      "seaTemp": 13.8,
+      "moonAge": 26.36
     },
     {
       "date": "2026-03-16",
+      "catchMin": 0.0,
       "catchMax": 1.0,
       "fishNum": "1.8-3 kg 0-1 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/365982/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365982/",
+      "airTemp": 9.3,
+      "seaTemp": 14.1,
+      "moonAge": 27.36
     },
     {
       "date": "2026-03-17",
+      "catchMin": 0.0,
       "catchMax": 2.0,
       "fishNum": "1.3-2.8 kg 0-2 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/366046/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366046/",
+      "airTemp": 9.7,
+      "seaTemp": 14.3,
+      "moonAge": 28.36
     },
     {
       "date": "2026-03-18",
+      "catchMin": 0.0,
       "catchMax": 2.0,
       "fishNum": "1.1-4.7 kg 0-2 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/366096/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366096/",
+      "airTemp": 12.0,
+      "seaTemp": 14.5,
+      "moonAge": 29.36
     },
     {
       "date": "2026-03-19",
+      "catchMin": 0.0,
       "catchMax": 2.0,
       "fishNum": "1.2-1.8 kg 0-2 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/366166/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366166/",
+      "airTemp": 15.0,
+      "seaTemp": 14.9,
+      "moonAge": 0.83
     },
     {
       "date": "2026-03-20",
+      "catchMin": 0.0,
       "catchMax": 2.0,
       "fishNum": "1.5-3.7 kg 0-2 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/366198/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366198/",
+      "airTemp": 11.2,
+      "seaTemp": 15.1,
+      "moonAge": 1.83
     },
     {
       "date": "2026-03-21",
+      "catchMin": 0.0,
       "catchMax": 1.0,
       "fishNum": "1.2-4.5 kg 0-1 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/366309/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366309/",
+      "airTemp": 9.4,
+      "seaTemp": 15.0,
+      "moonAge": 2.83
     },
     {
       "date": "2026-03-22",
+      "catchMin": 0.0,
       "catchMax": 2.0,
       "fishNum": "1.1-4.1 kg 0-2 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/366435/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366435/",
+      "airTemp": 10.9,
+      "seaTemp": 15.0,
+      "moonAge": 3.83
     },
     {
       "date": "2026-03-23",
+      "catchMin": 0.0,
       "catchMax": 2.0,
       "fishNum": "1-3.5 kg 0-2 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/366544/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366544/",
+      "airTemp": 10.6,
+      "seaTemp": 14.8,
+      "moonAge": 4.83
     },
     {
       "date": "2026-03-24",
+      "catchMin": 0.0,
       "catchMax": 1.0,
       "fishNum": "1.4-5.5 kg 0-1 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/366566/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366566/",
+      "airTemp": 11.2,
+      "seaTemp": 14.9,
+      "moonAge": 5.83
     },
     {
       "date": "2026-03-25",
+      "catchMin": 0.0,
       "catchMax": 1.0,
       "fishNum": "1.3-3.2 kg 0-1 匹",
-      "url": "https://www.maneimaru.jp/search/ChokaDetail/366610/"
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366610/",
+      "airTemp": 11.5,
+      "seaTemp": 14.8,
+      "moonAge": 6.83
     }
   ],
   "topDays": [
     {
-      "date": "2026-04-01",
-      "probability": 0.6433,
-      "airTemp": 14.7,
-      "seaTemp": 15.6,
-      "moonAge": 13.83,
-      "featureSource": "forecast"
+      "date": "2026-05-17",
+      "probability": 0.7526,
+      "predictedMin": 0.0,
+      "predictedMax": 8.1,
+      "airTemp": 18.79,
+      "seaTemp": 18.61,
+      "moonAge": 0.77,
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
-      "date": "2026-03-31",
-      "probability": 0.5797,
-      "airTemp": 17.3,
-      "seaTemp": 15.3,
-      "moonAge": 12.83,
-      "featureSource": "forecast"
+      "date": "2026-05-18",
+      "probability": 0.7432,
+      "predictedMin": 0.0,
+      "predictedMax": 7.99,
+      "airTemp": 18.86,
+      "seaTemp": 18.68,
+      "moonAge": 1.77,
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
-      "date": "2026-03-30",
-      "probability": 0.5573,
-      "airTemp": 16.4,
-      "seaTemp": 15.2,
-      "moonAge": 11.83,
-      "featureSource": "forecast"
+      "date": "2026-05-19",
+      "probability": 0.7428,
+      "predictedMin": 0.0,
+      "predictedMax": 7.94,
+      "airTemp": 19.07,
+      "seaTemp": 18.77,
+      "moonAge": 2.77,
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
-      "date": "2026-04-03",
-      "probability": 0.5274,
-      "airTemp": 13.2,
-      "seaTemp": 15.6,
-      "moonAge": 15.83,
-      "featureSource": "forecast"
+      "date": "2026-05-20",
+      "probability": 0.713,
+      "predictedMin": 0.0,
+      "predictedMax": 7.67,
+      "airTemp": 19.05,
+      "seaTemp": 18.85,
+      "moonAge": 3.77,
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
-      "date": "2026-04-07",
-      "probability": 0.4318,
-      "airTemp": 15.5,
-      "seaTemp": 15.7,
-      "moonAge": 19.83,
-      "featureSource": "forecast"
+      "date": "2026-05-21",
+      "probability": 0.6826,
+      "predictedMin": 0.0,
+      "predictedMax": 7.36,
+      "airTemp": 19.01,
+      "seaTemp": 18.89,
+      "moonAge": 4.77,
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
-      "date": "2026-04-08",
-      "probability": 0.4173,
-      "airTemp": 15.5,
-      "seaTemp": 15.76,
-      "moonAge": 20.83,
-      "featureSource": "forecast"
+      "date": "2026-05-22",
+      "probability": 0.6755,
+      "predictedMin": 0.0,
+      "predictedMax": 7.21,
+      "airTemp": 19.15,
+      "seaTemp": 18.92,
+      "moonAge": 5.77,
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
-      "date": "2026-04-06",
-      "probability": 0.4053,
-      "airTemp": 14.6,
-      "seaTemp": 15.67,
-      "moonAge": 18.83,
-      "featureSource": "forecast"
+      "date": "2026-05-23",
+      "probability": 0.6494,
+      "predictedMin": 0.0,
+      "predictedMax": 6.93,
+      "airTemp": 19.21,
+      "seaTemp": 18.97,
+      "moonAge": 6.77,
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
-      "date": "2026-04-05",
-      "probability": 0.4047,
-      "airTemp": 14.0,
-      "seaTemp": 15.62,
-      "moonAge": 17.83,
-      "featureSource": "forecast"
+      "date": "2026-04-22",
+      "probability": 0.5973,
+      "predictedMin": 0.0,
+      "predictedMax": 6.16,
+      "airTemp": 16.69,
+      "seaTemp": 17.31,
+      "moonAge": 5.3,
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     }
   ],
   "predictions": [
     {
       "date": "2026-01-01",
-      "probability": 0.0025,
+      "probability": 0.0,
+      "predictedMin": 0.22,
+      "predictedMax": 2.82,
       "airTemp": 6.6,
       "seaTemp": 16.8,
       "moonAge": 12.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-02",
-      "probability": 0.0022,
+      "probability": 0.0,
+      "predictedMin": 0.25,
+      "predictedMax": 2.67,
       "airTemp": 5.8,
       "seaTemp": 16.7,
       "moonAge": 13.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-03",
-      "probability": 0.0025,
+      "probability": 0.0095,
+      "predictedMin": 0.22,
+      "predictedMax": 2.75,
       "airTemp": 4.8,
       "seaTemp": 16.1,
       "moonAge": 14.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-04",
-      "probability": 0.0027,
+      "probability": 0.0493,
+      "predictedMin": 0.15,
+      "predictedMax": 2.78,
       "airTemp": 6.0,
       "seaTemp": 15.9,
       "moonAge": 15.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-05",
-      "probability": 0.0051,
+      "probability": 0.1008,
+      "predictedMin": 0.07,
+      "predictedMax": 2.98,
       "airTemp": 8.6,
       "seaTemp": 15.9,
       "moonAge": 16.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-06",
-      "probability": 0.0029,
+      "probability": 0.0898,
+      "predictedMin": 0.13,
+      "predictedMax": 2.73,
       "airTemp": 5.5,
       "seaTemp": 15.4,
       "moonAge": 17.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-07",
-      "probability": 0.0024,
+      "probability": 0.1383,
+      "predictedMin": 0.13,
+      "predictedMax": 2.74,
       "airTemp": 4.4,
       "seaTemp": 14.9,
       "moonAge": 18.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-08",
-      "probability": 0.0019,
+      "probability": 0.1489,
+      "predictedMin": 0.06,
+      "predictedMax": 2.95,
       "airTemp": 7.5,
       "seaTemp": 14.8,
       "moonAge": 19.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-09",
-      "probability": 0.0025,
+      "probability": 0.1642,
+      "predictedMin": 0.07,
+      "predictedMax": 2.87,
       "airTemp": 6.2,
       "seaTemp": 14.2,
       "moonAge": 20.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-10",
-      "probability": 0.0035,
+      "probability": 0.1902,
+      "predictedMin": 0.05,
+      "predictedMax": 3.48,
       "airTemp": 10.2,
       "seaTemp": 14.3,
       "moonAge": 21.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-11",
-      "probability": 0.005,
+      "probability": 0.1702,
+      "predictedMin": 0.03,
+      "predictedMax": 3.36,
       "airTemp": 10.3,
       "seaTemp": 14.8,
       "moonAge": 22.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-12",
-      "probability": 0.0073,
+      "probability": 0.1303,
+      "predictedMin": 0.07,
+      "predictedMax": 2.67,
       "airTemp": 5.5,
       "seaTemp": 14.3,
       "moonAge": 23.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-13",
-      "probability": 0.0039,
+      "probability": 0.1757,
+      "predictedMin": 0.06,
+      "predictedMax": 3.69,
       "airTemp": 10.8,
       "seaTemp": 14.1,
       "moonAge": 24.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-14",
-      "probability": 0.0033,
+      "probability": 0.0927,
+      "predictedMin": 0.04,
+      "predictedMax": 2.82,
       "airTemp": 8.0,
       "seaTemp": 14.5,
       "moonAge": 25.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-15",
-      "probability": 0.0033,
+      "probability": 0.0609,
+      "predictedMin": 0.03,
+      "predictedMax": 2.68,
       "airTemp": 7.9,
       "seaTemp": 14.6,
       "moonAge": 26.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-16",
-      "probability": 0.0121,
+      "probability": 0.185,
+      "predictedMin": 0.01,
+      "predictedMax": 4.02,
       "airTemp": 13.2,
       "seaTemp": 14.9,
       "moonAge": 27.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-17",
-      "probability": 0.0048,
+      "probability": 0.0394,
+      "predictedMin": 0.0,
+      "predictedMax": 2.89,
       "airTemp": 10.4,
       "seaTemp": 14.9,
       "moonAge": 28.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-18",
-      "probability": 0.0044,
+      "probability": 0.0,
+      "predictedMin": 0.01,
+      "predictedMax": 2.53,
       "airTemp": 9.1,
       "seaTemp": 14.8,
       "moonAge": 29.42,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-19",
-      "probability": 0.0058,
+      "probability": 0.0143,
+      "predictedMin": 0.0,
+      "predictedMax": 2.27,
       "airTemp": 10.4,
       "seaTemp": 14.7,
       "moonAge": 0.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-20",
-      "probability": 0.0053,
+      "probability": 0.0249,
+      "predictedMin": 0.0,
+      "predictedMax": 2.36,
       "airTemp": 8.9,
       "seaTemp": 14.7,
       "moonAge": 1.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-21",
-      "probability": 0.0113,
+      "probability": 0.0565,
+      "predictedMin": 0.04,
+      "predictedMax": 2.34,
       "airTemp": 2.7,
       "seaTemp": 14.1,
       "moonAge": 2.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-22",
-      "probability": 0.0131,
+      "probability": 0.0258,
+      "predictedMin": 0.03,
+      "predictedMax": 2.03,
       "airTemp": 2.8,
       "seaTemp": 13.7,
       "moonAge": 3.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-23",
-      "probability": 0.0129,
+      "probability": 0.0925,
+      "predictedMin": 0.05,
+      "predictedMax": 2.49,
       "airTemp": 3.4,
       "seaTemp": 14.2,
       "moonAge": 4.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-24",
-      "probability": 0.0128,
+      "probability": 0.1043,
+      "predictedMin": 0.02,
+      "predictedMax": 2.73,
       "airTemp": 6.5,
       "seaTemp": 14.7,
       "moonAge": 5.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-25",
-      "probability": 0.0386,
+      "probability": 0.1508,
+      "predictedMin": 0.08,
+      "predictedMax": 2.9,
       "airTemp": 3.5,
       "seaTemp": 14.6,
       "moonAge": 6.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-26",
-      "probability": 0.0628,
+      "probability": 0.1536,
+      "predictedMin": 0.09,
+      "predictedMax": 3.04,
       "airTemp": 4.3,
       "seaTemp": 14.9,
       "moonAge": 7.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-27",
-      "probability": 0.0637,
+      "probability": 0.0772,
+      "predictedMin": 0.17,
+      "predictedMax": 3.32,
       "airTemp": 5.2,
       "seaTemp": 16.1,
       "moonAge": 8.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-28",
-      "probability": 0.0642,
+      "probability": 0.0162,
+      "predictedMin": 0.24,
+      "predictedMax": 3.19,
       "airTemp": 4.8,
       "seaTemp": 16.4,
       "moonAge": 9.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-29",
-      "probability": 0.0643,
+      "probability": 0.0157,
+      "predictedMin": 0.26,
+      "predictedMax": 3.1,
       "airTemp": 4.3,
       "seaTemp": 16.3,
       "moonAge": 10.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-30",
-      "probability": 0.0606,
+      "probability": 0.034,
+      "predictedMin": 0.28,
+      "predictedMax": 3.04,
       "airTemp": 3.5,
       "seaTemp": 16.1,
       "moonAge": 11.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-01-31",
-      "probability": 0.0558,
+      "probability": 0.0805,
+      "predictedMin": 0.19,
+      "predictedMax": 2.99,
       "airTemp": 4.6,
       "seaTemp": 15.8,
       "moonAge": 12.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-02-01",
-      "probability": 0.0389,
+      "probability": 0.0241,
+      "predictedMin": 0.2,
+      "predictedMax": 2.83,
       "airTemp": 5.2,
       "seaTemp": 16.1,
       "moonAge": 13.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-02-02",
-      "probability": 0.0314,
+      "probability": 0.0,
+      "predictedMin": 0.24,
+      "predictedMax": 2.52,
       "airTemp": 5.9,
       "seaTemp": 16.6,
       "moonAge": 14.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 3.0,
+      "fishNum": "0.4-2.6 kg 0-3 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/363436/"
     },
     {
       "date": "2026-02-03",
-      "probability": 0.0345,
+      "probability": 0.0,
+      "predictedMin": 0.23,
+      "predictedMax": 2.5,
       "airTemp": 5.3,
       "seaTemp": 16.3,
       "moonAge": 15.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-02-04",
-      "probability": 0.0435,
+      "probability": 0.0,
+      "predictedMin": 0.13,
+      "predictedMax": 2.6,
       "airTemp": 7.6,
       "seaTemp": 16.3,
       "moonAge": 16.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-02-05",
-      "probability": 0.0618,
+      "probability": 0.0,
+      "predictedMin": 0.1,
+      "predictedMax": 2.58,
       "airTemp": 8.7,
       "seaTemp": 16.4,
       "moonAge": 17.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 2.0,
+      "fishNum": "0.4-0.6 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/363575/"
     },
     {
       "date": "2026-02-06",
-      "probability": 0.1065,
+      "probability": 0.024,
+      "predictedMin": 0.06,
+      "predictedMax": 2.71,
       "airTemp": 10.0,
       "seaTemp": 16.4,
       "moonAge": 18.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-02-07",
-      "probability": 0.0723,
+      "probability": 0.0,
+      "predictedMin": 0.34,
+      "predictedMax": 1.98,
       "airTemp": 3.2,
       "seaTemp": 16.1,
       "moonAge": 19.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-02-08",
-      "probability": 0.0754,
+      "probability": 0.0,
+      "predictedMin": 0.4,
+      "predictedMax": 2.07,
       "airTemp": 1.4,
       "seaTemp": 15.7,
       "moonAge": 20.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-02-09",
-      "probability": 0.0404,
+      "probability": 0.0556,
+      "predictedMin": 0.19,
+      "predictedMax": 2.32,
       "airTemp": 3.3,
       "seaTemp": 15.1,
       "moonAge": 21.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-02-10",
-      "probability": 0.0248,
+      "probability": 0.0407,
+      "predictedMin": 0.07,
+      "predictedMax": 2.48,
       "airTemp": 7.0,
       "seaTemp": 15.2,
       "moonAge": 22.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 1.0,
+      "observedMax": 5.0,
+      "fishNum": "0.4-2.6 kg 1-5 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/363835/"
     },
     {
       "date": "2026-02-11",
-      "probability": 0.0361,
+      "probability": 0.0782,
+      "predictedMin": 0.03,
+      "predictedMax": 2.83,
       "airTemp": 9.4,
       "seaTemp": 15.2,
       "moonAge": 23.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-02-12",
-      "probability": 0.025,
+      "probability": 0.0545,
+      "predictedMin": 0.06,
+      "predictedMax": 2.52,
       "airTemp": 6.9,
       "seaTemp": 14.8,
       "moonAge": 24.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 2.0,
+      "fishNum": "0.4-1.1 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/363915/"
     },
     {
       "date": "2026-02-13",
-      "probability": 0.0268,
+      "probability": 0.0944,
+      "predictedMin": 0.04,
+      "predictedMax": 2.77,
       "airTemp": 7.3,
       "seaTemp": 14.3,
       "moonAge": 25.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 3.0,
+      "fishNum": "0.4-1.1 kg 0-3 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/363964/"
     },
     {
       "date": "2026-02-14",
-      "probability": 0.0144,
+      "probability": 0.1286,
+      "predictedMin": 0.04,
+      "predictedMax": 3.44,
       "airTemp": 10.1,
       "seaTemp": 14.1,
       "moonAge": 26.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 2.0,
+      "fishNum": "0.4-2.1 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364059/"
     },
     {
       "date": "2026-02-15",
-      "probability": 0.0392,
+      "probability": 0.2425,
+      "predictedMin": 0.09,
+      "predictedMax": 5.03,
       "airTemp": 14.1,
       "seaTemp": 14.2,
       "moonAge": 27.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 5.0,
+      "fishNum": "0.4-3 kg 0-5 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364161/"
     },
     {
       "date": "2026-02-16",
-      "probability": 0.0167,
+      "probability": 0.114,
+      "predictedMin": 0.03,
+      "predictedMax": 3.62,
       "airTemp": 11.1,
       "seaTemp": 14.2,
       "moonAge": 28.89,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 2.0,
+      "fishNum": "0.4-1.6 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364261/"
     },
     {
       "date": "2026-02-17",
-      "probability": 0.0359,
+      "probability": 0.0,
+      "predictedMin": 0.0,
+      "predictedMax": 1.68,
       "airTemp": 5.4,
       "seaTemp": 14.0,
       "moonAge": 0.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 1.0,
+      "fishNum": "0.4-1.2 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364307/"
     },
     {
       "date": "2026-02-18",
-      "probability": 0.0204,
+      "probability": 0.0,
+      "predictedMin": 0.0,
+      "predictedMax": 1.84,
       "airTemp": 7.7,
       "seaTemp": 14.2,
       "moonAge": 1.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-02-19",
-      "probability": 0.0222,
+      "probability": 0.0,
+      "predictedMin": 0.0,
+      "predictedMax": 2.05,
       "airTemp": 5.8,
       "seaTemp": 14.2,
       "moonAge": 2.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 3.0,
+      "fishNum": "0.4-1.4 kg 0-3 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364426/"
     },
     {
       "date": "2026-02-20",
-      "probability": 0.0234,
+      "probability": 0.0,
+      "predictedMin": 0.0,
+      "predictedMax": 1.73,
       "airTemp": 6.5,
       "seaTemp": 13.8,
       "moonAge": 3.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 1.0,
+      "fishNum": "0.4-0.6 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364479/"
     },
     {
       "date": "2026-02-21",
-      "probability": 0.0207,
+      "probability": 0.0,
+      "predictedMin": 0.01,
+      "predictedMax": 1.87,
       "airTemp": 8.3,
       "seaTemp": 13.9,
       "moonAge": 4.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 1.0,
+      "fishNum": "0-0.6 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364555/"
     },
     {
       "date": "2026-02-22",
-      "probability": 0.0226,
+      "probability": 0.012,
+      "predictedMin": 0.07,
+      "predictedMax": 2.22,
       "airTemp": 12.0,
       "seaTemp": 14.0,
       "moonAge": 5.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 2.0,
+      "fishNum": "0.4-1.2 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364680/"
     },
     {
       "date": "2026-02-23",
-      "probability": 0.0787,
+      "probability": 0.2506,
+      "predictedMin": 0.15,
+      "predictedMax": 3.43,
       "airTemp": 15.8,
       "seaTemp": 14.4,
       "moonAge": 6.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-02-24",
-      "probability": 0.0447,
+      "probability": 0.2156,
+      "predictedMin": 0.06,
+      "predictedMax": 3.25,
       "airTemp": 13.2,
       "seaTemp": 14.6,
       "moonAge": 7.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-02-25",
-      "probability": 0.0428,
+      "probability": 0.1376,
+      "predictedMin": 0.05,
+      "predictedMax": 2.85,
       "airTemp": 11.5,
       "seaTemp": 14.3,
       "moonAge": 8.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-02-26",
-      "probability": 0.1374,
+      "probability": 0.0951,
+      "predictedMin": 0.04,
+      "predictedMax": 2.56,
       "airTemp": 8.5,
       "seaTemp": 14.1,
       "moonAge": 9.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-02-27",
-      "probability": 0.0629,
+      "probability": 0.1144,
+      "predictedMin": 0.07,
+      "predictedMax": 2.78,
       "airTemp": 11.0,
       "seaTemp": 14.0,
       "moonAge": 10.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-02-28",
-      "probability": 0.09,
+      "probability": 0.2342,
+      "predictedMin": 0.08,
+      "predictedMax": 3.5,
       "airTemp": 12.8,
       "seaTemp": 14.4,
       "moonAge": 11.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 3.0,
+      "fishNum": "0.7-2.4 kg 0-3 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/364956/"
     },
     {
       "date": "2026-03-01",
-      "probability": 0.0846,
+      "probability": 0.2246,
+      "predictedMin": 0.05,
+      "predictedMax": 3.43,
       "airTemp": 11.6,
       "seaTemp": 14.5,
       "moonAge": 12.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 2.0,
+      "fishNum": "0.6-1.1 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365056/"
     },
     {
       "date": "2026-03-02",
-      "probability": 0.1089,
+      "probability": 0.2385,
+      "predictedMin": 0.07,
+      "predictedMax": 3.58,
       "airTemp": 12.2,
       "seaTemp": 14.4,
       "moonAge": 13.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 2.0,
+      "fishNum": "0.6-1.2 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365165/"
     },
     {
       "date": "2026-03-03",
-      "probability": 0.1043,
+      "probability": 0.1805,
+      "predictedMin": 0.04,
+      "predictedMax": 3.09,
       "airTemp": 8.8,
       "seaTemp": 14.4,
       "moonAge": 14.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-03-04",
-      "probability": 0.1321,
+      "probability": 0.1385,
+      "predictedMin": 0.07,
+      "predictedMax": 2.85,
       "airTemp": 8.4,
       "seaTemp": 13.8,
       "moonAge": 15.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-03-05",
-      "probability": 0.1663,
+      "probability": 0.0975,
+      "predictedMin": 0.1,
+      "predictedMax": 2.81,
       "airTemp": 9.2,
       "seaTemp": 13.4,
       "moonAge": 16.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 4.0,
+      "fishNum": "0.6-1.5 kg 0-4 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365243/"
     },
     {
       "date": "2026-03-06",
-      "probability": 0.1579,
+      "probability": 0.1407,
+      "predictedMin": 0.11,
+      "predictedMax": 3.19,
       "airTemp": 10.5,
       "seaTemp": 13.6,
       "moonAge": 17.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 4.0,
+      "fishNum": "0.6-1.8 kg 0-4 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365316/"
     },
     {
       "date": "2026-03-07",
-      "probability": 0.0981,
+      "probability": 0.2809,
+      "predictedMin": 0.07,
+      "predictedMax": 4.12,
       "airTemp": 12.7,
       "seaTemp": 14.5,
       "moonAge": 18.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 3.0,
+      "fishNum": "0.6-1.3 kg 0-3 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365377/"
     },
     {
       "date": "2026-03-08",
-      "probability": 0.0394,
+      "probability": 0.1639,
+      "predictedMin": 0.06,
+      "predictedMax": 2.91,
       "airTemp": 6.6,
       "seaTemp": 14.4,
       "moonAge": 19.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 1.0,
+      "fishNum": "0.6-3 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365501/"
     },
     {
       "date": "2026-03-09",
-      "probability": 0.0558,
+      "probability": 0.1618,
+      "predictedMin": 0.06,
+      "predictedMax": 2.94,
       "airTemp": 7.0,
       "seaTemp": 13.8,
       "moonAge": 20.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 1.0,
+      "fishNum": "1.6-3.3 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365556/"
     },
     {
       "date": "2026-03-10",
-      "probability": 0.0832,
+      "probability": 0.1715,
+      "predictedMin": 0.07,
+      "predictedMax": 2.83,
       "airTemp": 5.6,
       "seaTemp": 13.8,
       "moonAge": 21.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 0.0,
+      "fishNum": "0-0 kg 0-0 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365614/"
     },
     {
       "date": "2026-03-11",
-      "probability": 0.104,
+      "probability": 0.1619,
+      "predictedMin": 0.07,
+      "predictedMax": 2.83,
       "airTemp": 5.8,
       "seaTemp": 13.9,
       "moonAge": 22.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-03-12",
-      "probability": 0.0632,
+      "probability": 0.1234,
+      "predictedMin": 0.06,
+      "predictedMax": 2.79,
       "airTemp": 6.8,
       "seaTemp": 14.4,
       "moonAge": 23.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 2.0,
+      "fishNum": "2-2.8 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365734/"
     },
     {
       "date": "2026-03-13",
-      "probability": 0.0876,
+      "probability": 0.1234,
+      "predictedMin": 0.06,
+      "predictedMax": 2.72,
       "airTemp": 6.1,
       "seaTemp": 14.2,
       "moonAge": 24.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 4.0,
+      "fishNum": "1.2-7 kg 0-4 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365782/"
     },
     {
       "date": "2026-03-14",
-      "probability": 0.0413,
+      "probability": 0.1293,
+      "predictedMin": 0.05,
+      "predictedMax": 3.13,
       "airTemp": 8.5,
       "seaTemp": 14.0,
       "moonAge": 25.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 2.0,
+      "fishNum": "1.2-3 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365840/"
     },
     {
       "date": "2026-03-15",
-      "probability": 0.0326,
+      "probability": 0.1263,
+      "predictedMin": 0.05,
+      "predictedMax": 3.31,
       "airTemp": 9.1,
       "seaTemp": 13.8,
       "moonAge": 26.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 1.0,
+      "fishNum": "1-3.1 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365885/"
     },
     {
       "date": "2026-03-16",
-      "probability": 0.0236,
+      "probability": 0.1062,
+      "predictedMin": 0.03,
+      "predictedMax": 3.21,
       "airTemp": 9.3,
       "seaTemp": 14.1,
       "moonAge": 27.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 1.0,
+      "fishNum": "1.8-3 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/365982/"
     },
     {
       "date": "2026-03-17",
-      "probability": 0.0228,
+      "probability": 0.0827,
+      "predictedMin": 0.02,
+      "predictedMax": 3.14,
       "airTemp": 9.7,
       "seaTemp": 14.3,
       "moonAge": 28.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 2.0,
+      "fishNum": "1.3-2.8 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366046/"
     },
     {
       "date": "2026-03-18",
-      "probability": 0.0403,
+      "probability": 0.1161,
+      "predictedMin": 0.02,
+      "predictedMax": 3.71,
       "airTemp": 12.0,
       "seaTemp": 14.5,
       "moonAge": 29.36,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 2.0,
+      "fishNum": "1.1-4.7 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366096/"
     },
     {
       "date": "2026-03-19",
-      "probability": 0.1575,
+      "probability": 0.1899,
+      "predictedMin": 0.04,
+      "predictedMax": 2.89,
       "airTemp": 15.0,
       "seaTemp": 14.9,
       "moonAge": 0.83,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 2.0,
+      "fishNum": "1.2-1.8 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366166/"
     },
     {
       "date": "2026-03-20",
-      "probability": 0.0931,
+      "probability": 0.1236,
+      "predictedMin": 0.0,
+      "predictedMax": 2.83,
       "airTemp": 11.2,
       "seaTemp": 15.1,
       "moonAge": 1.83,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 2.0,
+      "fishNum": "1.5-3.7 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366198/"
     },
     {
       "date": "2026-03-21",
-      "probability": 0.0454,
+      "probability": 0.0946,
+      "predictedMin": 0.0,
+      "predictedMax": 2.75,
       "airTemp": 9.4,
       "seaTemp": 15.0,
       "moonAge": 2.83,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 1.0,
+      "fishNum": "1.2-4.5 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366309/"
     },
     {
       "date": "2026-03-22",
-      "probability": 0.065,
+      "probability": 0.1443,
+      "predictedMin": 0.0,
+      "predictedMax": 2.92,
       "airTemp": 10.9,
       "seaTemp": 15.0,
       "moonAge": 3.83,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 2.0,
+      "fishNum": "1.1-4.1 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366435/"
     },
     {
       "date": "2026-03-23",
-      "probability": 0.0358,
+      "probability": 0.1298,
+      "predictedMin": 0.0,
+      "predictedMax": 2.82,
       "airTemp": 10.6,
       "seaTemp": 14.8,
       "moonAge": 4.83,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 2.0,
+      "fishNum": "1-3.5 kg 0-2 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366544/"
     },
     {
       "date": "2026-03-24",
-      "probability": 0.0389,
+      "probability": 0.1756,
+      "predictedMin": 0.0,
+      "predictedMax": 3.06,
       "airTemp": 11.2,
       "seaTemp": 14.9,
       "moonAge": 5.83,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 1.0,
+      "fishNum": "1.4-5.5 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366566/"
     },
     {
       "date": "2026-03-25",
-      "probability": 0.0375,
+      "probability": 0.187,
+      "predictedMin": 0.02,
+      "predictedMax": 3.11,
       "airTemp": 11.5,
       "seaTemp": 14.8,
       "moonAge": 6.83,
-      "featureSource": "archive"
+      "featureSource": "archive",
+      "observedMin": 0.0,
+      "observedMax": 1.0,
+      "fishNum": "1.3-3.2 kg 0-1 匹",
+      "url": "https://www.maneimaru.jp/search/ChokaDetail/366610/"
     },
     {
       "date": "2026-03-26",
-      "probability": 0.0606,
-      "airTemp": 12.2,
+      "probability": 0.2259,
+      "predictedMin": 0.03,
+      "predictedMax": 3.33,
+      "airTemp": 12.3,
       "seaTemp": 14.8,
       "moonAge": 7.83,
-      "featureSource": "forecast"
+      "featureSource": "forecast",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-03-27",
-      "probability": 0.109,
-      "airTemp": 12.6,
+      "probability": 0.2466,
+      "predictedMin": 0.04,
+      "predictedMax": 3.47,
+      "airTemp": 12.5,
       "seaTemp": 14.8,
       "moonAge": 8.83,
-      "featureSource": "forecast"
+      "featureSource": "forecast",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-03-28",
-      "probability": 0.24,
+      "probability": 0.3287,
+      "predictedMin": 0.07,
+      "predictedMax": 4.01,
       "airTemp": 14.3,
       "seaTemp": 14.8,
       "moonAge": 9.83,
-      "featureSource": "forecast"
+      "featureSource": "forecast",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-03-29",
-      "probability": 0.3674,
+      "probability": 0.3966,
+      "predictedMin": 0.09,
+      "predictedMax": 4.51,
       "airTemp": 15.2,
       "seaTemp": 14.9,
       "moonAge": 10.83,
-      "featureSource": "forecast"
+      "featureSource": "forecast",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-03-30",
-      "probability": 0.5573,
+      "probability": 0.5097,
+      "predictedMin": 0.09,
+      "predictedMax": 5.38,
       "airTemp": 16.4,
       "seaTemp": 15.2,
       "moonAge": 11.83,
-      "featureSource": "forecast"
+      "featureSource": "forecast",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-03-31",
-      "probability": 0.5797,
+      "probability": 0.5846,
+      "predictedMin": 0.1,
+      "predictedMax": 6.07,
       "airTemp": 17.3,
       "seaTemp": 15.3,
       "moonAge": 12.83,
-      "featureSource": "forecast"
+      "featureSource": "forecast",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-01",
-      "probability": 0.6433,
+      "probability": 0.4322,
+      "predictedMin": 0.03,
+      "predictedMax": 4.86,
       "airTemp": 14.7,
       "seaTemp": 15.6,
       "moonAge": 13.83,
-      "featureSource": "forecast"
+      "featureSource": "forecast",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-02",
-      "probability": 0.3741,
+      "probability": 0.2344,
+      "predictedMin": 0.02,
+      "predictedMax": 3.59,
       "airTemp": 10.8,
       "seaTemp": 15.5,
       "moonAge": 14.83,
-      "featureSource": "forecast"
+      "featureSource": "forecast",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-03",
-      "probability": 0.5274,
+      "probability": 0.3338,
+      "predictedMin": 0.02,
+      "predictedMax": 4.25,
       "airTemp": 13.2,
       "seaTemp": 15.6,
       "moonAge": 15.83,
-      "featureSource": "forecast"
+      "featureSource": "forecast",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-04",
-      "probability": 0.3937,
+      "probability": 0.2799,
+      "predictedMin": 0.02,
+      "predictedMax": 3.92,
       "airTemp": 12.3,
       "seaTemp": 15.55,
       "moonAge": 16.83,
-      "featureSource": "forecast"
+      "featureSource": "forecast",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-05",
-      "probability": 0.4047,
+      "probability": 0.3579,
+      "predictedMin": 0.02,
+      "predictedMax": 4.5,
       "airTemp": 14.0,
       "seaTemp": 15.62,
       "moonAge": 17.83,
-      "featureSource": "forecast"
+      "featureSource": "forecast",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-06",
-      "probability": 0.4053,
+      "probability": 0.3797,
+      "predictedMin": 0.02,
+      "predictedMax": 4.72,
       "airTemp": 14.6,
       "seaTemp": 15.67,
       "moonAge": 18.83,
-      "featureSource": "forecast"
+      "featureSource": "forecast",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-07",
-      "probability": 0.4318,
+      "probability": 0.424,
+      "predictedMin": 0.02,
+      "predictedMax": 5.13,
       "airTemp": 15.5,
       "seaTemp": 15.7,
       "moonAge": 19.83,
-      "featureSource": "forecast"
+      "featureSource": "forecast",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-08",
-      "probability": 0.4173,
+      "probability": 0.4035,
+      "predictedMin": 0.02,
+      "predictedMax": 5.02,
       "airTemp": 15.5,
       "seaTemp": 15.76,
       "moonAge": 20.83,
-      "featureSource": "forecast"
+      "featureSource": "forecast",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-09",
-      "probability": 0.3605,
+      "probability": 0.4391,
+      "predictedMin": 0.02,
+      "predictedMax": 5.39,
       "airTemp": 16.3,
       "seaTemp": 15.83,
       "moonAge": 21.83,
-      "featureSource": "forecast"
+      "featureSource": "forecast",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-10",
-      "probability": 0.2751,
+      "probability": 0.236,
+      "predictedMin": 0.0,
+      "predictedMax": 3.89,
       "airTemp": 13.91,
       "seaTemp": 15.9,
       "moonAge": 22.83,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-11",
-      "probability": 0.226,
+      "probability": 0.2227,
+      "predictedMin": 0.0,
+      "predictedMax": 3.85,
       "airTemp": 14.27,
       "seaTemp": 15.98,
       "moonAge": 23.83,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-12",
-      "probability": 0.2024,
+      "probability": 0.2059,
+      "predictedMin": 0.0,
+      "predictedMax": 3.8,
       "airTemp": 14.64,
       "seaTemp": 16.08,
       "moonAge": 24.83,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-13",
-      "probability": 0.1964,
+      "probability": 0.1788,
+      "predictedMin": 0.0,
+      "predictedMax": 3.67,
       "airTemp": 14.93,
       "seaTemp": 16.19,
       "moonAge": 25.83,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-14",
-      "probability": 0.1988,
+      "probability": 0.1526,
+      "predictedMin": 0.0,
+      "predictedMax": 3.56,
       "airTemp": 15.28,
       "seaTemp": 16.3,
       "moonAge": 26.83,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-15",
-      "probability": 0.2058,
+      "probability": 0.0998,
+      "predictedMin": 0.0,
+      "predictedMax": 3.29,
       "airTemp": 15.39,
       "seaTemp": 16.42,
       "moonAge": 27.83,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-16",
-      "probability": 0.2124,
+      "probability": 0.0411,
+      "predictedMin": 0.0,
+      "predictedMax": 3.01,
       "airTemp": 15.47,
       "seaTemp": 16.52,
       "moonAge": 28.83,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-17",
-      "probability": 0.2197,
+      "probability": 0.4775,
+      "predictedMin": 0.0,
+      "predictedMax": 5.08,
       "airTemp": 15.54,
       "seaTemp": 16.63,
       "moonAge": 0.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-18",
-      "probability": 0.23,
+      "probability": 0.5198,
+      "predictedMin": 0.0,
+      "predictedMax": 5.4,
       "airTemp": 15.87,
       "seaTemp": 16.75,
       "moonAge": 1.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-19",
-      "probability": 0.2438,
+      "probability": 0.5505,
+      "predictedMin": 0.0,
+      "predictedMax": 5.67,
       "airTemp": 16.12,
       "seaTemp": 16.88,
       "moonAge": 2.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-20",
-      "probability": 0.244,
+      "probability": 0.5735,
+      "predictedMin": 0.0,
+      "predictedMax": 5.89,
       "airTemp": 16.32,
       "seaTemp": 17.02,
       "moonAge": 3.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-21",
-      "probability": 0.2318,
+      "probability": 0.5858,
+      "predictedMin": 0.0,
+      "predictedMax": 6.04,
       "airTemp": 16.48,
       "seaTemp": 17.16,
       "moonAge": 4.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-22",
-      "probability": 0.228,
+      "probability": 0.5973,
+      "predictedMin": 0.0,
+      "predictedMax": 6.16,
       "airTemp": 16.69,
       "seaTemp": 17.31,
       "moonAge": 5.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-23",
-      "probability": 0.2494,
+      "probability": 0.5943,
+      "predictedMin": 0.0,
+      "predictedMax": 6.19,
       "airTemp": 16.84,
       "seaTemp": 17.48,
       "moonAge": 6.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-24",
-      "probability": 0.2818,
+      "probability": 0.5755,
+      "predictedMin": 0.0,
+      "predictedMax": 6.1,
       "airTemp": 16.89,
       "seaTemp": 17.63,
       "moonAge": 7.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-25",
-      "probability": 0.2974,
+      "probability": 0.5495,
+      "predictedMin": 0.0,
+      "predictedMax": 5.93,
       "airTemp": 16.92,
       "seaTemp": 17.77,
       "moonAge": 8.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-26",
-      "probability": 0.2821,
+      "probability": 0.5105,
+      "predictedMin": 0.0,
+      "predictedMax": 5.67,
       "airTemp": 16.83,
       "seaTemp": 17.86,
       "moonAge": 9.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-27",
-      "probability": 0.2352,
+      "probability": 0.471,
+      "predictedMin": 0.0,
+      "predictedMax": 5.39,
       "airTemp": 16.72,
       "seaTemp": 17.91,
       "moonAge": 10.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-28",
-      "probability": 0.1616,
+      "probability": 0.4435,
+      "predictedMin": 0.0,
+      "predictedMax": 5.18,
       "airTemp": 16.78,
       "seaTemp": 17.97,
       "moonAge": 11.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-29",
-      "probability": 0.0921,
+      "probability": 0.408,
+      "predictedMin": 0.0,
+      "predictedMax": 4.93,
       "airTemp": 16.81,
       "seaTemp": 18.05,
       "moonAge": 12.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-04-30",
-      "probability": 0.0507,
+      "probability": 0.3724,
+      "predictedMin": 0.0,
+      "predictedMax": 4.68,
       "airTemp": 16.87,
       "seaTemp": 18.11,
       "moonAge": 13.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-01",
-      "probability": 0.0325,
+      "probability": 0.3368,
+      "predictedMin": 0.0,
+      "predictedMax": 4.44,
       "airTemp": 16.93,
       "seaTemp": 18.17,
       "moonAge": 14.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-02",
-      "probability": 0.0256,
+      "probability": 0.3052,
+      "predictedMin": 0.0,
+      "predictedMax": 4.22,
       "airTemp": 17.03,
       "seaTemp": 18.21,
       "moonAge": 15.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-03",
-      "probability": 0.0237,
+      "probability": 0.2782,
+      "predictedMin": 0.0,
+      "predictedMax": 4.03,
       "airTemp": 17.18,
       "seaTemp": 18.25,
       "moonAge": 16.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-04",
-      "probability": 0.0243,
+      "probability": 0.2287,
+      "predictedMin": 0.0,
+      "predictedMax": 3.74,
       "airTemp": 17.07,
       "seaTemp": 18.24,
       "moonAge": 17.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-05",
-      "probability": 0.0262,
+      "probability": 0.1975,
+      "predictedMin": 0.0,
+      "predictedMax": 3.56,
       "airTemp": 17.06,
       "seaTemp": 18.21,
       "moonAge": 18.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-06",
-      "probability": 0.0274,
+      "probability": 0.1725,
+      "predictedMin": 0.0,
+      "predictedMax": 3.41,
       "airTemp": 17.1,
       "seaTemp": 18.18,
       "moonAge": 19.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-07",
-      "probability": 0.0272,
+      "probability": 0.1456,
+      "predictedMin": 0.0,
+      "predictedMax": 3.25,
       "airTemp": 17.18,
       "seaTemp": 18.16,
       "moonAge": 20.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-08",
-      "probability": 0.0267,
+      "probability": 0.1063,
+      "predictedMin": 0.0,
+      "predictedMax": 3.05,
       "airTemp": 17.24,
       "seaTemp": 18.17,
       "moonAge": 21.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-09",
-      "probability": 0.0267,
+      "probability": 0.0593,
+      "predictedMin": 0.0,
+      "predictedMax": 2.82,
       "airTemp": 17.37,
       "seaTemp": 18.22,
       "moonAge": 22.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-10",
-      "probability": 0.0277,
+      "probability": 0.0074,
+      "predictedMin": 0.0,
+      "predictedMax": 2.58,
       "airTemp": 17.63,
       "seaTemp": 18.32,
       "moonAge": 23.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-11",
-      "probability": 0.0279,
+      "probability": 0.0,
+      "predictedMin": 0.0,
+      "predictedMax": 2.35,
       "airTemp": 17.79,
       "seaTemp": 18.38,
       "moonAge": 24.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-12",
-      "probability": 0.0272,
+      "probability": 0.0,
+      "predictedMin": 0.0,
+      "predictedMax": 2.25,
       "airTemp": 17.98,
       "seaTemp": 18.37,
       "moonAge": 25.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-13",
-      "probability": 0.0267,
+      "probability": 0.0,
+      "predictedMin": 0.0,
+      "predictedMax": 2.09,
       "airTemp": 18.18,
       "seaTemp": 18.4,
       "moonAge": 26.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-14",
-      "probability": 0.0252,
+      "probability": 0.0,
+      "predictedMin": 0.0,
+      "predictedMax": 1.9,
       "airTemp": 18.31,
       "seaTemp": 18.43,
       "moonAge": 27.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-15",
-      "probability": 0.0233,
+      "probability": 0.0,
+      "predictedMin": 0.0,
+      "predictedMax": 1.7,
       "airTemp": 18.45,
       "seaTemp": 18.48,
       "moonAge": 28.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-16",
-      "probability": 0.0215,
+      "probability": 0.0,
+      "predictedMin": 0.0,
+      "predictedMax": 1.5,
       "airTemp": 18.62,
       "seaTemp": 18.53,
       "moonAge": 29.3,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-17",
-      "probability": 0.02,
+      "probability": 0.7526,
+      "predictedMin": 0.0,
+      "predictedMax": 8.1,
       "airTemp": 18.79,
       "seaTemp": 18.61,
       "moonAge": 0.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-18",
-      "probability": 0.0184,
+      "probability": 0.7432,
+      "predictedMin": 0.0,
+      "predictedMax": 7.99,
       "airTemp": 18.86,
       "seaTemp": 18.68,
       "moonAge": 1.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-19",
-      "probability": 0.0167,
+      "probability": 0.7428,
+      "predictedMin": 0.0,
+      "predictedMax": 7.94,
       "airTemp": 19.07,
       "seaTemp": 18.77,
       "moonAge": 2.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-20",
-      "probability": 0.0151,
+      "probability": 0.713,
+      "predictedMin": 0.0,
+      "predictedMax": 7.67,
       "airTemp": 19.05,
       "seaTemp": 18.85,
       "moonAge": 3.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-21",
-      "probability": 0.0136,
+      "probability": 0.6826,
+      "predictedMin": 0.0,
+      "predictedMax": 7.36,
       "airTemp": 19.01,
       "seaTemp": 18.89,
       "moonAge": 4.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-22",
-      "probability": 0.0124,
+      "probability": 0.6755,
+      "predictedMin": 0.0,
+      "predictedMax": 7.21,
       "airTemp": 19.15,
       "seaTemp": 18.92,
       "moonAge": 5.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-23",
-      "probability": 0.0113,
+      "probability": 0.6494,
+      "predictedMin": 0.0,
+      "predictedMax": 6.93,
       "airTemp": 19.21,
       "seaTemp": 18.97,
       "moonAge": 6.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-24",
-      "probability": 0.0102,
+      "probability": 0.5929,
+      "predictedMin": 0.0,
+      "predictedMax": 6.47,
       "airTemp": 19.1,
       "seaTemp": 19.05,
       "moonAge": 7.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-25",
-      "probability": 0.0089,
+      "probability": 0.5267,
+      "predictedMin": 0.0,
+      "predictedMax": 5.96,
       "airTemp": 18.97,
       "seaTemp": 19.13,
       "moonAge": 8.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-26",
-      "probability": 0.0075,
+      "probability": 0.4493,
+      "predictedMin": 0.01,
+      "predictedMax": 5.41,
       "airTemp": 18.81,
       "seaTemp": 19.22,
       "moonAge": 9.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-27",
-      "probability": 0.0063,
+      "probability": 0.3661,
+      "predictedMin": 0.02,
+      "predictedMax": 4.86,
       "airTemp": 18.79,
       "seaTemp": 19.38,
       "moonAge": 10.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-28",
-      "probability": 0.0053,
+      "probability": 0.2628,
+      "predictedMin": 0.04,
+      "predictedMax": 4.24,
       "airTemp": 18.75,
       "seaTemp": 19.56,
       "moonAge": 11.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-29",
-      "probability": 0.0046,
+      "probability": 0.1574,
+      "predictedMin": 0.05,
+      "predictedMax": 3.67,
       "airTemp": 18.71,
       "seaTemp": 19.72,
       "moonAge": 12.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-30",
-      "probability": 0.0038,
+      "probability": 0.0855,
+      "predictedMin": 0.06,
+      "predictedMax": 3.27,
       "airTemp": 18.83,
       "seaTemp": 19.84,
       "moonAge": 13.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-05-31",
-      "probability": 0.0032,
+      "probability": 0.0047,
+      "predictedMin": 0.07,
+      "predictedMax": 2.86,
       "airTemp": 18.99,
       "seaTemp": 19.98,
       "moonAge": 14.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-01",
-      "probability": 0.0026,
+      "probability": 0.0,
+      "predictedMin": 0.07,
+      "predictedMax": 2.45,
       "airTemp": 19.04,
       "seaTemp": 20.09,
       "moonAge": 15.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-02",
-      "probability": 0.0021,
+      "probability": 0.0,
+      "predictedMin": 0.08,
+      "predictedMax": 2.08,
       "airTemp": 19.22,
       "seaTemp": 20.23,
       "moonAge": 16.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-03",
-      "probability": 0.0016,
+      "probability": 0.0,
+      "predictedMin": 0.09,
+      "predictedMax": 1.68,
       "airTemp": 19.35,
       "seaTemp": 20.4,
       "moonAge": 17.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-04",
-      "probability": 0.0013,
+      "probability": 0.0,
+      "predictedMin": 0.1,
+      "predictedMax": 1.31,
       "airTemp": 19.46,
       "seaTemp": 20.55,
       "moonAge": 18.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-05",
-      "probability": 0.0011,
+      "probability": 0.0,
+      "predictedMin": 0.11,
+      "predictedMax": 1.06,
       "airTemp": 19.6,
       "seaTemp": 20.64,
       "moonAge": 19.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-06",
-      "probability": 0.0009,
+      "probability": 0.0,
+      "predictedMin": 0.11,
+      "predictedMax": 0.82,
       "airTemp": 19.89,
       "seaTemp": 20.77,
       "moonAge": 20.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-07",
-      "probability": 0.0009,
+      "probability": 0.0,
+      "predictedMin": 0.12,
+      "predictedMax": 0.52,
       "airTemp": 20.17,
       "seaTemp": 20.98,
       "moonAge": 21.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-08",
-      "probability": 0.0009,
+      "probability": 0.0,
+      "predictedMin": 0.12,
+      "predictedMax": 0.27,
       "airTemp": 20.43,
       "seaTemp": 21.17,
       "moonAge": 22.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-09",
-      "probability": 0.0008,
+      "probability": 0.0,
+      "predictedMin": 0.12,
+      "predictedMax": 0.12,
       "airTemp": 20.74,
       "seaTemp": 21.28,
       "moonAge": 23.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-10",
-      "probability": 0.0007,
+      "probability": 0.0,
+      "predictedMin": 0.11,
+      "predictedMax": 0.11,
       "airTemp": 21.09,
       "seaTemp": 21.37,
       "moonAge": 24.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-11",
-      "probability": 0.0005,
+      "probability": 0.0,
+      "predictedMin": 0.1,
+      "predictedMax": 0.1,
       "airTemp": 21.44,
       "seaTemp": 21.48,
       "moonAge": 25.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-12",
-      "probability": 0.0005,
+      "probability": 0.0,
+      "predictedMin": 0.1,
+      "predictedMax": 0.1,
       "airTemp": 21.85,
       "seaTemp": 21.71,
       "moonAge": 26.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-13",
-      "probability": 0.0004,
+      "probability": 0.0,
+      "predictedMin": 0.13,
+      "predictedMax": 0.13,
       "airTemp": 21.97,
       "seaTemp": 21.96,
       "moonAge": 27.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-14",
-      "probability": 0.0003,
+      "probability": 0.0,
+      "predictedMin": 0.15,
+      "predictedMax": 0.15,
       "airTemp": 22.11,
       "seaTemp": 22.2,
       "moonAge": 28.77,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-15",
-      "probability": 0.0003,
+      "probability": 0.2238,
+      "predictedMin": 0.21,
+      "predictedMax": 6.15,
       "airTemp": 22.31,
       "seaTemp": 22.43,
       "moonAge": 0.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-16",
-      "probability": 0.0002,
+      "probability": 0.1293,
+      "predictedMin": 0.24,
+      "predictedMax": 5.37,
       "airTemp": 22.48,
       "seaTemp": 22.6,
       "moonAge": 1.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-17",
-      "probability": 0.0002,
+      "probability": 0.0764,
+      "predictedMin": 0.25,
+      "predictedMax": 4.83,
       "airTemp": 22.7,
       "seaTemp": 22.69,
       "moonAge": 2.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-18",
-      "probability": 0.0001,
+      "probability": 0.0,
+      "predictedMin": 0.27,
+      "predictedMax": 4.17,
       "airTemp": 22.91,
       "seaTemp": 22.84,
       "moonAge": 3.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-19",
-      "probability": 0.0001,
+      "probability": 0.0,
+      "predictedMin": 0.28,
+      "predictedMax": 3.69,
       "airTemp": 23.18,
       "seaTemp": 22.94,
       "moonAge": 4.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-20",
-      "probability": 0.0001,
+      "probability": 0.0,
+      "predictedMin": 0.29,
+      "predictedMax": 3.29,
       "airTemp": 23.45,
       "seaTemp": 23.02,
       "moonAge": 5.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-21",
-      "probability": 0.0001,
+      "probability": 0.0,
+      "predictedMin": 0.29,
+      "predictedMax": 2.94,
       "airTemp": 23.77,
       "seaTemp": 23.1,
       "moonAge": 6.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-22",
-      "probability": 0.0001,
+      "probability": 0.0,
+      "predictedMin": 0.32,
+      "predictedMax": 2.33,
       "airTemp": 23.85,
       "seaTemp": 23.25,
       "moonAge": 7.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-23",
       "probability": 0.0,
+      "predictedMin": 0.35,
+      "predictedMax": 1.77,
       "airTemp": 23.85,
       "seaTemp": 23.39,
       "moonAge": 8.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-24",
       "probability": 0.0,
+      "predictedMin": 0.38,
+      "predictedMax": 1.32,
       "airTemp": 23.85,
       "seaTemp": 23.5,
       "moonAge": 9.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-25",
       "probability": 0.0,
+      "predictedMin": 0.4,
+      "predictedMax": 0.98,
       "airTemp": 23.86,
       "seaTemp": 23.58,
       "moonAge": 10.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-26",
       "probability": 0.0,
+      "predictedMin": 0.41,
+      "predictedMax": 0.74,
       "airTemp": 24.11,
       "seaTemp": 23.66,
       "moonAge": 11.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-27",
       "probability": 0.0,
+      "predictedMin": 0.41,
+      "predictedMax": 0.51,
       "airTemp": 24.32,
       "seaTemp": 23.75,
       "moonAge": 12.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-28",
       "probability": 0.0,
+      "predictedMin": 0.41,
+      "predictedMax": 0.41,
       "airTemp": 24.52,
       "seaTemp": 23.82,
       "moonAge": 13.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-29",
       "probability": 0.0,
+      "predictedMin": 0.42,
+      "predictedMax": 0.42,
       "airTemp": 24.89,
       "seaTemp": 23.97,
       "moonAge": 14.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-06-30",
       "probability": 0.0,
+      "predictedMin": 0.47,
+      "predictedMax": 0.47,
       "airTemp": 25.13,
       "seaTemp": 24.23,
       "moonAge": 15.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-01",
       "probability": 0.0,
+      "predictedMin": 0.53,
+      "predictedMax": 0.53,
       "airTemp": 25.37,
       "seaTemp": 24.5,
       "moonAge": 16.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-02",
       "probability": 0.0,
+      "predictedMin": 0.61,
+      "predictedMax": 0.61,
       "airTemp": 25.52,
       "seaTemp": 24.8,
       "moonAge": 17.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-03",
       "probability": 0.0,
+      "predictedMin": 0.68,
+      "predictedMax": 0.68,
       "airTemp": 25.69,
       "seaTemp": 25.08,
       "moonAge": 18.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-04",
       "probability": 0.0,
+      "predictedMin": 0.77,
+      "predictedMax": 0.77,
       "airTemp": 25.84,
       "seaTemp": 25.34,
       "moonAge": 19.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-05",
       "probability": 0.0,
+      "predictedMin": 0.8,
+      "predictedMax": 0.8,
       "airTemp": 25.94,
       "seaTemp": 25.45,
       "moonAge": 20.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-06",
       "probability": 0.0,
+      "predictedMin": 0.82,
+      "predictedMax": 0.82,
       "airTemp": 26.04,
       "seaTemp": 25.56,
       "moonAge": 21.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-07",
       "probability": 0.0,
+      "predictedMin": 0.88,
+      "predictedMax": 0.88,
       "airTemp": 26.06,
       "seaTemp": 25.72,
       "moonAge": 22.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-08",
       "probability": 0.0,
+      "predictedMin": 0.95,
+      "predictedMax": 0.95,
       "airTemp": 26.05,
       "seaTemp": 25.86,
       "moonAge": 23.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-09",
       "probability": 0.0,
+      "predictedMin": 0.98,
+      "predictedMax": 0.98,
       "airTemp": 26.04,
       "seaTemp": 25.95,
       "moonAge": 24.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-10",
       "probability": 0.0,
+      "predictedMin": 1.01,
+      "predictedMax": 1.01,
       "airTemp": 26.03,
       "seaTemp": 26.03,
       "moonAge": 25.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-11",
       "probability": 0.0,
+      "predictedMin": 1.05,
+      "predictedMax": 1.05,
       "airTemp": 25.98,
       "seaTemp": 26.1,
       "moonAge": 26.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-12",
       "probability": 0.0,
+      "predictedMin": 1.11,
+      "predictedMax": 1.11,
       "airTemp": 25.85,
       "seaTemp": 26.19,
       "moonAge": 27.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-13",
       "probability": 0.0,
+      "predictedMin": 1.16,
+      "predictedMax": 1.16,
       "airTemp": 25.8,
       "seaTemp": 26.27,
       "moonAge": 28.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-14",
       "probability": 0.0,
+      "predictedMin": 1.16,
+      "predictedMax": 1.16,
       "airTemp": 25.75,
       "seaTemp": 26.29,
       "moonAge": 29.24,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-15",
       "probability": 0.0,
+      "predictedMin": 1.24,
+      "predictedMax": 1.24,
       "airTemp": 25.77,
       "seaTemp": 26.28,
       "moonAge": 0.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-16",
       "probability": 0.0,
+      "predictedMin": 1.29,
+      "predictedMax": 1.29,
       "airTemp": 25.71,
       "seaTemp": 26.33,
       "moonAge": 1.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-17",
       "probability": 0.0,
+      "predictedMin": 1.34,
+      "predictedMax": 1.34,
       "airTemp": 25.73,
       "seaTemp": 26.4,
       "moonAge": 2.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-18",
       "probability": 0.0,
+      "predictedMin": 1.42,
+      "predictedMax": 1.42,
       "airTemp": 25.86,
       "seaTemp": 26.53,
       "moonAge": 3.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-19",
       "probability": 0.0,
+      "predictedMin": 1.46,
+      "predictedMax": 1.46,
       "airTemp": 26.07,
       "seaTemp": 26.64,
       "moonAge": 4.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-20",
       "probability": 0.0,
+      "predictedMin": 1.45,
+      "predictedMax": 1.45,
       "airTemp": 26.31,
       "seaTemp": 26.69,
       "moonAge": 5.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-21",
       "probability": 0.0,
+      "predictedMin": 1.45,
+      "predictedMax": 1.45,
       "airTemp": 26.51,
       "seaTemp": 26.74,
       "moonAge": 6.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-22",
       "probability": 0.0,
+      "predictedMin": 1.48,
+      "predictedMax": 1.48,
       "airTemp": 26.7,
       "seaTemp": 26.83,
       "moonAge": 7.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-23",
       "probability": 0.0,
+      "predictedMin": 1.54,
+      "predictedMax": 1.54,
       "airTemp": 26.88,
       "seaTemp": 26.96,
       "moonAge": 8.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-24",
       "probability": 0.0,
+      "predictedMin": 1.58,
+      "predictedMax": 1.58,
       "airTemp": 27.12,
       "seaTemp": 27.08,
       "moonAge": 9.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-25",
       "probability": 0.0,
+      "predictedMin": 1.6,
+      "predictedMax": 1.6,
       "airTemp": 27.33,
       "seaTemp": 27.18,
       "moonAge": 10.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-26",
       "probability": 0.0,
+      "predictedMin": 1.64,
+      "predictedMax": 1.64,
       "airTemp": 27.36,
       "seaTemp": 27.23,
       "moonAge": 11.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-27",
       "probability": 0.0,
+      "predictedMin": 1.64,
+      "predictedMax": 1.64,
       "airTemp": 27.42,
       "seaTemp": 27.25,
       "moonAge": 12.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-28",
       "probability": 0.0,
+      "predictedMin": 1.65,
+      "predictedMax": 1.65,
       "airTemp": 27.41,
       "seaTemp": 27.27,
       "moonAge": 13.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-29",
       "probability": 0.0,
+      "predictedMin": 1.66,
+      "predictedMax": 1.66,
       "airTemp": 27.43,
       "seaTemp": 27.29,
       "moonAge": 14.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-30",
       "probability": 0.0,
+      "predictedMin": 1.64,
+      "predictedMax": 1.64,
       "airTemp": 27.45,
       "seaTemp": 27.27,
       "moonAge": 15.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-07-31",
       "probability": 0.0,
+      "predictedMin": 1.6,
+      "predictedMax": 1.6,
       "airTemp": 27.52,
       "seaTemp": 27.26,
       "moonAge": 16.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-01",
       "probability": 0.0,
+      "predictedMin": 1.61,
+      "predictedMax": 1.61,
       "airTemp": 27.56,
       "seaTemp": 27.28,
       "moonAge": 17.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-02",
       "probability": 0.0,
+      "predictedMin": 1.65,
+      "predictedMax": 1.65,
       "airTemp": 27.55,
       "seaTemp": 27.34,
       "moonAge": 18.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-03",
       "probability": 0.0,
+      "predictedMin": 1.72,
+      "predictedMax": 1.72,
       "airTemp": 27.51,
       "seaTemp": 27.42,
       "moonAge": 19.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-04",
       "probability": 0.0,
+      "predictedMin": 1.76,
+      "predictedMax": 1.76,
       "airTemp": 27.47,
       "seaTemp": 27.47,
       "moonAge": 20.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-05",
       "probability": 0.0,
+      "predictedMin": 1.68,
+      "predictedMax": 1.68,
       "airTemp": 27.43,
       "seaTemp": 27.38,
       "moonAge": 21.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-06",
       "probability": 0.0,
+      "predictedMin": 1.61,
+      "predictedMax": 1.61,
       "airTemp": 27.42,
       "seaTemp": 27.31,
       "moonAge": 22.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-07",
       "probability": 0.0,
+      "predictedMin": 1.54,
+      "predictedMax": 1.54,
       "airTemp": 27.42,
       "seaTemp": 27.24,
       "moonAge": 23.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-08",
       "probability": 0.0,
+      "predictedMin": 1.48,
+      "predictedMax": 1.48,
       "airTemp": 27.47,
       "seaTemp": 27.2,
       "moonAge": 24.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-09",
       "probability": 0.0,
+      "predictedMin": 1.51,
+      "predictedMax": 1.51,
       "airTemp": 27.48,
       "seaTemp": 27.26,
       "moonAge": 25.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-10",
       "probability": 0.0,
+      "predictedMin": 1.53,
+      "predictedMax": 1.53,
       "airTemp": 27.51,
       "seaTemp": 27.32,
       "moonAge": 26.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-11",
       "probability": 0.0,
+      "predictedMin": 1.47,
+      "predictedMax": 1.47,
       "airTemp": 27.42,
       "seaTemp": 27.25,
       "moonAge": 27.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-12",
       "probability": 0.0,
+      "predictedMin": 1.36,
+      "predictedMax": 1.36,
       "airTemp": 27.5,
       "seaTemp": 27.15,
       "moonAge": 28.71,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-13",
       "probability": 0.0,
+      "predictedMin": 1.44,
+      "predictedMax": 1.44,
       "airTemp": 27.46,
       "seaTemp": 27.11,
       "moonAge": 0.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-14",
       "probability": 0.0,
+      "predictedMin": 1.46,
+      "predictedMax": 1.46,
       "airTemp": 27.43,
       "seaTemp": 27.12,
       "moonAge": 1.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-15",
       "probability": 0.0,
+      "predictedMin": 1.46,
+      "predictedMax": 1.46,
       "airTemp": 27.44,
       "seaTemp": 27.1,
       "moonAge": 2.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-16",
       "probability": 0.0,
+      "predictedMin": 1.45,
+      "predictedMax": 1.45,
       "airTemp": 27.48,
       "seaTemp": 27.07,
       "moonAge": 3.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-17",
       "probability": 0.0,
+      "predictedMin": 1.44,
+      "predictedMax": 1.44,
       "airTemp": 27.47,
       "seaTemp": 27.05,
       "moonAge": 4.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-18",
       "probability": 0.0,
+      "predictedMin": 1.49,
+      "predictedMax": 1.49,
       "airTemp": 27.5,
       "seaTemp": 27.11,
       "moonAge": 5.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-19",
       "probability": 0.0,
+      "predictedMin": 1.54,
+      "predictedMax": 1.54,
       "airTemp": 27.5,
       "seaTemp": 27.18,
       "moonAge": 6.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-20",
       "probability": 0.0,
+      "predictedMin": 1.6,
+      "predictedMax": 1.6,
       "airTemp": 27.45,
       "seaTemp": 27.23,
       "moonAge": 7.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-21",
       "probability": 0.0,
+      "predictedMin": 1.61,
+      "predictedMax": 1.61,
       "airTemp": 27.47,
       "seaTemp": 27.24,
       "moonAge": 8.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-22",
       "probability": 0.0,
+      "predictedMin": 1.62,
+      "predictedMax": 1.62,
       "airTemp": 27.42,
       "seaTemp": 27.23,
       "moonAge": 9.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-23",
       "probability": 0.0,
+      "predictedMin": 1.63,
+      "predictedMax": 1.63,
       "airTemp": 27.36,
       "seaTemp": 27.22,
       "moonAge": 10.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-24",
       "probability": 0.0,
+      "predictedMin": 1.69,
+      "predictedMax": 1.69,
       "airTemp": 27.42,
       "seaTemp": 27.32,
       "moonAge": 11.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-25",
       "probability": 0.0,
+      "predictedMin": 1.83,
+      "predictedMax": 1.83,
       "airTemp": 27.27,
       "seaTemp": 27.42,
       "moonAge": 12.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-26",
       "probability": 0.0,
+      "predictedMin": 1.86,
+      "predictedMax": 1.86,
       "airTemp": 27.2,
       "seaTemp": 27.45,
       "moonAge": 13.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-27",
       "probability": 0.0,
+      "predictedMin": 1.83,
+      "predictedMax": 1.83,
       "airTemp": 27.17,
       "seaTemp": 27.4,
       "moonAge": 14.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-28",
       "probability": 0.0,
+      "predictedMin": 1.82,
+      "predictedMax": 1.82,
       "airTemp": 27.14,
       "seaTemp": 27.38,
       "moonAge": 15.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-29",
       "probability": 0.0,
+      "predictedMin": 1.84,
+      "predictedMax": 1.84,
       "airTemp": 26.94,
       "seaTemp": 27.35,
       "moonAge": 16.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-30",
       "probability": 0.0,
+      "predictedMin": 1.81,
+      "predictedMax": 1.81,
       "airTemp": 26.73,
       "seaTemp": 27.25,
       "moonAge": 17.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-08-31",
       "probability": 0.0,
+      "predictedMin": 1.77,
+      "predictedMax": 1.77,
       "airTemp": 26.54,
       "seaTemp": 27.16,
       "moonAge": 18.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-01",
       "probability": 0.0,
+      "predictedMin": 1.77,
+      "predictedMax": 1.77,
       "airTemp": 26.41,
       "seaTemp": 27.13,
       "moonAge": 19.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-02",
       "probability": 0.0,
+      "predictedMin": 1.75,
+      "predictedMax": 1.75,
       "airTemp": 26.37,
       "seaTemp": 27.1,
       "moonAge": 20.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-03",
       "probability": 0.0,
+      "predictedMin": 1.75,
+      "predictedMax": 1.75,
       "airTemp": 26.34,
       "seaTemp": 27.11,
       "moonAge": 21.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-04",
       "probability": 0.0,
+      "predictedMin": 1.73,
+      "predictedMax": 1.73,
       "airTemp": 26.32,
       "seaTemp": 27.09,
       "moonAge": 22.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-05",
       "probability": 0.0,
+      "predictedMin": 1.72,
+      "predictedMax": 1.72,
       "airTemp": 26.29,
       "seaTemp": 27.09,
       "moonAge": 23.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-06",
       "probability": 0.0,
+      "predictedMin": 1.72,
+      "predictedMax": 1.72,
       "airTemp": 26.23,
       "seaTemp": 27.09,
       "moonAge": 24.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-07",
       "probability": 0.0,
+      "predictedMin": 1.73,
+      "predictedMax": 1.73,
       "airTemp": 26.2,
       "seaTemp": 27.1,
       "moonAge": 25.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-08",
       "probability": 0.0,
+      "predictedMin": 1.71,
+      "predictedMax": 1.71,
       "airTemp": 26.25,
       "seaTemp": 27.12,
       "moonAge": 26.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-09",
       "probability": 0.0,
+      "predictedMin": 1.73,
+      "predictedMax": 1.73,
       "airTemp": 26.24,
       "seaTemp": 27.16,
       "moonAge": 27.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-10",
       "probability": 0.0,
+      "predictedMin": 1.74,
+      "predictedMax": 1.74,
       "airTemp": 26.23,
       "seaTemp": 27.2,
       "moonAge": 28.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-11",
       "probability": 0.0,
+      "predictedMin": 1.7,
+      "predictedMax": 1.7,
       "airTemp": 26.38,
       "seaTemp": 27.22,
       "moonAge": 29.18,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-12",
       "probability": 0.0,
+      "predictedMin": 1.82,
+      "predictedMax": 1.82,
       "airTemp": 26.57,
       "seaTemp": 27.3,
       "moonAge": 0.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-13",
       "probability": 0.0,
+      "predictedMin": 1.9,
+      "predictedMax": 1.9,
       "airTemp": 26.58,
       "seaTemp": 27.38,
       "moonAge": 1.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-14",
       "probability": 0.0,
+      "predictedMin": 1.92,
+      "predictedMax": 1.92,
       "airTemp": 26.57,
       "seaTemp": 27.38,
       "moonAge": 2.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-15",
       "probability": 0.0,
+      "predictedMin": 1.92,
+      "predictedMax": 1.92,
       "airTemp": 26.57,
       "seaTemp": 27.36,
       "moonAge": 3.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-16",
       "probability": 0.0,
+      "predictedMin": 1.92,
+      "predictedMax": 1.92,
       "airTemp": 26.4,
       "seaTemp": 27.3,
       "moonAge": 4.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-17",
       "probability": 0.0,
+      "predictedMin": 1.93,
+      "predictedMax": 1.93,
       "airTemp": 26.16,
       "seaTemp": 27.22,
       "moonAge": 5.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-18",
       "probability": 0.0,
+      "predictedMin": 1.92,
+      "predictedMax": 1.92,
       "airTemp": 25.82,
       "seaTemp": 27.1,
       "moonAge": 6.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-19",
       "probability": 0.0,
+      "predictedMin": 1.89,
+      "predictedMax": 1.89,
       "airTemp": 25.48,
       "seaTemp": 26.95,
       "moonAge": 7.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-20",
       "probability": 0.0,
+      "predictedMin": 1.82,
+      "predictedMax": 1.82,
       "airTemp": 25.2,
       "seaTemp": 26.78,
       "moonAge": 8.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-21",
       "probability": 0.0,
+      "predictedMin": 1.76,
+      "predictedMax": 1.76,
       "airTemp": 24.9,
       "seaTemp": 26.62,
       "moonAge": 9.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-22",
       "probability": 0.0,
+      "predictedMin": 1.7,
+      "predictedMax": 1.7,
       "airTemp": 24.61,
       "seaTemp": 26.45,
       "moonAge": 10.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-23",
       "probability": 0.0,
+      "predictedMin": 1.61,
+      "predictedMax": 1.61,
       "airTemp": 24.38,
       "seaTemp": 26.27,
       "moonAge": 11.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-24",
       "probability": 0.0,
+      "predictedMin": 1.56,
+      "predictedMax": 1.56,
       "airTemp": 24.05,
       "seaTemp": 26.1,
       "moonAge": 12.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-25",
       "probability": 0.0,
+      "predictedMin": 1.54,
+      "predictedMax": 1.54,
       "airTemp": 23.63,
       "seaTemp": 25.93,
       "moonAge": 13.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-26",
       "probability": 0.0,
+      "predictedMin": 1.47,
+      "predictedMax": 1.47,
       "airTemp": 23.35,
       "seaTemp": 25.76,
       "moonAge": 14.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-27",
       "probability": 0.0,
+      "predictedMin": 1.38,
+      "predictedMax": 1.38,
       "airTemp": 23.17,
       "seaTemp": 25.58,
       "moonAge": 15.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-28",
       "probability": 0.0,
+      "predictedMin": 1.35,
+      "predictedMax": 1.35,
       "airTemp": 22.82,
       "seaTemp": 25.43,
       "moonAge": 16.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-29",
       "probability": 0.0,
+      "predictedMin": 1.29,
+      "predictedMax": 1.29,
       "airTemp": 22.76,
       "seaTemp": 25.33,
       "moonAge": 17.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-09-30",
       "probability": 0.0,
+      "predictedMin": 1.24,
+      "predictedMax": 1.24,
       "airTemp": 22.73,
       "seaTemp": 25.25,
       "moonAge": 18.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-01",
       "probability": 0.0,
+      "predictedMin": 1.2,
+      "predictedMax": 1.2,
       "airTemp": 22.72,
       "seaTemp": 25.18,
       "moonAge": 19.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-02",
       "probability": 0.0,
+      "predictedMin": 1.15,
+      "predictedMax": 1.15,
       "airTemp": 22.83,
       "seaTemp": 25.14,
       "moonAge": 20.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-03",
       "probability": 0.0,
+      "predictedMin": 1.15,
+      "predictedMax": 1.15,
       "airTemp": 22.67,
       "seaTemp": 25.11,
       "moonAge": 21.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-04",
       "probability": 0.0,
+      "predictedMin": 1.21,
+      "predictedMax": 1.21,
       "airTemp": 22.24,
       "seaTemp": 25.07,
       "moonAge": 22.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-05",
       "probability": 0.0,
+      "predictedMin": 1.25,
+      "predictedMax": 1.25,
       "airTemp": 21.82,
       "seaTemp": 25.02,
       "moonAge": 23.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-06",
       "probability": 0.0,
+      "predictedMin": 1.27,
+      "predictedMax": 1.27,
       "airTemp": 21.49,
       "seaTemp": 24.95,
       "moonAge": 24.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-07",
       "probability": 0.0,
+      "predictedMin": 1.25,
+      "predictedMax": 1.25,
       "airTemp": 21.32,
       "seaTemp": 24.89,
       "moonAge": 25.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-08",
       "probability": 0.0,
+      "predictedMin": 1.24,
+      "predictedMax": 1.24,
       "airTemp": 21.17,
       "seaTemp": 24.84,
       "moonAge": 26.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-09",
       "probability": 0.0,
+      "predictedMin": 1.26,
+      "predictedMax": 1.26,
       "airTemp": 20.93,
       "seaTemp": 24.82,
       "moonAge": 27.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-10",
       "probability": 0.0,
+      "predictedMin": 1.28,
+      "predictedMax": 1.28,
       "airTemp": 20.71,
       "seaTemp": 24.8,
       "moonAge": 28.65,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-11",
       "probability": 0.0,
+      "predictedMin": 1.25,
+      "predictedMax": 1.25,
       "airTemp": 20.63,
       "seaTemp": 24.76,
       "moonAge": 0.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-12",
       "probability": 0.0,
+      "predictedMin": 1.27,
+      "predictedMax": 1.27,
       "airTemp": 20.42,
       "seaTemp": 24.7,
       "moonAge": 1.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-13",
       "probability": 0.0,
+      "predictedMin": 1.28,
+      "predictedMax": 1.28,
       "airTemp": 20.25,
       "seaTemp": 24.64,
       "moonAge": 2.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-14",
       "probability": 0.0,
+      "predictedMin": 1.28,
+      "predictedMax": 1.28,
       "airTemp": 20.2,
       "seaTemp": 24.6,
       "moonAge": 3.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-15",
       "probability": 0.0,
+      "predictedMin": 1.37,
+      "predictedMax": 1.37,
       "airTemp": 19.62,
       "seaTemp": 24.53,
       "moonAge": 4.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-16",
       "probability": 0.0,
+      "predictedMin": 1.43,
+      "predictedMax": 1.43,
       "airTemp": 19.11,
       "seaTemp": 24.45,
       "moonAge": 5.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-17",
       "probability": 0.0,
+      "predictedMin": 1.4,
+      "predictedMax": 1.4,
       "airTemp": 19.01,
       "seaTemp": 24.35,
       "moonAge": 6.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-18",
       "probability": 0.0,
+      "predictedMin": 1.33,
+      "predictedMax": 1.33,
       "airTemp": 19.05,
       "seaTemp": 24.24,
       "moonAge": 7.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-19",
       "probability": 0.0,
+      "predictedMin": 1.28,
+      "predictedMax": 1.28,
       "airTemp": 18.95,
       "seaTemp": 24.13,
       "moonAge": 8.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-20",
       "probability": 0.0,
+      "predictedMin": 1.24,
+      "predictedMax": 1.24,
       "airTemp": 18.79,
       "seaTemp": 24.0,
       "moonAge": 9.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-21",
       "probability": 0.0,
+      "predictedMin": 1.17,
+      "predictedMax": 1.17,
       "airTemp": 18.75,
       "seaTemp": 23.86,
       "moonAge": 10.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-22",
       "probability": 0.0,
+      "predictedMin": 1.09,
+      "predictedMax": 1.09,
       "airTemp": 18.71,
       "seaTemp": 23.7,
       "moonAge": 11.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-23",
       "probability": 0.0,
+      "predictedMin": 1.07,
+      "predictedMax": 1.07,
       "airTemp": 18.38,
       "seaTemp": 23.54,
       "moonAge": 12.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-24",
       "probability": 0.0,
+      "predictedMin": 1.07,
+      "predictedMax": 1.07,
       "airTemp": 17.86,
       "seaTemp": 23.37,
       "moonAge": 13.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-25",
       "probability": 0.0,
+      "predictedMin": 1.05,
+      "predictedMax": 1.05,
       "airTemp": 17.47,
       "seaTemp": 23.2,
       "moonAge": 14.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-26",
       "probability": 0.0,
+      "predictedMin": 0.99,
+      "predictedMax": 0.99,
       "airTemp": 17.2,
       "seaTemp": 23.0,
       "moonAge": 15.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-27",
       "probability": 0.0,
+      "predictedMin": 0.92,
+      "predictedMax": 0.92,
       "airTemp": 17.01,
       "seaTemp": 22.79,
       "moonAge": 16.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-28",
       "probability": 0.0,
+      "predictedMin": 0.82,
+      "predictedMax": 0.82,
       "airTemp": 17.13,
       "seaTemp": 22.6,
       "moonAge": 17.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-29",
       "probability": 0.0,
+      "predictedMin": 0.75,
+      "predictedMax": 0.75,
       "airTemp": 17.17,
       "seaTemp": 22.46,
       "moonAge": 18.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-30",
       "probability": 0.0,
+      "predictedMin": 0.71,
+      "predictedMax": 0.71,
       "airTemp": 17.14,
       "seaTemp": 22.35,
       "moonAge": 19.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-10-31",
       "probability": 0.0,
+      "predictedMin": 0.69,
+      "predictedMax": 0.69,
       "airTemp": 16.97,
       "seaTemp": 22.26,
       "moonAge": 20.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-01",
       "probability": 0.0,
+      "predictedMin": 0.68,
+      "predictedMax": 0.68,
       "airTemp": 16.7,
       "seaTemp": 22.15,
       "moonAge": 21.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-02",
       "probability": 0.0,
+      "predictedMin": 0.68,
+      "predictedMax": 0.68,
       "airTemp": 16.33,
       "seaTemp": 22.04,
       "moonAge": 22.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-03",
       "probability": 0.0,
+      "predictedMin": 0.69,
+      "predictedMax": 0.69,
       "airTemp": 15.87,
       "seaTemp": 21.9,
       "moonAge": 23.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-04",
       "probability": 0.0,
+      "predictedMin": 0.67,
+      "predictedMax": 0.67,
       "airTemp": 15.55,
       "seaTemp": 21.77,
       "moonAge": 24.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-05",
       "probability": 0.0,
+      "predictedMin": 0.64,
+      "predictedMax": 0.64,
       "airTemp": 15.32,
       "seaTemp": 21.62,
       "moonAge": 25.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-06",
       "probability": 0.0,
+      "predictedMin": 0.58,
+      "predictedMax": 0.58,
       "airTemp": 15.27,
       "seaTemp": 21.47,
       "moonAge": 26.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-07",
       "probability": 0.0,
+      "predictedMin": 0.54,
+      "predictedMax": 0.54,
       "airTemp": 15.19,
       "seaTemp": 21.33,
       "moonAge": 27.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-08",
       "probability": 0.0,
+      "predictedMin": 0.52,
+      "predictedMax": 0.52,
       "airTemp": 15.0,
       "seaTemp": 21.22,
       "moonAge": 28.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-09",
       "probability": 0.0,
+      "predictedMin": 0.51,
+      "predictedMax": 0.51,
       "airTemp": 14.71,
       "seaTemp": 21.11,
       "moonAge": 29.12,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-10",
       "probability": 0.0,
+      "predictedMin": 0.44,
+      "predictedMax": 3.74,
       "airTemp": 14.58,
       "seaTemp": 21.0,
       "moonAge": 0.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-11",
       "probability": 0.0,
+      "predictedMin": 0.41,
+      "predictedMax": 3.59,
       "airTemp": 14.73,
       "seaTemp": 20.9,
       "moonAge": 1.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-12",
       "probability": 0.0,
+      "predictedMin": 0.39,
+      "predictedMax": 3.4,
       "airTemp": 14.67,
       "seaTemp": 20.78,
       "moonAge": 2.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-13",
       "probability": 0.0,
+      "predictedMin": 0.4,
+      "predictedMax": 3.12,
       "airTemp": 14.28,
       "seaTemp": 20.65,
       "moonAge": 3.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-14",
       "probability": 0.0,
+      "predictedMin": 0.41,
+      "predictedMax": 2.86,
       "airTemp": 13.88,
       "seaTemp": 20.52,
       "moonAge": 4.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-15",
       "probability": 0.0,
+      "predictedMin": 0.4,
+      "predictedMax": 2.67,
       "airTemp": 13.65,
       "seaTemp": 20.38,
       "moonAge": 5.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-16",
       "probability": 0.0,
+      "predictedMin": 0.38,
+      "predictedMax": 2.55,
       "airTemp": 13.62,
       "seaTemp": 20.25,
       "moonAge": 6.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-17",
       "probability": 0.0,
+      "predictedMin": 0.36,
+      "predictedMax": 2.43,
       "airTemp": 13.55,
       "seaTemp": 20.12,
       "moonAge": 7.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-18",
       "probability": 0.0,
+      "predictedMin": 0.36,
+      "predictedMax": 2.23,
       "airTemp": 13.43,
       "seaTemp": 20.04,
       "moonAge": 8.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-19",
       "probability": 0.0,
+      "predictedMin": 0.38,
+      "predictedMax": 1.96,
       "airTemp": 13.2,
       "seaTemp": 20.04,
       "moonAge": 9.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-20",
       "probability": 0.0,
+      "predictedMin": 0.41,
+      "predictedMax": 1.67,
       "airTemp": 12.88,
       "seaTemp": 20.04,
       "moonAge": 10.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-21",
       "probability": 0.0,
+      "predictedMin": 0.43,
+      "predictedMax": 1.46,
       "airTemp": 12.72,
       "seaTemp": 20.02,
       "moonAge": 11.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-22",
       "probability": 0.0,
+      "predictedMin": 0.42,
+      "predictedMax": 1.28,
       "airTemp": 12.86,
       "seaTemp": 20.03,
       "moonAge": 12.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-23",
       "probability": 0.0,
+      "predictedMin": 0.43,
+      "predictedMax": 1.09,
       "airTemp": 12.69,
       "seaTemp": 20.0,
       "moonAge": 13.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-24",
       "probability": 0.0,
+      "predictedMin": 0.46,
+      "predictedMax": 0.9,
       "airTemp": 12.35,
       "seaTemp": 19.96,
       "moonAge": 14.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-25",
       "probability": 0.0,
+      "predictedMin": 0.46,
+      "predictedMax": 0.75,
       "airTemp": 12.29,
       "seaTemp": 19.94,
       "moonAge": 15.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-26",
       "probability": 0.0,
+      "predictedMin": 0.44,
+      "predictedMax": 0.64,
       "airTemp": 12.43,
       "seaTemp": 19.92,
       "moonAge": 16.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-27",
       "probability": 0.0,
+      "predictedMin": 0.43,
+      "predictedMax": 0.51,
       "airTemp": 12.62,
       "seaTemp": 19.94,
       "moonAge": 17.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-28",
       "probability": 0.0,
+      "predictedMin": 0.43,
+      "predictedMax": 0.43,
       "airTemp": 12.72,
       "seaTemp": 19.97,
       "moonAge": 18.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-29",
       "probability": 0.0,
+      "predictedMin": 0.44,
+      "predictedMax": 0.44,
       "airTemp": 12.69,
       "seaTemp": 20.01,
       "moonAge": 19.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-11-30",
       "probability": 0.0,
+      "predictedMin": 0.46,
+      "predictedMax": 0.46,
       "airTemp": 12.5,
       "seaTemp": 20.03,
       "moonAge": 20.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-01",
       "probability": 0.0,
+      "predictedMin": 0.46,
+      "predictedMax": 0.46,
       "airTemp": 12.48,
       "seaTemp": 20.01,
       "moonAge": 21.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-02",
       "probability": 0.0,
+      "predictedMin": 0.43,
+      "predictedMax": 0.43,
       "airTemp": 12.5,
       "seaTemp": 19.91,
       "moonAge": 22.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-03",
       "probability": 0.0,
+      "predictedMin": 0.4,
+      "predictedMax": 0.4,
       "airTemp": 12.36,
       "seaTemp": 19.78,
       "moonAge": 23.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-04",
       "probability": 0.0,
+      "predictedMin": 0.4,
+      "predictedMax": 0.4,
       "airTemp": 12.0,
       "seaTemp": 19.64,
       "moonAge": 24.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-05",
       "probability": 0.0,
+      "predictedMin": 0.39,
+      "predictedMax": 0.39,
       "airTemp": 11.51,
       "seaTemp": 19.45,
       "moonAge": 25.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-06",
       "probability": 0.0,
+      "predictedMin": 0.37,
+      "predictedMax": 0.37,
       "airTemp": 11.15,
       "seaTemp": 19.28,
       "moonAge": 26.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-07",
       "probability": 0.0,
+      "predictedMin": 0.36,
+      "predictedMax": 0.36,
       "airTemp": 10.68,
       "seaTemp": 19.07,
       "moonAge": 27.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-08",
       "probability": 0.0,
+      "predictedMin": 0.34,
+      "predictedMax": 0.34,
       "airTemp": 10.18,
       "seaTemp": 18.84,
       "moonAge": 28.58,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-09",
       "probability": 0.0,
+      "predictedMin": 0.24,
+      "predictedMax": 4.53,
       "airTemp": 9.87,
       "seaTemp": 18.67,
       "moonAge": 0.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-10",
-      "probability": 0.0001,
+      "probability": 0.0,
+      "predictedMin": 0.25,
+      "predictedMax": 4.32,
       "airTemp": 9.57,
       "seaTemp": 18.54,
       "moonAge": 1.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-11",
-      "probability": 0.0001,
+      "probability": 0.0,
+      "predictedMin": 0.24,
+      "predictedMax": 4.15,
       "airTemp": 9.44,
       "seaTemp": 18.4,
       "moonAge": 2.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-12",
-      "probability": 0.0001,
+      "probability": 0.0,
+      "predictedMin": 0.23,
+      "predictedMax": 4.0,
       "airTemp": 9.24,
       "seaTemp": 18.22,
       "moonAge": 3.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-13",
-      "probability": 0.0001,
+      "probability": 0.0,
+      "predictedMin": 0.22,
+      "predictedMax": 3.84,
       "airTemp": 9.11,
       "seaTemp": 18.1,
       "moonAge": 4.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-14",
-      "probability": 0.0001,
+      "probability": 0.0,
+      "predictedMin": 0.23,
+      "predictedMax": 3.67,
       "airTemp": 8.93,
       "seaTemp": 18.02,
       "moonAge": 5.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-15",
-      "probability": 0.0002,
+      "probability": 0.0,
+      "predictedMin": 0.23,
+      "predictedMax": 3.52,
       "airTemp": 9.0,
       "seaTemp": 17.97,
       "moonAge": 6.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-16",
-      "probability": 0.0002,
+      "probability": 0.0,
+      "predictedMin": 0.22,
+      "predictedMax": 3.39,
       "airTemp": 9.13,
       "seaTemp": 17.93,
       "moonAge": 7.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-17",
-      "probability": 0.0002,
+      "probability": 0.0,
+      "predictedMin": 0.22,
+      "predictedMax": 3.22,
       "airTemp": 9.06,
       "seaTemp": 17.88,
       "moonAge": 8.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-18",
-      "probability": 0.0003,
+      "probability": 0.0,
+      "predictedMin": 0.23,
+      "predictedMax": 3.06,
       "airTemp": 8.93,
       "seaTemp": 17.84,
       "moonAge": 9.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-19",
-      "probability": 0.0004,
+      "probability": 0.0,
+      "predictedMin": 0.23,
+      "predictedMax": 2.91,
       "airTemp": 9.01,
       "seaTemp": 17.81,
       "moonAge": 10.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-20",
-      "probability": 0.0004,
+      "probability": 0.0,
+      "predictedMin": 0.22,
+      "predictedMax": 2.77,
       "airTemp": 9.19,
       "seaTemp": 17.81,
       "moonAge": 11.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-21",
-      "probability": 0.0005,
+      "probability": 0.0,
+      "predictedMin": 0.22,
+      "predictedMax": 2.62,
       "airTemp": 9.23,
       "seaTemp": 17.79,
       "moonAge": 12.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-22",
-      "probability": 0.0006,
+      "probability": 0.0,
+      "predictedMin": 0.22,
+      "predictedMax": 2.47,
       "airTemp": 9.08,
       "seaTemp": 17.72,
       "moonAge": 13.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-23",
-      "probability": 0.0007,
+      "probability": 0.0,
+      "predictedMin": 0.2,
+      "predictedMax": 2.42,
       "airTemp": 9.08,
       "seaTemp": 17.56,
       "moonAge": 14.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-24",
-      "probability": 0.0008,
+      "probability": 0.0,
+      "predictedMin": 0.19,
+      "predictedMax": 2.36,
       "airTemp": 9.06,
       "seaTemp": 17.42,
       "moonAge": 15.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-25",
-      "probability": 0.0009,
+      "probability": 0.0,
+      "predictedMin": 0.18,
+      "predictedMax": 2.25,
       "airTemp": 8.97,
       "seaTemp": 17.33,
       "moonAge": 16.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-26",
-      "probability": 0.0011,
+      "probability": 0.0,
+      "predictedMin": 0.17,
+      "predictedMax": 2.18,
       "airTemp": 9.06,
       "seaTemp": 17.24,
       "moonAge": 17.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-27",
-      "probability": 0.0011,
+      "probability": 0.0,
+      "predictedMin": 0.15,
+      "predictedMax": 2.18,
       "airTemp": 8.86,
       "seaTemp": 17.0,
       "moonAge": 18.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-28",
-      "probability": 0.0012,
+      "probability": 0.0,
+      "predictedMin": 0.14,
+      "predictedMax": 2.13,
       "airTemp": 8.44,
       "seaTemp": 16.77,
       "moonAge": 19.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-29",
-      "probability": 0.0014,
+      "probability": 0.0,
+      "predictedMin": 0.14,
+      "predictedMax": 2.08,
       "airTemp": 8.1,
       "seaTemp": 16.59,
       "moonAge": 20.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-30",
-      "probability": 0.0017,
+      "probability": 0.0,
+      "predictedMin": 0.13,
+      "predictedMax": 2.05,
       "airTemp": 8.02,
       "seaTemp": 16.43,
       "moonAge": 21.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     },
     {
       "date": "2026-12-31",
-      "probability": 0.0019,
+      "probability": 0.0,
+      "predictedMin": 0.11,
+      "predictedMax": 2.03,
       "airTemp": 8.06,
       "seaTemp": 16.28,
       "moonAge": 22.05,
-      "featureSource": "climatology"
+      "featureSource": "climatology",
+      "observedMin": null,
+      "observedMax": null,
+      "fishNum": null,
+      "url": null
     }
   ]
 }

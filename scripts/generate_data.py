@@ -6,7 +6,6 @@ import math
 import re
 import urllib.parse
 import urllib.request
-from collections import defaultdict
 from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
 
@@ -20,6 +19,19 @@ LONGITUDE = 139.835
 TIMEZONE_NAME = "Asia/Tokyo"
 SYNODIC_MONTH = 29.53058867
 REFERENCE_NEW_MOON = datetime(2000, 1, 6, 18, 14, tzinfo=timezone.utc)
+FEATURE_KEYS = ("airTemp", "seaTemp", "moonAge")
+FEATURE_TERMS = [
+    "intercept",
+    "airTemp",
+    "seaTemp",
+    "moonAge",
+    "airTemp*seaTemp",
+    "airTemp*moonAge",
+    "seaTemp*moonAge",
+    "airTemp^2",
+    "seaTemp^2",
+    "moonAge^2",
+]
 
 
 def parse_args():
@@ -100,15 +112,24 @@ def parse_posts(page_html):
     return posts
 
 
-def collect_daily_results():
+def extract_page_dates(page_html):
+    return [datetime.strptime(raw, "%Y年%m月%d日").date() for raw in re.findall(r'<h2 class="date">(\d{4}年\d{2}月\d{2}日)</h2>', page_html)]
+
+
+def collect_daily_results(oldest_keep_date=None):
     daily = {}
     seen_urls = set()
     for page in range(1, 121):
         html_text = fetch_text(MANEIMARU_HOME) if page == 1 else fetch_text(MANEIMARU_PAGE_API, {"p": page})
-        if html_text.strip().startswith("nodata"):
+        stripped = html_text.strip()
+        if not stripped or stripped.startswith("nodata"):
             break
+        page_dates = extract_page_dates(html_text)
         page_posts = parse_posts(html_text)
-
+        if not page_posts:
+            if oldest_keep_date and page_dates and min(page_dates) < oldest_keep_date:
+                break
+            continue
         for post in page_posts:
             if post["url"] in seen_urls:
                 continue
@@ -122,8 +143,9 @@ def collect_daily_results():
             current["catchMax"] = max(current["catchMax"], post["catchMax"])
             current["fishNum"] = post["fishNum"]
             current["url"] = post["url"]
-    ordered = [daily[key] for key in sorted(daily.keys())]
-    return ordered
+        if oldest_keep_date and page_dates and min(page_dates) < oldest_keep_date:
+            break
+    return [daily[key] for key in sorted(daily.keys())]
 
 
 def fetch_open_meteo_daily(base_url, start_date, end_date, fields):
@@ -173,28 +195,30 @@ def quantile(values, q):
     return ordered[lower] * (1 - weight) + ordered[upper] * weight
 
 
+def clamp(value, lower, upper):
+    return max(lower, min(upper, value))
+
+
 def circular_distance(day_a, day_b, span=366):
     delta = abs(day_a - day_b)
     return min(delta, span - delta)
 
 
 def build_climatology(feature_map):
-    buckets = defaultdict(lambda: {"temperature_2m_mean": [], "sea_surface_temperature_mean": []})
+    buckets = {}
     for iso, values in feature_map.items():
-        if "temperature_2m_mean" not in values or "sea_surface_temperature_mean" not in values:
-            continue
-        if values["temperature_2m_mean"] is None or values["sea_surface_temperature_mean"] is None:
+        air = values.get("temperature_2m_mean")
+        sea = values.get("sea_surface_temperature_mean")
+        if air is None or sea is None:
             continue
         day = date.fromisoformat(iso)
         doy = day.timetuple().tm_yday
-        buckets[doy]["temperature_2m_mean"].append(values["temperature_2m_mean"])
-        buckets[doy]["sea_surface_temperature_mean"].append(values["sea_surface_temperature_mean"])
+        bucket = buckets.setdefault(doy, {"temperature_2m_mean": [], "sea_surface_temperature_mean": []})
+        bucket["temperature_2m_mean"].append(air)
+        bucket["sea_surface_temperature_mean"].append(sea)
 
-    global_air = []
-    global_sea = []
-    for values in buckets.values():
-        global_air.extend(values["temperature_2m_mean"])
-        global_sea.extend(values["sea_surface_temperature_mean"])
+    global_air = [value for bucket in buckets.values() for value in bucket["temperature_2m_mean"]]
+    global_sea = [value for bucket in buckets.values() for value in bucket["sea_surface_temperature_mean"]]
 
     climatology = {}
     for doy in range(1, 367):
@@ -216,86 +240,6 @@ def build_climatology(feature_map):
     return climatology
 
 
-def build_activity_curve(training_days):
-    counts = defaultdict(int)
-    for day in training_days:
-        counts[day.timetuple().tm_yday] += 1
-
-    curve = {}
-    peak = 0.0
-    for doy in range(1, 367):
-        score = 0.0
-        for active_doy, count in counts.items():
-            distance = circular_distance(doy, active_doy)
-            score += count * math.exp(-0.5 * (distance / 16.0) ** 2)
-        curve[doy] = score
-        peak = max(peak, score)
-
-    for doy in curve:
-        curve[doy] = curve[doy] / peak if peak else 0.0
-    return curve
-
-
-def standardize(samples):
-    dimensions = len(samples[0])
-    means = []
-    scales = []
-    for dim in range(dimensions):
-        values = [sample[dim] for sample in samples]
-        mean = sum(values) / len(values)
-        variance = sum((value - mean) ** 2 for value in values) / len(values)
-        means.append(mean)
-        scales.append(math.sqrt(variance) or 1.0)
-    return means, scales
-
-
-def normalize(features, means, scales):
-    return [(value - mean) / scale for value, mean, scale in zip(features, means, scales)]
-
-
-def kernel_probability(target, training_rows, prior, bandwidth, skip_index=None):
-    weighted_sum = 0.0
-    total_weight = 0.0
-    for index, row in enumerate(training_rows):
-        if index == skip_index:
-            continue
-        distance_sq = sum((target[dim] - row["vector"][dim]) ** 2 for dim in range(len(target)))
-        weight = math.exp(-0.5 * distance_sq / (bandwidth * bandwidth))
-        year_gap = training_rows[-1]["date"].year - row["date"].year
-        weight *= 1.0 / (1.0 + year_gap * 0.28)
-        weighted_sum += weight * row["label"]
-        total_weight += weight
-    smooth = 0.75
-    return (weighted_sum + prior * smooth) / (total_weight + smooth)
-
-
-def choose_bandwidth(training_rows, prior):
-    candidates = [0.55, 0.7, 0.9, 1.1, 1.35, 1.6]
-    best_bandwidth = candidates[0]
-    best_score = float("inf")
-    for candidate in candidates:
-        error = 0.0
-        for index, row in enumerate(training_rows):
-            prediction = kernel_probability(row["vector"], training_rows, prior, candidate, skip_index=index)
-            error += (prediction - row["label"]) ** 2
-        score = error / len(training_rows)
-        if score < best_score:
-            best_score = score
-            best_bandwidth = candidate
-    return best_bandwidth
-
-
-def build_feature_vector(feature_record, day):
-    moon_age = moon_age_for(day)
-    moon_phase = moon_age / SYNODIC_MONTH * math.tau
-    return [
-        feature_record["temperature_2m_mean"],
-        feature_record["sea_surface_temperature_mean"],
-        math.sin(moon_phase),
-        math.cos(moon_phase),
-    ]
-
-
 def resolve_feature(day, archive_map, forecast_map, climatology):
     iso = day.isoformat()
     baseline = climatology[day.timetuple().tm_yday]
@@ -307,7 +251,113 @@ def resolve_feature(day, archive_map, forecast_map, climatology):
         record = dict(baseline)
         record.update({key: value for key, value in forecast_map[iso].items() if value is not None})
         return record, "forecast"
-    return baseline, "climatology"
+    return dict(baseline), "climatology"
+
+
+def round_half(value):
+    return round(value * 2) / 2.0
+
+
+def round_feature_range(values, lower_pad=0.0, upper_pad=0.0):
+    low = min(values) - lower_pad
+    high = max(values) + upper_pad
+    return round_half(low), round_half(high)
+
+
+def compute_base_stats(rows):
+    stats = {"means": {}, "scales": {}}
+    for key in FEATURE_KEYS:
+        values = [row[key] for row in rows]
+        mean = sum(values) / len(values)
+        variance = sum((value - mean) ** 2 for value in values) / len(values)
+        stats["means"][key] = mean
+        stats["scales"][key] = math.sqrt(variance) or 1.0
+    return stats
+
+
+def build_basis(raw_features, stats):
+    air = (raw_features["airTemp"] - stats["means"]["airTemp"]) / stats["scales"]["airTemp"]
+    sea = (raw_features["seaTemp"] - stats["means"]["seaTemp"]) / stats["scales"]["seaTemp"]
+    moon = (raw_features["moonAge"] - stats["means"]["moonAge"]) / stats["scales"]["moonAge"]
+    return [
+        1.0,
+        air,
+        sea,
+        moon,
+        air * sea,
+        air * moon,
+        sea * moon,
+        air * air,
+        sea * sea,
+        moon * moon,
+    ]
+
+
+def solve_linear_system(matrix, vector):
+    size = len(vector)
+    augmented = [row[:] + [value] for row, value in zip(matrix, vector)]
+    for col in range(size):
+        pivot = max(range(col, size), key=lambda row: abs(augmented[row][col]))
+        if abs(augmented[pivot][col]) < 1e-9:
+            augmented[pivot][col] = 1e-9
+        if pivot != col:
+            augmented[col], augmented[pivot] = augmented[pivot], augmented[col]
+
+        pivot_value = augmented[col][col]
+        for j in range(col, size + 1):
+            augmented[col][j] /= pivot_value
+
+        for row in range(size):
+            if row == col:
+                continue
+            factor = augmented[row][col]
+            if factor == 0:
+                continue
+            for j in range(col, size + 1):
+                augmented[row][j] -= factor * augmented[col][j]
+
+    return [augmented[row][size] for row in range(size)]
+
+
+def fit_ridge_regression(design_matrix, targets, ridge):
+    feature_count = len(design_matrix[0])
+    gram = [[0.0 for _ in range(feature_count)] for _ in range(feature_count)]
+    rhs = [0.0 for _ in range(feature_count)]
+
+    for features, target in zip(design_matrix, targets):
+        for i in range(feature_count):
+            rhs[i] += features[i] * target
+            for j in range(feature_count):
+                gram[i][j] += features[i] * features[j]
+
+    for index in range(1, feature_count):
+        gram[index][index] += ridge
+
+    return solve_linear_system(gram, rhs)
+
+
+def clip_probability(value):
+    return round(clamp(value, 0.0, 0.995), 4)
+
+
+def decode_count(value, ceiling):
+    return clamp(math.expm1(value), 0.0, ceiling)
+
+
+def predict_models(raw_features, regression, count_ceiling):
+    basis = build_basis(raw_features, regression["stats"])
+    probability_score = sum(weight * feature for weight, feature in zip(regression["models"]["probability"]["weights"], basis))
+    min_score = sum(weight * feature for weight, feature in zip(regression["models"]["catchMin"]["weights"], basis))
+    max_score = sum(weight * feature for weight, feature in zip(regression["models"]["catchMax"]["weights"], basis))
+
+    predicted_min = decode_count(min_score, count_ceiling)
+    predicted_max = max(predicted_min, decode_count(max_score, count_ceiling))
+
+    return {
+        "probability": clip_probability(probability_score),
+        "predictedMin": round(predicted_min, 2),
+        "predictedMax": round(predicted_max, 2),
+    }
 
 
 def main():
@@ -317,7 +367,8 @@ def main():
     year_start = date(target_year, 1, 1)
     year_end = date(target_year, 12, 31)
 
-    results = collect_daily_results()
+    training_start = date(target_year - 2, 1, 1)
+    results = collect_daily_results(oldest_keep_date=training_start)
     results = [row for row in results if row["date"] <= today]
     if not results:
         raise RuntimeError("No torafugu results were collected.")
@@ -357,81 +408,142 @@ def main():
         forecast_features = combine_feature_sources(air_forecast, sea_forecast)
 
     climatology = build_climatology(archive_features)
-
     positive_threshold = max(4, math.ceil(quantile([row["catchMax"] for row in results], 0.85)))
-    training_days = [row["date"] for row in results]
-    activity_curve = build_activity_curve(training_days)
 
-    raw_vectors = []
     training_rows = []
     for row in results:
         feature_record, _ = resolve_feature(row["date"], archive_features, forecast_features, climatology)
-        vector = build_feature_vector(feature_record, row["date"])
-        raw_vectors.append(vector)
         training_rows.append(
             {
                 "date": row["date"],
-                "label": 1.0 if row["catchMax"] >= positive_threshold else 0.0,
+                "catchMin": row["catchMin"],
                 "catchMax": row["catchMax"],
                 "fishNum": row["fishNum"],
                 "url": row["url"],
-                "featureRecord": feature_record,
+                "airTemp": feature_record["temperature_2m_mean"],
+                "seaTemp": feature_record["sea_surface_temperature_mean"],
+                "moonAge": moon_age_for(row["date"]),
             }
         )
 
-    means, scales = standardize(raw_vectors)
-    for row, vector in zip(training_rows, raw_vectors):
-        row["vector"] = normalize(vector, means, scales)
+    stats = compute_base_stats(training_rows)
+    design_matrix = [build_basis(row, stats) for row in training_rows]
 
-    prior = sum(row["label"] for row in training_rows) / len(training_rows)
-    bandwidth = choose_bandwidth(training_rows, prior)
+    probability_targets = [1.0 if row["catchMax"] >= positive_threshold else 0.0 for row in training_rows]
+    min_targets = [math.log1p(row["catchMin"]) for row in training_rows]
+    max_targets = [math.log1p(row["catchMax"]) for row in training_rows]
 
+    count_ceiling = max(row["catchMax"] for row in training_rows) * 1.35 + 1.0
+    regression = {
+        "featureTerms": FEATURE_TERMS,
+        "stats": {
+            "means": {key: round(stats["means"][key], 6) for key in FEATURE_KEYS},
+            "scales": {key: round(stats["scales"][key], 6) for key in FEATURE_KEYS},
+        },
+        "countCeiling": round(count_ceiling, 3),
+        "models": {
+            "probability": {
+                "type": "clamped_linear",
+                "weights": [round(value, 8) for value in fit_ridge_regression(design_matrix, probability_targets, ridge=1.1)],
+            },
+            "catchMin": {
+                "type": "log_count",
+                "weights": [round(value, 8) for value in fit_ridge_regression(design_matrix, min_targets, ridge=0.75)],
+            },
+            "catchMax": {
+                "type": "log_count",
+                "weights": [round(value, 8) for value in fit_ridge_regression(design_matrix, max_targets, ridge=0.75)],
+            },
+        },
+    }
+
+    observed_map = {row["date"].isoformat(): row for row in training_rows if row["date"].year == target_year}
     predictions = []
+    prediction_features = []
+
     current = year_start
     while current <= year_end:
         feature_record, source = resolve_feature(current, archive_features, forecast_features, climatology)
-        normalized_vector = normalize(build_feature_vector(feature_record, current), means, scales)
-        raw_probability = kernel_probability(normalized_vector, training_rows, prior, bandwidth)
-        activity = activity_curve[current.timetuple().tm_yday]
-        probability = max(0.0, min(0.995, raw_probability * activity))
+        raw_features = {
+            "airTemp": feature_record["temperature_2m_mean"],
+            "seaTemp": feature_record["sea_surface_temperature_mean"],
+            "moonAge": moon_age_for(current),
+        }
+        model_output = predict_models(raw_features, regression, count_ceiling)
+        observed = observed_map.get(current.isoformat())
         predictions.append(
             {
                 "date": current.isoformat(),
-                "probability": round(probability, 4),
-                "airTemp": round(feature_record["temperature_2m_mean"], 2),
-                "seaTemp": round(feature_record["sea_surface_temperature_mean"], 2),
-                "moonAge": round(moon_age_for(current), 2),
+                "probability": model_output["probability"],
+                "predictedMin": model_output["predictedMin"],
+                "predictedMax": model_output["predictedMax"],
+                "airTemp": round(raw_features["airTemp"], 2),
+                "seaTemp": round(raw_features["seaTemp"], 2),
+                "moonAge": round(raw_features["moonAge"], 2),
                 "featureSource": source,
+                "observedMin": round(observed["catchMin"], 2) if observed else None,
+                "observedMax": round(observed["catchMax"], 2) if observed else None,
+                "fishNum": observed["fishNum"] if observed else None,
+                "url": observed["url"] if observed else None,
             }
         )
+        prediction_features.append(raw_features)
         current += timedelta(days=1)
 
-    observed_map = {row["date"].isoformat(): row for row in results if row["date"].year == target_year}
     top_days = sorted(
         [row for row in predictions if row["date"] >= today.isoformat()],
         key=lambda item: item["probability"],
         reverse=True,
     )[:8]
 
+    air_values = [row["airTemp"] for row in prediction_features]
+    sea_values = [row["seaTemp"] for row in prediction_features]
+    today_prediction = next((row for row in predictions if row["date"] == today.isoformat()), predictions[0])
+
     payload = {
         "targetYear": target_year,
         "today": today.isoformat(),
         "generatedAt": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "xDayThreshold": positive_threshold,
-        "bandwidth": bandwidth,
         "sourceRange": {
             "from": results[0]["date"].isoformat(),
             "to": results[-1]["date"].isoformat(),
             "count": len(results),
         },
+        "featureRanges": {
+            "airTemp": {
+                "min": round_feature_range(air_values, lower_pad=1.0)[0],
+                "max": round_feature_range(air_values, upper_pad=1.0)[1],
+                "step": 0.1,
+                "default": today_prediction["airTemp"],
+            },
+            "seaTemp": {
+                "min": round_feature_range(sea_values, lower_pad=0.5)[0],
+                "max": round_feature_range(sea_values, upper_pad=0.5)[1],
+                "step": 0.1,
+                "default": today_prediction["seaTemp"],
+            },
+            "moonAge": {
+                "min": 0.0,
+                "max": round(SYNODIC_MONTH, 2),
+                "step": 0.1,
+                "default": today_prediction["moonAge"],
+            },
+        },
+        "regression": regression,
         "observed": [
             {
-                "date": iso,
+                "date": row["date"].isoformat(),
+                "catchMin": row["catchMin"],
                 "catchMax": row["catchMax"],
                 "fishNum": row["fishNum"],
                 "url": row["url"],
+                "airTemp": round(row["airTemp"], 2),
+                "seaTemp": round(row["seaTemp"], 2),
+                "moonAge": round(row["moonAge"], 2),
             }
-            for iso, row in sorted(observed_map.items())
+            for row in training_rows
+            if row["date"].year == target_year
         ],
         "topDays": top_days,
         "predictions": predictions,

@@ -1,11 +1,52 @@
-const chart = document.getElementById("chart");
-const ctx = chart.getContext("2d");
-const tooltip = document.getElementById("tooltip");
+const probabilityChart = document.getElementById("probChart");
+const minChart = document.getElementById("minChart");
+const maxChart = document.getElementById("maxChart");
+
+const simulatorNodes = {
+  airTemp: {
+    input: document.getElementById("airSlider"),
+    value: document.getElementById("airValue"),
+    unit: "C",
+  },
+  seaTemp: {
+    input: document.getElementById("seaSlider"),
+    value: document.getElementById("seaValue"),
+    unit: "C",
+  },
+  moonAge: {
+    input: document.getElementById("moonSlider"),
+    value: document.getElementById("moonValue"),
+    unit: "d",
+  },
+};
+
+const outputNodes = {
+  probability: document.getElementById("simProbability"),
+  min: document.getElementById("simMin"),
+  max: document.getElementById("simMax"),
+};
+
+const chartState = new Map();
 let payloadState = null;
-let geometryState = null;
+let simulatorInitialized = false;
+
+function clamp(value, lower, upper) {
+  return Math.max(lower, Math.min(upper, value));
+}
 
 function percent(value) {
   return `${(value * 100).toFixed(1)}%`;
+}
+
+function countText(value) {
+  return `${value.toFixed(1)}`;
+}
+
+function formatControlValue(key, value) {
+  if (key === "moonAge") {
+    return `${value.toFixed(1)} d`;
+  }
+  return `${value.toFixed(1)} C`;
 }
 
 function formatDate(iso) {
@@ -26,29 +67,21 @@ function monthlyTicks(points) {
   return ticks;
 }
 
-function drawChart(payload) {
+function prepareCanvas(canvas) {
+  const ctx = canvas.getContext("2d");
   const dpr = window.devicePixelRatio || 1;
-  const cssWidth = chart.clientWidth;
-  const cssHeight = chart.clientHeight;
+  const cssWidth = canvas.clientWidth;
+  const cssHeight = canvas.clientHeight;
 
-  chart.width = Math.floor(cssWidth * dpr);
-  chart.height = Math.floor(cssHeight * dpr);
+  canvas.width = Math.floor(cssWidth * dpr);
+  canvas.height = Math.floor(cssHeight * dpr);
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.clearRect(0, 0, cssWidth, cssHeight);
+  return { ctx, cssWidth, cssHeight };
+}
 
-  const margin = { top: 28, right: 26, bottom: 48, left: 48 };
-  const width = cssWidth - margin.left - margin.right;
-  const height = cssHeight - margin.top - margin.bottom;
-  const floorY = margin.top + height;
-  const barWidth = width / payload.predictions.length;
-  const maxValue = Math.max(Math.max(...payload.predictions.map((item) => item.probability)) * 1.14, 0.04);
-
-  const bg = ctx.createLinearGradient(0, margin.top, 0, floorY);
-  bg.addColorStop(0, "rgba(104, 209, 255, 0.06)");
-  bg.addColorStop(1, "rgba(104, 209, 255, 0)");
-  ctx.fillStyle = bg;
-  ctx.fillRect(margin.left, margin.top, width, height);
-
+function drawGrid(ctx, geometry, maxValue, formatter) {
+  const { margin, width, height, floorY } = geometry;
   ctx.strokeStyle = "rgba(255,255,255,0.08)";
   ctx.lineWidth = 1;
   ctx.font = "12px Segoe UI";
@@ -60,21 +93,61 @@ function drawChart(payload) {
     ctx.moveTo(margin.left, y);
     ctx.lineTo(margin.left + width, y);
     ctx.stroke();
-    const label = `${Math.round((1 - ratio) * maxValue * 100)}%`;
-    ctx.fillText(label, 8, y + 4);
+    ctx.fillText(formatter((1 - ratio) * maxValue), 8, y + 4);
   });
 
-  const todayIndex = payload.predictions.findIndex((item) => item.date === payload.today);
-  if (todayIndex >= 0) {
-    const x = margin.left + barWidth * (todayIndex + 0.5);
-    ctx.strokeStyle = "rgba(255, 209, 107, 0.8)";
-    ctx.setLineDash([5, 7]);
-    ctx.beginPath();
-    ctx.moveTo(x, margin.top);
-    ctx.lineTo(x, floorY);
-    ctx.stroke();
-    ctx.setLineDash([]);
+  ctx.strokeStyle = "rgba(255,255,255,0.18)";
+  ctx.beginPath();
+  ctx.moveTo(margin.left, floorY);
+  ctx.lineTo(margin.left + width, floorY);
+  ctx.stroke();
+}
+
+function drawBottomTicks(ctx, geometry, points) {
+  const { margin, floorY, slotWidth } = geometry;
+  ctx.fillStyle = "rgba(200,219,234,0.8)";
+  ctx.font = "12px Segoe UI";
+
+  monthlyTicks(points).forEach((tick) => {
+    const x = margin.left + slotWidth * (tick.index + 0.5);
+    ctx.fillText(tick.label, x - 8, floorY + 22);
+  });
+}
+
+function drawTodayMarker(ctx, geometry, points, today) {
+  const todayIndex = points.findIndex((item) => item.date === today);
+  if (todayIndex < 0) {
+    return;
   }
+  const x = geometry.margin.left + geometry.slotWidth * (todayIndex + 0.5);
+  ctx.strokeStyle = "rgba(255, 209, 107, 0.82)";
+  ctx.setLineDash([5, 7]);
+  ctx.beginPath();
+  ctx.moveTo(x, geometry.margin.top);
+  ctx.lineTo(x, geometry.floorY);
+  ctx.stroke();
+  ctx.setLineDash([]);
+}
+
+function drawProbabilityChart(payload) {
+  const { ctx, cssWidth, cssHeight } = prepareCanvas(probabilityChart);
+  const margin = { top: 28, right: 26, bottom: 48, left: 48 };
+  const width = cssWidth - margin.left - margin.right;
+  const height = cssHeight - margin.top - margin.bottom;
+  const floorY = margin.top + height;
+  const slotWidth = width / payload.predictions.length;
+  const maxValue = Math.max(Math.max(...payload.predictions.map((item) => item.probability)) * 1.16, 0.06);
+
+  const geometry = { margin, width, height, floorY, slotWidth, maxValue };
+
+  const bg = ctx.createLinearGradient(0, margin.top, 0, floorY);
+  bg.addColorStop(0, "rgba(104, 209, 255, 0.06)");
+  bg.addColorStop(1, "rgba(104, 209, 255, 0)");
+  ctx.fillStyle = bg;
+  ctx.fillRect(margin.left, margin.top, width, height);
+
+  drawGrid(ctx, geometry, maxValue, (value) => `${Math.round(value * 100)}%`);
+  drawTodayMarker(ctx, geometry, payload.predictions, payload.today);
 
   const gradient = ctx.createLinearGradient(0, margin.top, 0, floorY);
   gradient.addColorStop(0, "#76dbff");
@@ -83,25 +156,102 @@ function drawChart(payload) {
 
   payload.predictions.forEach((point, index) => {
     const valueHeight = (point.probability / maxValue) * height;
-    const x = margin.left + index * barWidth;
+    const x = margin.left + index * slotWidth;
     const y = floorY - valueHeight;
     ctx.fillStyle = gradient;
-    ctx.fillRect(x + 0.35, y, Math.max(barWidth - 0.7, 1), valueHeight);
+    ctx.fillRect(x + 0.35, y, Math.max(slotWidth - 0.7, 1), valueHeight);
   });
 
-  ctx.strokeStyle = "rgba(255,255,255,0.18)";
+  drawBottomTicks(ctx, geometry, payload.predictions);
+  chartState.set(probabilityChart.id, geometry);
+}
+
+function drawCountChart(canvas, payload, field, observedField, color, fillColor) {
+  const { ctx, cssWidth, cssHeight } = prepareCanvas(canvas);
+  const margin = { top: 22, right: 26, bottom: 42, left: 48 };
+  const width = cssWidth - margin.left - margin.right;
+  const height = cssHeight - margin.top - margin.bottom;
+  const floorY = margin.top + height;
+  const slotWidth = width / payload.predictions.length;
+  const values = payload.predictions.map((item) => item[field]);
+  const observedValues = payload.predictions.map((item) => item[observedField]).filter((value) => value !== null);
+  const maxValue = Math.max(2, ...values, ...observedValues) * 1.16;
+  const geometry = { margin, width, height, floorY, slotWidth, maxValue };
+
+  const bg = ctx.createLinearGradient(0, margin.top, 0, floorY);
+  bg.addColorStop(0, fillColor);
+  bg.addColorStop(1, "rgba(255,255,255,0)");
+  ctx.fillStyle = bg;
+  ctx.fillRect(margin.left, margin.top, width, height);
+
+  drawGrid(ctx, geometry, maxValue, (value) => `${value.toFixed(1)}`);
+  drawTodayMarker(ctx, geometry, payload.predictions, payload.today);
+
+  const linePoints = payload.predictions.map((point, index) => {
+    const x = margin.left + slotWidth * (index + 0.5);
+    const y = floorY - (point[field] / maxValue) * height;
+    return { x, y, point };
+  });
+
   ctx.beginPath();
-  ctx.moveTo(margin.left, floorY);
-  ctx.lineTo(margin.left + width, floorY);
+  ctx.moveTo(linePoints[0].x, floorY);
+  linePoints.forEach((point) => ctx.lineTo(point.x, point.y));
+  ctx.lineTo(linePoints[linePoints.length - 1].x, floorY);
+  ctx.closePath();
+  ctx.fillStyle = fillColor;
+  ctx.fill();
+
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  linePoints.forEach((point, index) => {
+    if (index === 0) {
+      ctx.moveTo(point.x, point.y);
+    } else {
+      ctx.lineTo(point.x, point.y);
+    }
+  });
   ctx.stroke();
 
-  ctx.fillStyle = "rgba(200,219,234,0.8)";
-  monthlyTicks(payload.predictions).forEach((tick) => {
-    const x = margin.left + barWidth * (tick.index + 0.5);
-    ctx.fillText(tick.label, x - 8, floorY + 22);
+  payload.predictions.forEach((point, index) => {
+    if (point[observedField] === null) {
+      return;
+    }
+    const x = margin.left + slotWidth * (index + 0.5);
+    const y = floorY - (point[observedField] / maxValue) * height;
+    ctx.fillStyle = "#eef7ff";
+    ctx.beginPath();
+    ctx.arc(x, y, 3.2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1.2;
+    ctx.stroke();
   });
 
-  return { margin, width, height, floorY, barWidth, maxValue };
+  drawBottomTicks(ctx, geometry, payload.predictions);
+  chartState.set(canvas.id, geometry);
+}
+
+function buildBasis(rawFeatures, regression) {
+  const stats = regression.stats;
+  const air = (rawFeatures.airTemp - stats.means.airTemp) / stats.scales.airTemp;
+  const sea = (rawFeatures.seaTemp - stats.means.seaTemp) / stats.scales.seaTemp;
+  const moon = (rawFeatures.moonAge - stats.means.moonAge) / stats.scales.moonAge;
+  return [1, air, sea, moon, air * sea, air * moon, sea * moon, air * air, sea * sea, moon * moon];
+}
+
+function dot(weights, vector) {
+  return weights.reduce((sum, weight, index) => sum + weight * vector[index], 0);
+}
+
+function simulate(rawFeatures, payload) {
+  const regression = payload.regression;
+  const basis = buildBasis(rawFeatures, regression);
+  const probability = clamp(dot(regression.models.probability.weights, basis), 0, 0.995);
+  const predictedMin = clamp(Math.expm1(dot(regression.models.catchMin.weights, basis)), 0, regression.countCeiling);
+  const predictedMaxRaw = clamp(Math.expm1(dot(regression.models.catchMax.weights, basis)), 0, regression.countCeiling);
+  const predictedMax = Math.max(predictedMin, predictedMaxRaw);
+  return { probability, predictedMin, predictedMax };
 }
 
 function populateTopDays(payload) {
@@ -113,88 +263,135 @@ function populateTopDays(payload) {
     chip.innerHTML = `
       <span class="date">${formatDate(item.date)}</span>
       <strong>${percent(item.probability)}</strong>
-      <span class="detail">${item.airTemp.toFixed(1)}C / ${item.seaTemp.toFixed(1)}C / moon ${item.moonAge.toFixed(1)}</span>
+      <span class="detail">min ${countText(item.predictedMin)} / max ${countText(item.predictedMax)}</span>
+      <span class="subdetail">${item.airTemp.toFixed(1)}C / ${item.seaTemp.toFixed(1)}C / moon ${item.moonAge.toFixed(1)}</span>
     `;
     host.appendChild(chip);
   });
 }
 
-function bindTooltip() {
-  const scroller = document.getElementById("chartScroller");
+function configureSimulator(payload) {
+  const update = () => {
+    const rawFeatures = {
+      airTemp: Number(simulatorNodes.airTemp.input.value),
+      seaTemp: Number(simulatorNodes.seaTemp.input.value),
+      moonAge: Number(simulatorNodes.moonAge.input.value),
+    };
 
-  function show(clientX, clientY) {
-    if (!payloadState || !geometryState) {
-      return;
-    }
-    const rect = chart.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const index = Math.max(
-      0,
-      Math.min(
-        payloadState.predictions.length - 1,
-        Math.floor((x - geometryState.margin.left) / geometryState.barWidth),
-      ),
-    );
-    const point = payloadState.predictions[index];
-    if (!point) {
-      tooltip.hidden = true;
-      return;
-    }
+    Object.entries(simulatorNodes).forEach(([key, node]) => {
+      node.value.textContent = formatControlValue(key, Number(node.input.value));
+    });
 
-    tooltip.hidden = false;
-    tooltip.style.left = `${Math.min(
-      scroller.scrollLeft + x + 16,
-      scroller.scrollLeft + rect.width - 220,
-    )}px`;
-    tooltip.style.top = `${Math.max(16, clientY - rect.top - 96)}px`;
-    tooltip.innerHTML = `
-      <strong>${formatDate(point.date)}</strong>
-      <span>${percent(point.probability)}</span>
-      <span>${point.airTemp.toFixed(1)}C / ${point.seaTemp.toFixed(1)}C</span>
-      <span>moon ${point.moonAge.toFixed(1)} / ${point.featureSource}</span>
-    `;
+    const result = simulate(rawFeatures, payload);
+    outputNodes.probability.textContent = percent(result.probability);
+    outputNodes.min.textContent = countText(result.predictedMin);
+    outputNodes.max.textContent = countText(result.predictedMax);
+  };
+
+  if (!simulatorInitialized) {
+    Object.entries(simulatorNodes).forEach(([key, node]) => {
+      const config = payload.featureRanges[key];
+      node.input.min = config.min;
+      node.input.max = config.max;
+      node.input.step = config.step;
+      node.input.value = config.default;
+      node.input.addEventListener("input", update);
+    });
+    simulatorInitialized = true;
   }
 
-  chart.addEventListener("mousemove", (event) => show(event.clientX, event.clientY));
-  chart.addEventListener(
+  update();
+}
+
+function showTooltip(canvas, tooltip, scroller, clientX, clientY) {
+  if (!payloadState) {
+    return;
+  }
+
+  const geometry = chartState.get(canvas.id);
+  if (!geometry) {
+    return;
+  }
+
+  const rect = canvas.getBoundingClientRect();
+  const x = clientX - rect.left;
+  const index = clamp(
+    Math.floor((x - geometry.margin.left) / geometry.slotWidth),
+    0,
+    payloadState.predictions.length - 1,
+  );
+  const point = payloadState.predictions[index];
+  if (!point) {
+    tooltip.hidden = true;
+    return;
+  }
+
+  tooltip.hidden = false;
+  tooltip.style.left = `${Math.min(scroller.scrollLeft + x + 16, scroller.scrollLeft + rect.width - 228)}px`;
+  tooltip.style.top = `${Math.max(16, clientY - rect.top - 120)}px`;
+  tooltip.innerHTML = `
+    <strong>${formatDate(point.date)}</strong>
+    <span>P(X) ${percent(point.probability)}</span>
+    <span>min ${countText(point.predictedMin)} / max ${countText(point.predictedMax)}</span>
+    <span>${point.airTemp.toFixed(1)}C / ${point.seaTemp.toFixed(1)}C / moon ${point.moonAge.toFixed(1)}</span>
+    <span>${point.fishNum ? `obs ${point.fishNum}` : point.featureSource}</span>
+  `;
+}
+
+function bindTooltip(canvasId, scrollerId, tooltipId) {
+  const canvas = document.getElementById(canvasId);
+  const scroller = document.getElementById(scrollerId);
+  const tooltip = document.getElementById(tooltipId);
+
+  const handleMove = (clientX, clientY) => showTooltip(canvas, tooltip, scroller, clientX, clientY);
+  canvas.addEventListener("mousemove", (event) => handleMove(event.clientX, event.clientY));
+  canvas.addEventListener(
     "touchmove",
     (event) => {
       const touch = event.touches[0];
       if (touch) {
-        show(touch.clientX, touch.clientY);
+        handleMove(touch.clientX, touch.clientY);
       }
     },
     { passive: true },
   );
-  chart.addEventListener("mouseleave", () => {
+  canvas.addEventListener("mouseleave", () => {
     tooltip.hidden = true;
   });
-  chart.addEventListener("touchend", () => {
+  canvas.addEventListener("touchend", () => {
     tooltip.hidden = true;
   });
 }
+
+function render(payload) {
+  document.getElementById("title").textContent = `${payload.targetYear} X-Day Forecast`;
+  document.getElementById("generatedAt").textContent = payload.generatedAt;
+  document.getElementById("threshold").textContent = `X >= ${payload.xDayThreshold}匹`;
+  document.getElementById("rangeLabel").textContent = `${payload.targetYear}-01-01 → ${payload.targetYear}-12-31`;
+  document.getElementById("todayLabel").textContent = `today ${payload.today}`;
+
+  populateTopDays(payload);
+  configureSimulator(payload);
+  drawProbabilityChart(payload);
+  drawCountChart(minChart, payload, "predictedMin", "observedMin", "#4ff0c6", "rgba(79, 240, 198, 0.22)");
+  drawCountChart(maxChart, payload, "predictedMax", "observedMax", "#ffd16b", "rgba(255, 209, 107, 0.20)");
+}
+
+bindTooltip("probChart", "probChartScroller", "probTooltip");
+bindTooltip("minChart", "minChartScroller", "minTooltip");
+bindTooltip("maxChart", "maxChartScroller", "maxTooltip");
+
+window.addEventListener("resize", () => {
+  if (payloadState) {
+    render(payloadState);
+  }
+});
 
 async function main() {
   const response = await fetch("./data/predictions.json");
   payloadState = await response.json();
-
-  document.getElementById("title").textContent = `${payloadState.targetYear} X-Day Forecast`;
-  document.getElementById("generatedAt").textContent = payloadState.generatedAt;
-  document.getElementById("threshold").textContent = `X >= ${payloadState.xDayThreshold}匹`;
-  document.getElementById("rangeLabel").textContent = `${payloadState.targetYear}-01-01 → ${payloadState.targetYear}-12-31`;
-  document.getElementById("todayLabel").textContent = `today ${payloadState.today}`;
-
-  populateTopDays(payloadState);
-  geometryState = drawChart(payloadState);
+  render(payloadState);
 }
-
-bindTooltip();
-
-window.addEventListener("resize", () => {
-  if (payloadState) {
-    geometryState = drawChart(payloadState);
-  }
-});
 
 main().catch((error) => {
   console.error(error);
