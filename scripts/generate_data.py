@@ -21,7 +21,7 @@ SYNODIC_MONTH = 29.53058867
 REFERENCE_NEW_MOON = datetime(2000, 1, 6, 18, 14, tzinfo=timezone.utc)
 FEATURE_KEYS = ("airTemp", "seaTemp", "moonAge")
 SEASON_START = (2, 1)
-SEASON_END = (5, 31)
+SEASON_END = (4, 30)
 FEATURE_TERMS = [
     "intercept",
     "airTemp",
