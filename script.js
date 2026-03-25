@@ -39,14 +39,14 @@ function percent(value) {
 }
 
 function countText(value) {
-  return `${value.toFixed(1)}`;
+  return `${value.toFixed(1)}匹`;
 }
 
 function formatControlValue(key, value) {
   if (key === "moonAge") {
-    return `${value.toFixed(1)} d`;
+    return `${value.toFixed(1)}日`;
   }
-  return `${value.toFixed(1)} C`;
+  return `${value.toFixed(1)}℃`;
 }
 
 function formatDate(iso) {
@@ -61,10 +61,20 @@ function monthlyTicks(points) {
   const ticks = [];
   points.forEach((point, index) => {
     if (point.date.endsWith("-01")) {
-      ticks.push({ index, label: point.date.slice(5, 7) });
+      const month = Number(point.date.slice(5, 7));
+      ticks.push({ index, label: `${month}月` });
     }
   });
   return ticks;
+}
+
+function featureSourceLabel(source) {
+  const labels = {
+    archive: "実測気象",
+    forecast: "予報気象",
+    climatology: "平年気候",
+  };
+  return labels[source] || source;
 }
 
 function prepareCanvas(canvas) {
@@ -263,8 +273,8 @@ function populateTopDays(payload) {
     chip.innerHTML = `
       <span class="date">${formatDate(item.date)}</span>
       <strong>${percent(item.probability)}</strong>
-      <span class="detail">min ${countText(item.predictedMin)} / max ${countText(item.predictedMax)}</span>
-      <span class="subdetail">${item.airTemp.toFixed(1)}C / ${item.seaTemp.toFixed(1)}C / moon ${item.moonAge.toFixed(1)}</span>
+      <span class="detail">下限 ${countText(item.predictedMin)} / 上限 ${countText(item.predictedMax)}</span>
+      <span class="subdetail">気温 ${item.airTemp.toFixed(1)}℃ / 水温 ${item.seaTemp.toFixed(1)}℃ / 月齢 ${item.moonAge.toFixed(1)}日</span>
     `;
     host.appendChild(chip);
   });
@@ -331,10 +341,10 @@ function showTooltip(canvas, tooltip, scroller, clientX, clientY) {
   tooltip.style.top = `${Math.max(16, clientY - rect.top - 120)}px`;
   tooltip.innerHTML = `
     <strong>${formatDate(point.date)}</strong>
-    <span>P(X) ${percent(point.probability)}</span>
-    <span>min ${countText(point.predictedMin)} / max ${countText(point.predictedMax)}</span>
-    <span>${point.airTemp.toFixed(1)}C / ${point.seaTemp.toFixed(1)}C / moon ${point.moonAge.toFixed(1)}</span>
-    <span>${point.fishNum ? `obs ${point.fishNum}` : point.featureSource}</span>
+    <span>Xデー確率 ${percent(point.probability)}</span>
+    <span>下限 ${countText(point.predictedMin)} / 上限 ${countText(point.predictedMax)}</span>
+    <span>気温 ${point.airTemp.toFixed(1)}℃ / 水温 ${point.seaTemp.toFixed(1)}℃ / 月齢 ${point.moonAge.toFixed(1)}日</span>
+    <span>${point.fishNum ? `実績 ${point.fishNum}` : featureSourceLabel(point.featureSource)}</span>
   `;
 }
 
@@ -364,11 +374,11 @@ function bindTooltip(canvasId, scrollerId, tooltipId) {
 }
 
 function render(payload) {
-  document.getElementById("title").textContent = `${payload.targetYear} X-Day Forecast`;
-  document.getElementById("generatedAt").textContent = payload.generatedAt;
-  document.getElementById("threshold").textContent = `X >= ${payload.xDayThreshold}匹`;
-  document.getElementById("rangeLabel").textContent = `${payload.targetYear}-01-01 → ${payload.targetYear}-12-31`;
-  document.getElementById("todayLabel").textContent = `today ${payload.today}`;
+  document.getElementById("title").textContent = `${payload.targetYear}年 トラフグXデー予測`;
+  document.getElementById("generatedAt").textContent = `更新 ${payload.generatedAt}`;
+  document.getElementById("threshold").textContent = `Xデー閾値 ${payload.xDayThreshold}匹以上`;
+  document.getElementById("rangeLabel").textContent = `${payload.seasonRange.from} - ${payload.seasonRange.to}`;
+  document.getElementById("todayLabel").textContent = `基準日 ${payload.today}`;
 
   populateTopDays(payload);
   configureSimulator(payload);

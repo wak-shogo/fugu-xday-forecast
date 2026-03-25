@@ -3,45 +3,45 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fugu X-Day Forecast</title>
+    <title>トラフグXデー予測</title>
     <meta
       name="description"
-      content="萬栄丸のトラフグ釣果と気温・水温・月齢から、2026年のXデー確率と予測匹数を日別に可視化するグラフィック。"
+      content="萬栄丸のトラフグ釣果と気温・水温・月齢から、Xデー確率と予測匹数を日別に可視化するグラフィック。"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <main class="shell">
       <header class="hero">
-        <p class="eyebrow">Torafugu</p>
-        <h1 id="title">X-Day Forecast</h1>
+        <p class="eyebrow">トラフグ</p>
+        <h1 id="title">Xデー予測</h1>
         <div class="meta">
-          <span id="generatedAt">loading</span>
+          <span id="generatedAt">読込中</span>
           <span id="threshold">-</span>
         </div>
       </header>
 
-      <section class="top-days" id="topDays" aria-label="top days"></section>
+      <section class="top-days" id="topDays" aria-label="注目日"></section>
 
       <section class="sim-panel">
         <div class="sim-head">
-          <span>Simulator</span>
-          <span id="simHint">live</span>
+          <span>回帰シミュレーター</span>
+          <span id="simHint">即時計算</span>
         </div>
         <div class="sim-grid">
           <div class="sim-controls">
             <label class="slider-card" for="airSlider">
-              <span>Air</span>
+              <span>気温</span>
               <strong id="airValue">-</strong>
               <input id="airSlider" type="range" />
             </label>
             <label class="slider-card" for="seaSlider">
-              <span>Sea</span>
+              <span>水温</span>
               <strong id="seaValue">-</strong>
               <input id="seaSlider" type="range" />
             </label>
             <label class="slider-card" for="moonSlider">
-              <span>Moon</span>
+              <span>月齢</span>
               <strong id="moonValue">-</strong>
               <input id="moonSlider" type="range" />
             </label>
@@ -49,15 +49,15 @@
 
           <div class="sim-metrics">
             <article class="metric-card">
-              <span>P(X)</span>
+              <span>Xデー確率</span>
               <strong id="simProbability">-</strong>
             </article>
             <article class="metric-card">
-              <span>Min</span>
+              <span>予測最小匹数</span>
               <strong id="simMin">-</strong>
             </article>
             <article class="metric-card">
-              <span>Max</span>
+              <span>予測最大匹数</span>
               <strong id="simMax">-</strong>
             </article>
           </div>
@@ -70,36 +70,36 @@
           <span id="todayLabel"></span>
         </div>
         <div class="chart-scroller" id="probChartScroller">
-          <canvas id="probChart" width="1800" height="520" aria-label="X-day probability chart"></canvas>
+          <canvas id="probChart" width="1800" height="520" aria-label="Xデー確率グラフ"></canvas>
           <div class="tooltip" id="probTooltip" hidden></div>
         </div>
       </section>
 
       <section class="chart-panel compact">
         <div class="chart-header">
-          <span>Predicted Min</span>
-          <span>fish/day</span>
+          <span>予測最小匹数</span>
+          <span>匹 / 日</span>
         </div>
         <div class="chart-scroller" id="minChartScroller">
-          <canvas id="minChart" width="1800" height="360" aria-label="Predicted minimum catch chart"></canvas>
+          <canvas id="minChart" width="1800" height="360" aria-label="予測最小匹数グラフ"></canvas>
           <div class="tooltip" id="minTooltip" hidden></div>
         </div>
       </section>
 
       <section class="chart-panel compact">
         <div class="chart-header">
-          <span>Predicted Max</span>
-          <span>fish/day</span>
+          <span>予測最大匹数</span>
+          <span>匹 / 日</span>
         </div>
         <div class="chart-scroller" id="maxChartScroller">
-          <canvas id="maxChart" width="1800" height="360" aria-label="Predicted maximum catch chart"></canvas>
+          <canvas id="maxChart" width="1800" height="360" aria-label="予測最大匹数グラフ"></canvas>
           <div class="tooltip" id="maxTooltip" hidden></div>
         </div>
       </section>
 
       <footer class="foot">
-        <span>maneimaru.jp</span>
-        <span>Open-Meteo</span>
+        <span>萬栄丸 釣果</span>
+        <span>Open-Meteo 気象データ</span>
       </footer>
     </main>
     <script src="./script.js" type="module"></script>

@@ -20,6 +20,8 @@ TIMEZONE_NAME = "Asia/Tokyo"
 SYNODIC_MONTH = 29.53058867
 REFERENCE_NEW_MOON = datetime(2000, 1, 6, 18, 14, tzinfo=timezone.utc)
 FEATURE_KEYS = ("airTemp", "seaTemp", "moonAge")
+SEASON_START = (2, 1)
+SEASON_END = (5, 31)
 FEATURE_TERMS = [
     "intercept",
     "airTemp",
@@ -76,6 +78,15 @@ def parse_count(text):
     return None
 
 
+def season_bounds(year):
+    return date(year, SEASON_START[0], SEASON_START[1]), date(year, SEASON_END[0], SEASON_END[1])
+
+
+def in_season(day):
+    season_start, season_end = season_bounds(day.year)
+    return season_start <= day <= season_end
+
+
 def parse_posts(page_html):
     posts = []
     for block in re.split(r'<div class="blog">', page_html)[1:]:
@@ -89,7 +100,7 @@ def parse_posts(page_html):
 
         fish_name = clean_fragment(fish_match.group(1))
         title = clean_fragment(title_match.group(2))
-        if "トラフグ" not in fish_name and "トラフグ" not in title:
+        if "トラフグ" not in fish_name:
             continue
 
         fish_num = clean_fragment(fish_num_match.group(1))
@@ -119,7 +130,7 @@ def extract_page_dates(page_html):
 def collect_daily_results(oldest_keep_date=None):
     daily = {}
     seen_urls = set()
-    for page in range(1, 121):
+    for page in range(1, 241):
         html_text = fetch_text(MANEIMARU_HOME) if page == 1 else fetch_text(MANEIMARU_PAGE_API, {"p": page})
         stripped = html_text.strip()
         if not stripped or stripped.startswith("nodata"):
@@ -364,12 +375,11 @@ def main():
     args = parse_args()
     today = date.fromisoformat(args.today) if args.today else date.today()
     target_year = args.year if args.year else today.year
-    year_start = date(target_year, 1, 1)
-    year_end = date(target_year, 12, 31)
+    year_start, year_end = season_bounds(target_year)
 
-    training_start = date(target_year - 2, 1, 1)
+    training_start, _ = season_bounds(target_year - 2)
     results = collect_daily_results(oldest_keep_date=training_start)
-    results = [row for row in results if row["date"] <= today]
+    results = [row for row in results if row["date"] <= today and in_season(row["date"])]
     if not results:
         raise RuntimeError("No torafugu results were collected.")
 
@@ -503,6 +513,10 @@ def main():
     payload = {
         "targetYear": target_year,
         "today": today.isoformat(),
+        "seasonRange": {
+            "from": year_start.isoformat(),
+            "to": year_end.isoformat(),
+        },
         "generatedAt": datetime.now().strftime("%Y-%m-%d %H:%M"),
         "xDayThreshold": positive_threshold,
         "sourceRange": {
