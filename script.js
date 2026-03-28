@@ -246,8 +246,10 @@ function buildBasis(rawFeatures, regression) {
   const stats = regression.stats;
   const air = (rawFeatures.airTemp - stats.means.airTemp) / stats.scales.airTemp;
   const sea = (rawFeatures.seaTemp - stats.means.seaTemp) / stats.scales.seaTemp;
-  const moon = (rawFeatures.moonAge - stats.means.moonAge) / stats.scales.moonAge;
-  return [1, air, sea, moon, air * sea, air * moon, sea * moon, air * air, sea * sea, moon * moon];
+  const angle = (rawFeatures.moonAge / 29.53058867) * Math.PI * 2;
+  const moonSin = (Math.sin(angle) - stats.means.moonSin) / stats.scales.moonSin;
+  const moonCos = (Math.cos(angle) - stats.means.moonCos) / stats.scales.moonCos;
+  return [1, air, sea, moonSin, moonCos, air * sea, air * moonSin, air * moonCos, sea * moonSin, sea * moonCos, air * air, sea * sea];
 }
 
 function dot(weights, vector) {

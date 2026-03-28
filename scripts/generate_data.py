@@ -19,20 +19,22 @@ LONGITUDE = 139.835
 TIMEZONE_NAME = "Asia/Tokyo"
 SYNODIC_MONTH = 29.53058867
 REFERENCE_NEW_MOON = datetime(2000, 1, 6, 18, 14, tzinfo=timezone.utc)
-FEATURE_KEYS = ("airTemp", "seaTemp", "moonAge")
+FEATURE_KEYS = ("airTemp", "seaTemp", "moonSin", "moonCos")
 SEASON_START = (2, 1)
 SEASON_END = (4, 30)
 FEATURE_TERMS = [
     "intercept",
     "airTemp",
     "seaTemp",
-    "moonAge",
+    "moonSin",
+    "moonCos",
     "airTemp*seaTemp",
-    "airTemp*moonAge",
-    "seaTemp*moonAge",
+    "airTemp*moonSin",
+    "airTemp*moonCos",
+    "seaTemp*moonSin",
+    "seaTemp*moonCos",
     "airTemp^2",
     "seaTemp^2",
-    "moonAge^2",
 ]
 
 
@@ -193,6 +195,11 @@ def moon_age_for(day):
     return delta_days % SYNODIC_MONTH
 
 
+def moon_phase_components(moon_age):
+    angle = (moon_age / SYNODIC_MONTH) * math.tau
+    return math.sin(angle), math.cos(angle)
+
+
 def quantile(values, q):
     ordered = sorted(values)
     if not ordered:
@@ -289,18 +296,21 @@ def compute_base_stats(rows):
 def build_basis(raw_features, stats):
     air = (raw_features["airTemp"] - stats["means"]["airTemp"]) / stats["scales"]["airTemp"]
     sea = (raw_features["seaTemp"] - stats["means"]["seaTemp"]) / stats["scales"]["seaTemp"]
-    moon = (raw_features["moonAge"] - stats["means"]["moonAge"]) / stats["scales"]["moonAge"]
+    moon_sin = (raw_features["moonSin"] - stats["means"]["moonSin"]) / stats["scales"]["moonSin"]
+    moon_cos = (raw_features["moonCos"] - stats["means"]["moonCos"]) / stats["scales"]["moonCos"]
     return [
         1.0,
         air,
         sea,
-        moon,
+        moon_sin,
+        moon_cos,
         air * sea,
-        air * moon,
-        sea * moon,
+        air * moon_sin,
+        air * moon_cos,
+        sea * moon_sin,
+        sea * moon_cos,
         air * air,
         sea * sea,
-        moon * moon,
     ]
 
 
@@ -423,6 +433,8 @@ def main():
     training_rows = []
     for row in results:
         feature_record, _ = resolve_feature(row["date"], archive_features, forecast_features, climatology)
+        moon_age = moon_age_for(row["date"])
+        moon_sin, moon_cos = moon_phase_components(moon_age)
         training_rows.append(
             {
                 "date": row["date"],
@@ -432,7 +444,9 @@ def main():
                 "url": row["url"],
                 "airTemp": feature_record["temperature_2m_mean"],
                 "seaTemp": feature_record["sea_surface_temperature_mean"],
-                "moonAge": moon_age_for(row["date"]),
+                "moonAge": moon_age,
+                "moonSin": moon_sin,
+                "moonCos": moon_cos,
             }
         )
 
@@ -474,10 +488,14 @@ def main():
     current = year_start
     while current <= year_end:
         feature_record, source = resolve_feature(current, archive_features, forecast_features, climatology)
+        moon_age = moon_age_for(current)
+        moon_sin, moon_cos = moon_phase_components(moon_age)
         raw_features = {
             "airTemp": feature_record["temperature_2m_mean"],
             "seaTemp": feature_record["sea_surface_temperature_mean"],
-            "moonAge": moon_age_for(current),
+            "moonAge": moon_age,
+            "moonSin": moon_sin,
+            "moonCos": moon_cos,
         }
         model_output = predict_models(raw_features, regression, count_ceiling)
         observed = observed_map.get(current.isoformat())
@@ -555,6 +573,8 @@ def main():
                 "airTemp": round(row["airTemp"], 2),
                 "seaTemp": round(row["seaTemp"], 2),
                 "moonAge": round(row["moonAge"], 2),
+                "moonSin": round(row["moonSin"], 6),
+                "moonCos": round(row["moonCos"], 6),
             }
             for row in training_rows
             if row["date"].year == target_year
