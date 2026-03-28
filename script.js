@@ -325,8 +325,9 @@ function showTooltip(canvas, tooltip, scroller, clientX, clientY) {
     return;
   }
 
-  const rect = canvas.getBoundingClientRect();
-  const x = clientX - rect.left;
+  const canvasRect = canvas.getBoundingClientRect();
+  const scrollerRect = scroller.getBoundingClientRect();
+  const x = clientX - canvasRect.left;
   const index = clamp(
     Math.floor((x - geometry.margin.left) / geometry.slotWidth),
     0,
@@ -338,9 +339,6 @@ function showTooltip(canvas, tooltip, scroller, clientX, clientY) {
     return;
   }
 
-  tooltip.hidden = false;
-  tooltip.style.left = `${Math.min(scroller.scrollLeft + x + 16, scroller.scrollLeft + rect.width - 228)}px`;
-  tooltip.style.top = `${Math.max(16, clientY - rect.top - 120)}px`;
   tooltip.innerHTML = `
     <strong>${formatDate(point.date)}</strong>
     <span>Xデー確率 ${percent(point.probability)}</span>
@@ -348,6 +346,27 @@ function showTooltip(canvas, tooltip, scroller, clientX, clientY) {
     <span>気温 ${point.airTemp.toFixed(1)}℃ / 水温 ${point.seaTemp.toFixed(1)}℃ / 月齢 ${point.moonAge.toFixed(1)}日</span>
     <span>${point.fishNum ? `実績 ${point.fishNum}` : featureSourceLabel(point.featureSource)}</span>
   `;
+  tooltip.hidden = false;
+
+  const tooltipWidth = tooltip.offsetWidth;
+  const tooltipHeight = tooltip.offsetHeight;
+  const viewportX = clientX - scrollerRect.left;
+  const viewportY = clientY - scrollerRect.top;
+  const contentX = scroller.scrollLeft + viewportX;
+  const padding = 12;
+  const preferredRight = contentX + 18;
+  const maxLeft = scroller.scrollLeft + scrollerRect.width - tooltipWidth - padding;
+  const minLeft = scroller.scrollLeft + padding;
+  const fallbackLeft = contentX - tooltipWidth - 18;
+  const left = preferredRight <= maxLeft ? preferredRight : Math.max(minLeft, fallbackLeft);
+  const top = clamp(
+    viewportY - tooltipHeight * 0.5,
+    padding,
+    Math.max(padding, scrollerRect.height - tooltipHeight - padding),
+  );
+
+  tooltip.style.left = `${left}px`;
+  tooltip.style.top = `${top}px`;
 }
 
 function bindTooltip(canvasId, scrollerId, tooltipId) {
@@ -356,7 +375,18 @@ function bindTooltip(canvasId, scrollerId, tooltipId) {
   const tooltip = document.getElementById(tooltipId);
 
   const handleMove = (clientX, clientY) => showTooltip(canvas, tooltip, scroller, clientX, clientY);
+  canvas.addEventListener("click", (event) => handleMove(event.clientX, event.clientY));
   canvas.addEventListener("mousemove", (event) => handleMove(event.clientX, event.clientY));
+  canvas.addEventListener(
+    "touchstart",
+    (event) => {
+      const touch = event.touches[0];
+      if (touch) {
+        handleMove(touch.clientX, touch.clientY);
+      }
+    },
+    { passive: true },
+  );
   canvas.addEventListener(
     "touchmove",
     (event) => {
@@ -370,7 +400,10 @@ function bindTooltip(canvasId, scrollerId, tooltipId) {
   canvas.addEventListener("mouseleave", () => {
     tooltip.hidden = true;
   });
-  canvas.addEventListener("touchend", () => {
+  canvas.addEventListener("touchcancel", () => {
+    tooltip.hidden = true;
+  });
+  scroller.addEventListener("scroll", () => {
     tooltip.hidden = true;
   });
 }
