@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>船宿別 魚種別 Xデー予測</title>
+    <title>トラフグXデー予測</title>
     <meta
       name="description"
-      content="釣割の船宿釣果から、魚種ごとのXデー確率と予測下限・上限を日別に可視化する静的ページ。"
+      content="萬栄丸のトラフグ釣果と気温・水温・月齢から、Xデー確率と予測匹数を日別に可視化するグラフィック。"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -14,26 +14,13 @@
     <main class="shell">
       <header class="hero">
         <p class="credit">作:データアングラー</p>
-        <p class="eyebrow">釣割 船宿別予測</p>
-        <h1 id="title">読込中</h1>
+        <p class="eyebrow">トラフグ</p>
+        <h1 id="title">Xデー予測</h1>
         <div class="meta">
           <span id="generatedAt">読込中</span>
-          <span id="summaryMeta">-</span>
+          <span id="threshold">-</span>
         </div>
       </header>
-
-      <section class="chooser">
-        <div class="chooser-grid">
-          <label class="select-card" for="shipSelect">
-            <span>船宿</span>
-            <select id="shipSelect"></select>
-          </label>
-          <label class="select-card" for="speciesSelect">
-            <span>魚種</span>
-            <select id="speciesSelect"></select>
-          </label>
-        </div>
-      </section>
 
       <section class="top-days" id="topDays" aria-label="注目日"></section>
 
@@ -67,11 +54,11 @@
               <strong id="simProbability">-</strong>
             </article>
             <article class="metric-card">
-              <span id="minMetricLabel">予測下限数</span>
+              <span>予測最小匹数</span>
               <strong id="simMin">-</strong>
             </article>
             <article class="metric-card">
-              <span id="maxMetricLabel">予測上限数</span>
+              <span>予測最大匹数</span>
               <strong id="simMax">-</strong>
             </article>
           </div>
@@ -80,40 +67,40 @@
 
       <section class="chart-panel">
         <div class="chart-header">
-          <span id="rangeLabel">-</span>
-          <span id="todayLabel">-</span>
+          <span id="rangeLabel">2026</span>
+          <span id="todayLabel"></span>
         </div>
         <div class="chart-scroller" id="probChartScroller">
-          <canvas id="probChart" width="2500" height="520" aria-label="Xデー確率グラフ"></canvas>
+          <canvas id="probChart" width="1800" height="520" aria-label="Xデー確率グラフ"></canvas>
           <div class="tooltip" id="probTooltip" hidden></div>
         </div>
       </section>
 
       <section class="chart-panel compact">
         <div class="chart-header">
-          <span id="minChartLabel">予測下限数</span>
-          <span id="unitLabelMin">-</span>
+          <span>予測最小匹数</span>
+          <span>匹 / 日</span>
         </div>
         <div class="chart-scroller" id="minChartScroller">
-          <canvas id="minChart" width="2500" height="360" aria-label="予測下限数グラフ"></canvas>
+          <canvas id="minChart" width="1800" height="360" aria-label="予測最小匹数グラフ"></canvas>
           <div class="tooltip" id="minTooltip" hidden></div>
         </div>
       </section>
 
       <section class="chart-panel compact">
         <div class="chart-header">
-          <span id="maxChartLabel">予測上限数</span>
-          <span id="unitLabelMax">-</span>
+          <span>予測最大匹数</span>
+          <span>匹 / 日</span>
         </div>
         <div class="chart-scroller" id="maxChartScroller">
-          <canvas id="maxChart" width="2500" height="360" aria-label="予測上限数グラフ"></canvas>
+          <canvas id="maxChart" width="1800" height="360" aria-label="予測最大匹数グラフ"></canvas>
           <div class="tooltip" id="maxTooltip" hidden></div>
         </div>
       </section>
 
       <footer class="foot">
-        <span>釣割 釣果データ</span>
-        <span>Open-Meteo 気象・海況データ</span>
+        <span>萬栄丸 釣果</span>
+        <span>Open-Meteo 気象データ</span>
         <a href="https://x.com/data_angler?s=20" target="_blank" rel="noreferrer">Xアカウント</a>
       </footer>
     </main>
