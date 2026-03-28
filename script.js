@@ -1,22 +1,22 @@
-const probabilityChart = document.getElementById("probChart");
+const probChart = document.getElementById("probChart");
 const minChart = document.getElementById("minChart");
 const maxChart = document.getElementById("maxChart");
+
+const shipSelect = document.getElementById("shipSelect");
+const speciesSelect = document.getElementById("speciesSelect");
 
 const simulatorNodes = {
   airTemp: {
     input: document.getElementById("airSlider"),
     value: document.getElementById("airValue"),
-    unit: "C",
   },
   seaTemp: {
     input: document.getElementById("seaSlider"),
     value: document.getElementById("seaValue"),
-    unit: "C",
   },
   moonAge: {
     input: document.getElementById("moonSlider"),
     value: document.getElementById("moonValue"),
-    unit: "d",
   },
 };
 
@@ -27,8 +27,11 @@ const outputNodes = {
 };
 
 const chartState = new Map();
+const payloadCache = new Map();
+
+let catalogState = null;
 let payloadState = null;
-let simulatorInitialized = false;
+let simulatorBound = false;
 
 function clamp(value, lower, upper) {
   return Math.max(lower, Math.min(upper, value));
@@ -38,8 +41,8 @@ function percent(value) {
   return `${(value * 100).toFixed(1)}%`;
 }
 
-function countText(value) {
-  return `${value.toFixed(1)}匹`;
+function amountText(value, unit) {
+  return `${value.toFixed(1)}${unit}`;
 }
 
 function formatControlValue(key, value) {
@@ -58,23 +61,36 @@ function formatDate(iso) {
 }
 
 function monthlyTicks(points) {
-  const ticks = [];
-  points.forEach((point, index) => {
-    if (point.date.endsWith("-01")) {
-      const month = Number(point.date.slice(5, 7));
-      ticks.push({ index, label: `${month}月` });
+  return points.flatMap((point, index) => {
+    if (!point.date.endsWith("-01")) {
+      return [];
     }
+    const month = Number(point.date.slice(5, 7));
+    return [{ index, label: `${month}月` }];
   });
-  return ticks;
 }
 
 function featureSourceLabel(source) {
-  const labels = {
+  return {
     archive: "実測気象",
     forecast: "予報気象",
     climatology: "平年気候",
-  };
-  return labels[source] || source;
+  }[source] || source;
+}
+
+function currentShip() {
+  if (!catalogState) {
+    return null;
+  }
+  return catalogState.ships.find((ship) => ship.id === shipSelect.value) || null;
+}
+
+function currentSpecies() {
+  const ship = currentShip();
+  if (!ship) {
+    return null;
+  }
+  return ship.species.find((species) => species.id === speciesSelect.value) || null;
 }
 
 function prepareCanvas(canvas) {
@@ -124,30 +140,14 @@ function drawBottomTicks(ctx, geometry, points) {
   });
 }
 
-function drawTodayMarker(ctx, geometry, points, today) {
-  const todayIndex = points.findIndex((item) => item.date === today);
-  if (todayIndex < 0) {
-    return;
-  }
-  const x = geometry.margin.left + geometry.slotWidth * (todayIndex + 0.5);
-  ctx.strokeStyle = "rgba(255, 209, 107, 0.82)";
-  ctx.setLineDash([5, 7]);
-  ctx.beginPath();
-  ctx.moveTo(x, geometry.margin.top);
-  ctx.lineTo(x, geometry.floorY);
-  ctx.stroke();
-  ctx.setLineDash([]);
-}
-
 function drawProbabilityChart(payload) {
-  const { ctx, cssWidth, cssHeight } = prepareCanvas(probabilityChart);
+  const { ctx, cssWidth, cssHeight } = prepareCanvas(probChart);
   const margin = { top: 28, right: 26, bottom: 48, left: 48 };
   const width = cssWidth - margin.left - margin.right;
   const height = cssHeight - margin.top - margin.bottom;
   const floorY = margin.top + height;
   const slotWidth = width / payload.predictions.length;
   const maxValue = Math.max(Math.max(...payload.predictions.map((item) => item.probability)) * 1.16, 0.06);
-
   const geometry = { margin, width, height, floorY, slotWidth, maxValue };
 
   const bg = ctx.createLinearGradient(0, margin.top, 0, floorY);
@@ -157,7 +157,6 @@ function drawProbabilityChart(payload) {
   ctx.fillRect(margin.left, margin.top, width, height);
 
   drawGrid(ctx, geometry, maxValue, (value) => `${Math.round(value * 100)}%`);
-  drawTodayMarker(ctx, geometry, payload.predictions, payload.today);
 
   const gradient = ctx.createLinearGradient(0, margin.top, 0, floorY);
   gradient.addColorStop(0, "#76dbff");
@@ -173,10 +172,10 @@ function drawProbabilityChart(payload) {
   });
 
   drawBottomTicks(ctx, geometry, payload.predictions);
-  chartState.set(probabilityChart.id, geometry);
+  chartState.set(probChart.id, geometry);
 }
 
-function drawCountChart(canvas, payload, field, observedField, color, fillColor) {
+function drawAmountChart(canvas, payload, field, color, fillColor) {
   const { ctx, cssWidth, cssHeight } = prepareCanvas(canvas);
   const margin = { top: 22, right: 26, bottom: 42, left: 48 };
   const width = cssWidth - margin.left - margin.right;
@@ -184,8 +183,7 @@ function drawCountChart(canvas, payload, field, observedField, color, fillColor)
   const floorY = margin.top + height;
   const slotWidth = width / payload.predictions.length;
   const values = payload.predictions.map((item) => item[field]);
-  const observedValues = payload.predictions.map((item) => item[observedField]).filter((value) => value !== null);
-  const maxValue = Math.max(2, ...values, ...observedValues) * 1.16;
+  const maxValue = Math.max(2, ...values) * 1.16;
   const geometry = { margin, width, height, floorY, slotWidth, maxValue };
 
   const bg = ctx.createLinearGradient(0, margin.top, 0, floorY);
@@ -195,18 +193,17 @@ function drawCountChart(canvas, payload, field, observedField, color, fillColor)
   ctx.fillRect(margin.left, margin.top, width, height);
 
   drawGrid(ctx, geometry, maxValue, (value) => `${value.toFixed(1)}`);
-  drawTodayMarker(ctx, geometry, payload.predictions, payload.today);
 
-  const linePoints = payload.predictions.map((point, index) => {
+  const points = payload.predictions.map((point, index) => {
     const x = margin.left + slotWidth * (index + 0.5);
     const y = floorY - (point[field] / maxValue) * height;
-    return { x, y, point };
+    return { x, y };
   });
 
   ctx.beginPath();
-  ctx.moveTo(linePoints[0].x, floorY);
-  linePoints.forEach((point) => ctx.lineTo(point.x, point.y));
-  ctx.lineTo(linePoints[linePoints.length - 1].x, floorY);
+  ctx.moveTo(points[0].x, floorY);
+  points.forEach((point) => ctx.lineTo(point.x, point.y));
+  ctx.lineTo(points[points.length - 1].x, floorY);
   ctx.closePath();
   ctx.fillStyle = fillColor;
   ctx.fill();
@@ -214,7 +211,7 @@ function drawCountChart(canvas, payload, field, observedField, color, fillColor)
   ctx.strokeStyle = color;
   ctx.lineWidth = 2.5;
   ctx.beginPath();
-  linePoints.forEach((point, index) => {
+  points.forEach((point, index) => {
     if (index === 0) {
       ctx.moveTo(point.x, point.y);
     } else {
@@ -222,21 +219,6 @@ function drawCountChart(canvas, payload, field, observedField, color, fillColor)
     }
   });
   ctx.stroke();
-
-  payload.predictions.forEach((point, index) => {
-    if (point[observedField] === null) {
-      return;
-    }
-    const x = margin.left + slotWidth * (index + 0.5);
-    const y = floorY - (point[observedField] / maxValue) * height;
-    ctx.fillStyle = "#eef7ff";
-    ctx.beginPath();
-    ctx.arc(x, y, 3.2, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 1.2;
-    ctx.stroke();
-  });
 
   drawBottomTicks(ctx, geometry, payload.predictions);
   chartState.set(canvas.id, geometry);
@@ -275,7 +257,7 @@ function populateTopDays(payload) {
     chip.innerHTML = `
       <span class="date">${formatDate(item.date)}</span>
       <strong>${percent(item.probability)}</strong>
-      <span class="detail">下限 ${countText(item.predictedMin)} / 上限 ${countText(item.predictedMax)}</span>
+      <span class="detail">下限 ${amountText(item.predictedMin, payload.species.unit)} / 上限 ${amountText(item.predictedMax, payload.species.unit)}</span>
       <span class="subdetail">気温 ${item.airTemp.toFixed(1)}℃ / 水温 ${item.seaTemp.toFixed(1)}℃ / 月齢 ${item.moonAge.toFixed(1)}日</span>
     `;
     host.appendChild(chip);
@@ -296,22 +278,22 @@ function configureSimulator(payload) {
 
     const result = simulate(rawFeatures, payload);
     outputNodes.probability.textContent = percent(result.probability);
-    outputNodes.min.textContent = countText(result.predictedMin);
-    outputNodes.max.textContent = countText(result.predictedMax);
+    outputNodes.min.textContent = amountText(result.predictedMin, payload.species.unit);
+    outputNodes.max.textContent = amountText(result.predictedMax, payload.species.unit);
   };
 
-  if (!simulatorInitialized) {
-    Object.entries(simulatorNodes).forEach(([key, node]) => {
-      const config = payload.featureRanges[key];
-      node.input.min = config.min;
-      node.input.max = config.max;
-      node.input.step = config.step;
-      node.input.value = config.default;
+  Object.entries(simulatorNodes).forEach(([key, node]) => {
+    const config = payload.featureRanges[key];
+    node.input.min = config.min;
+    node.input.max = config.max;
+    node.input.step = config.step;
+    node.input.value = config.default;
+    if (!simulatorBound) {
       node.input.addEventListener("input", update);
-    });
-    simulatorInitialized = true;
-  }
+    }
+  });
 
+  simulatorBound = true;
   update();
 }
 
@@ -342,9 +324,9 @@ function showTooltip(canvas, tooltip, scroller, clientX, clientY) {
   tooltip.innerHTML = `
     <strong>${formatDate(point.date)}</strong>
     <span>Xデー確率 ${percent(point.probability)}</span>
-    <span>下限 ${countText(point.predictedMin)} / 上限 ${countText(point.predictedMax)}</span>
+    <span>下限 ${amountText(point.predictedMin, payloadState.species.unit)} / 上限 ${amountText(point.predictedMax, payloadState.species.unit)}</span>
     <span>気温 ${point.airTemp.toFixed(1)}℃ / 水温 ${point.seaTemp.toFixed(1)}℃ / 月齢 ${point.moonAge.toFixed(1)}日</span>
-    <span>${point.fishNum ? `実績 ${point.fishNum}` : featureSourceLabel(point.featureSource)}</span>
+    <span>${featureSourceLabel(point.featureSource)}</span>
   `;
   tooltip.hidden = false;
 
@@ -408,18 +390,100 @@ function bindTooltip(canvasId, scrollerId, tooltipId) {
   });
 }
 
+function updateUrl(shipId, speciesId) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("ship", shipId);
+  url.searchParams.set("species", speciesId);
+  window.history.replaceState({}, "", url);
+}
+
+function populateShipSelect() {
+  shipSelect.innerHTML = "";
+  catalogState.ships.forEach((ship) => {
+    const option = document.createElement("option");
+    option.value = ship.id;
+    option.textContent = ship.name;
+    shipSelect.appendChild(option);
+  });
+}
+
+function populateSpeciesSelect(ship, preferredSpeciesId = null) {
+  speciesSelect.innerHTML = "";
+  ship.species.forEach((species) => {
+    const option = document.createElement("option");
+    option.value = species.id;
+    option.textContent = `${species.label} (${species.unit})`;
+    speciesSelect.appendChild(option);
+  });
+  speciesSelect.value = ship.species.some((species) => species.id === preferredSpeciesId)
+    ? preferredSpeciesId
+    : ship.species[0].id;
+}
+
+async function fetchPayload(file) {
+  if (!payloadCache.has(file)) {
+    payloadCache.set(
+      file,
+      fetch(`./${file}`).then((response) => {
+        if (!response.ok) {
+          throw new Error(`データ取得失敗: ${file}`);
+        }
+        return response.json();
+      }),
+    );
+  }
+  return payloadCache.get(file);
+}
+
 function render(payload) {
-  document.getElementById("title").textContent = `${payload.targetYear}年 トラフグXデー予測`;
+  payloadState = payload;
+  document.title = `${payload.ship.name} ${payload.species.label} Xデー予測`;
+  document.getElementById("title").textContent = `${payload.ship.name} ${payload.species.label} Xデー予測`;
   document.getElementById("generatedAt").textContent = `更新 ${payload.generatedAt}`;
-  document.getElementById("threshold").textContent = `Xデー閾値 ${payload.xDayThreshold}匹以上`;
-  document.getElementById("rangeLabel").textContent = `${payload.seasonRange.from} - ${payload.seasonRange.to}`;
+  document.getElementById("summaryMeta").textContent = `学習 ${payload.trainingRange.from} - ${payload.trainingRange.to} / 釣行日 ${payload.tripDays} / 閾値 ${payload.xDayThreshold.value}${payload.xDayThreshold.unit}以上`;
+  document.getElementById("rangeLabel").textContent = `${payload.forecastRange.from} - ${payload.forecastRange.to}`;
   document.getElementById("todayLabel").textContent = `基準日 ${payload.today}`;
+  document.getElementById("minMetricLabel").textContent = `予測下限${payload.species.unit}`;
+  document.getElementById("maxMetricLabel").textContent = `予測上限${payload.species.unit}`;
+  document.getElementById("minChartLabel").textContent = `予測下限${payload.species.unit}`;
+  document.getElementById("maxChartLabel").textContent = `予測上限${payload.species.unit}`;
+  document.getElementById("unitLabelMin").textContent = `${payload.species.unit} / 日`;
+  document.getElementById("unitLabelMax").textContent = `${payload.species.unit} / 日`;
 
   populateTopDays(payload);
   configureSimulator(payload);
   drawProbabilityChart(payload);
-  drawCountChart(minChart, payload, "predictedMin", "observedMin", "#4ff0c6", "rgba(79, 240, 198, 0.22)");
-  drawCountChart(maxChart, payload, "predictedMax", "observedMax", "#ffd16b", "rgba(255, 209, 107, 0.20)");
+  drawAmountChart(minChart, payload, "predictedMin", "#4ff0c6", "rgba(79, 240, 198, 0.22)");
+  drawAmountChart(maxChart, payload, "predictedMax", "#ffd16b", "rgba(255, 209, 107, 0.20)");
+}
+
+async function loadSelection(shipId, speciesId) {
+  const ship = catalogState.ships.find((item) => item.id === shipId) || catalogState.ships[0];
+  shipSelect.value = ship.id;
+  populateSpeciesSelect(ship, speciesId);
+  const species = ship.species.find((item) => item.id === speciesSelect.value) || ship.species[0];
+  updateUrl(ship.id, species.id);
+  const payload = await fetchPayload(species.file);
+  render(payload);
+}
+
+function bindSelectors() {
+  shipSelect.addEventListener("change", async () => {
+    const ship = currentShip();
+    populateSpeciesSelect(ship);
+    const species = currentSpecies();
+    const payload = await fetchPayload(species.file);
+    updateUrl(ship.id, species.id);
+    render(payload);
+  });
+
+  speciesSelect.addEventListener("change", async () => {
+    const ship = currentShip();
+    const species = currentSpecies();
+    const payload = await fetchPayload(species.file);
+    updateUrl(ship.id, species.id);
+    render(payload);
+  });
 }
 
 bindTooltip("probChart", "probChartScroller", "probTooltip");
@@ -433,11 +497,22 @@ window.addEventListener("resize", () => {
 });
 
 async function main() {
-  const response = await fetch("./data/predictions.json");
-  payloadState = await response.json();
-  render(payloadState);
+  const response = await fetch("./data/catalog.json");
+  if (!response.ok) {
+    throw new Error("カタログを読み込めませんでした");
+  }
+  catalogState = await response.json();
+  populateShipSelect();
+  bindSelectors();
+
+  const params = new URLSearchParams(window.location.search);
+  const requestedShipId = params.get("ship");
+  const requestedSpeciesId = params.get("species");
+  await loadSelection(requestedShipId, requestedSpeciesId);
 }
 
 main().catch((error) => {
   console.error(error);
+  document.getElementById("title").textContent = "読込エラー";
+  document.getElementById("generatedAt").textContent = error.message;
 });
